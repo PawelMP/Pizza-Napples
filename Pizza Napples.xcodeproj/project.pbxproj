@@ -1,0 +1,531 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		76C8C460600F42D575D5C37A /* Pods_Pizza_Napples.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4C30630E5E4DE5A8C332227 /* Pods_Pizza_Napples.framework */; };
+		D712063225C15B690018FE22 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D712063125C15B690018FE22 /* FirebaseManager.swift */; };
+		D712063525C1B65A0018FE22 /* UIResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D712063425C1B65A0018FE22 /* UIResponder.swift */; };
+		D7127F0825B1FB6F00FFEFBC /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7127F0725B1FB6F00FFEFBC /* MainViewController.swift */; };
+		D71FAC1125B1E561002DFAB8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71FAC1025B1E561002DFAB8 /* LoginViewController.swift */; };
+		D71FAC1425B1E56C002DFAB8 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71FAC1325B1E56C002DFAB8 /* RegisterViewController.swift */; };
+		D71FAC1725B1EC0F002DFAB8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D71FAC1625B1EC0F002DFAB8 /* GoogleService-Info.plist */; };
+		D72B02DD25B76960008A0018 /* CalculatorItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72B02DC25B76960008A0018 /* CalculatorItem.swift */; };
+		D7348DBD25B0EE3F008BD961 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7348DBC25B0EE3F008BD961 /* AppDelegate.swift */; };
+		D7348DBF25B0EE3F008BD961 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7348DBE25B0EE3F008BD961 /* SceneDelegate.swift */; };
+		D7348DC125B0EE3F008BD961 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7348DC025B0EE3F008BD961 /* WelcomeViewController.swift */; };
+		D7348DC425B0EE3F008BD961 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7348DC225B0EE3F008BD961 /* Main.storyboard */; };
+		D7348DC625B0EE48008BD961 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D7348DC525B0EE48008BD961 /* Assets.xcassets */; };
+		D7348DC925B0EE48008BD961 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7348DC725B0EE48008BD961 /* LaunchScreen.storyboard */; };
+		D751D03F25B30FA00069F31C /* TextAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = D751D03E25B30FA00069F31C /* TextAlert.swift */; };
+		D778A64225D0574E0095E92D /* DoughProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D778A64125D0574E0095E92D /* DoughProperties.swift */; };
+		D778A64925D0647A0095E92D /* FirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D778A64825D0647A0095E92D /* FirestoreManager.swift */; };
+		D779E7A825B2E36C001077E5 /* CalculatorBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = D779E7A725B2E36C001077E5 /* CalculatorBrain.swift */; };
+		D779E7AB25B2E6F2001077E5 /* DoughCalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D779E7AA25B2E6F2001077E5 /* DoughCalculatorViewController.swift */; };
+		D779E7AF25B2E95D001077E5 /* DoughCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D779E7AD25B2E95D001077E5 /* DoughCell.swift */; };
+		D779E7B025B2E95D001077E5 /* DoughCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D779E7AE25B2E95D001077E5 /* DoughCell.xib */; };
+		D7A588B525B8BB1D0070DE0F /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A588B425B8BB1D0070DE0F /* UITextFieldExtension.swift */; };
+		D7A588B925B8BB5A0070DE0F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A588B825B8BB5A0070DE0F /* Constants.swift */; };
+		D7BD043F25CAE7DB00D2490A /* DoughTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BD043E25CAE7DB00D2490A /* DoughTableViewController.swift */; };
+		D7BD045725CAFAC700D2490A /* DoughViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BD045625CAFAC700D2490A /* DoughViewController.swift */; };
+		D7E5F27425BADE2500F0C45E /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E5F27325BADE2500F0C45E /* UIButtonExtension.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		3CB4B5B42422BADBB88E622D /* Pods-Pizza Napples.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pizza Napples.debug.xcconfig"; path = "Target Support Files/Pods-Pizza Napples/Pods-Pizza Napples.debug.xcconfig"; sourceTree = "<group>"; };
+		40C5F97AB1F6645C3FF2686B /* Pods-Pizza Napples.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pizza Napples.release.xcconfig"; path = "Target Support Files/Pods-Pizza Napples/Pods-Pizza Napples.release.xcconfig"; sourceTree = "<group>"; };
+		C4C30630E5E4DE5A8C332227 /* Pods_Pizza_Napples.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pizza_Napples.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D712063125C15B690018FE22 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
+		D712063425C1B65A0018FE22 /* UIResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIResponder.swift; sourceTree = "<group>"; };
+		D7127F0725B1FB6F00FFEFBC /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		D71FAC1025B1E561002DFAB8 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		D71FAC1325B1E56C002DFAB8 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		D71FAC1625B1EC0F002DFAB8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D72B02DC25B76960008A0018 /* CalculatorItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorItem.swift; sourceTree = "<group>"; };
+		D7348DB925B0EE3F008BD961 /* Pizza Napples.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pizza Napples.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D7348DBC25B0EE3F008BD961 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D7348DBE25B0EE3F008BD961 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		D7348DC025B0EE3F008BD961 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		D7348DC325B0EE3F008BD961 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D7348DC525B0EE48008BD961 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D7348DC825B0EE48008BD961 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D7348DCA25B0EE48008BD961 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D751D03E25B30FA00069F31C /* TextAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAlert.swift; sourceTree = "<group>"; };
+		D778A64125D0574E0095E92D /* DoughProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoughProperties.swift; sourceTree = "<group>"; };
+		D778A64825D0647A0095E92D /* FirestoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreManager.swift; sourceTree = "<group>"; };
+		D779E7A725B2E36C001077E5 /* CalculatorBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorBrain.swift; sourceTree = "<group>"; };
+		D779E7AA25B2E6F2001077E5 /* DoughCalculatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoughCalculatorViewController.swift; sourceTree = "<group>"; };
+		D779E7AD25B2E95D001077E5 /* DoughCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoughCell.swift; sourceTree = "<group>"; };
+		D779E7AE25B2E95D001077E5 /* DoughCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DoughCell.xib; sourceTree = "<group>"; };
+		D7A588B425B8BB1D0070DE0F /* UITextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
+		D7A588B825B8BB5A0070DE0F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		D7BD043E25CAE7DB00D2490A /* DoughTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoughTableViewController.swift; sourceTree = "<group>"; };
+		D7BD045625CAFAC700D2490A /* DoughViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoughViewController.swift; sourceTree = "<group>"; };
+		D7E5F27325BADE2500F0C45E /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D7348DB625B0EE3F008BD961 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				76C8C460600F42D575D5C37A /* Pods_Pizza_Napples.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		16E0EFD1901456D6A031BDA4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C4C30630E5E4DE5A8C332227 /* Pods_Pizza_Napples.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D7348DB025B0EE3F008BD961 = {
+			isa = PBXGroup;
+			children = (
+				D7348DBB25B0EE3F008BD961 /* Pizza Napples */,
+				D7348DBA25B0EE3F008BD961 /* Products */,
+				FB7FA7DFD9E18255F94C12EB /* Pods */,
+				16E0EFD1901456D6A031BDA4 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		D7348DBA25B0EE3F008BD961 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D7348DB925B0EE3F008BD961 /* Pizza Napples.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D7348DBB25B0EE3F008BD961 /* Pizza Napples */ = {
+			isa = PBXGroup;
+			children = (
+				D7A588B225B8BB060070DE0F /* Resources */,
+				D7348DBC25B0EE3F008BD961 /* AppDelegate.swift */,
+				D7348DBE25B0EE3F008BD961 /* SceneDelegate.swift */,
+				D7348DD025B0EE78008BD961 /* Model */,
+				D7348DD125B0EE7D008BD961 /* View */,
+				D7348DD225B0EE85008BD961 /* Controller */,
+				D7348DC525B0EE48008BD961 /* Assets.xcassets */,
+				D7348DC725B0EE48008BD961 /* LaunchScreen.storyboard */,
+				D7348DCA25B0EE48008BD961 /* Info.plist */,
+				D71FAC1625B1EC0F002DFAB8 /* GoogleService-Info.plist */,
+				D7A588B825B8BB5A0070DE0F /* Constants.swift */,
+			);
+			path = "Pizza Napples";
+			sourceTree = "<group>";
+		};
+		D7348DD025B0EE78008BD961 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D72B02DC25B76960008A0018 /* CalculatorItem.swift */,
+				D779E7A725B2E36C001077E5 /* CalculatorBrain.swift */,
+				D778A64125D0574E0095E92D /* DoughProperties.swift */,
+				D712063125C15B690018FE22 /* FirebaseManager.swift */,
+				D778A64825D0647A0095E92D /* FirestoreManager.swift */,
+				D751D03E25B30FA00069F31C /* TextAlert.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D7348DD125B0EE7D008BD961 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D7348DC225B0EE3F008BD961 /* Main.storyboard */,
+				D779E7AD25B2E95D001077E5 /* DoughCell.swift */,
+				D779E7AE25B2E95D001077E5 /* DoughCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D7348DD225B0EE85008BD961 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D7348DC025B0EE3F008BD961 /* WelcomeViewController.swift */,
+				D71FAC1025B1E561002DFAB8 /* LoginViewController.swift */,
+				D71FAC1325B1E56C002DFAB8 /* RegisterViewController.swift */,
+				D7127F0725B1FB6F00FFEFBC /* MainViewController.swift */,
+				D7BD045625CAFAC700D2490A /* DoughViewController.swift */,
+				D7BD043E25CAE7DB00D2490A /* DoughTableViewController.swift */,
+				D779E7AA25B2E6F2001077E5 /* DoughCalculatorViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		D7A588B225B8BB060070DE0F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D7A588B325B8BB0A0070DE0F /* CoreExtension */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		D7A588B325B8BB0A0070DE0F /* CoreExtension */ = {
+			isa = PBXGroup;
+			children = (
+				D7A588B425B8BB1D0070DE0F /* UITextFieldExtension.swift */,
+				D7E5F27325BADE2500F0C45E /* UIButtonExtension.swift */,
+				D712063425C1B65A0018FE22 /* UIResponder.swift */,
+			);
+			path = CoreExtension;
+			sourceTree = "<group>";
+		};
+		FB7FA7DFD9E18255F94C12EB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3CB4B5B42422BADBB88E622D /* Pods-Pizza Napples.debug.xcconfig */,
+				40C5F97AB1F6645C3FF2686B /* Pods-Pizza Napples.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D7348DB825B0EE3F008BD961 /* Pizza Napples */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D7348DCD25B0EE48008BD961 /* Build configuration list for PBXNativeTarget "Pizza Napples" */;
+			buildPhases = (
+				FC9876080935FBDFF1C59601 /* [CP] Check Pods Manifest.lock */,
+				D7348DB525B0EE3F008BD961 /* Sources */,
+				D7348DB625B0EE3F008BD961 /* Frameworks */,
+				D7348DB725B0EE3F008BD961 /* Resources */,
+				98C5C2D5739AE1D477A16FEB /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pizza Napples";
+			productName = "Pizza Napples";
+			productReference = D7348DB925B0EE3F008BD961 /* Pizza Napples.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D7348DB125B0EE3F008BD961 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1160;
+				LastUpgradeCheck = 1230;
+				ORGANIZATIONNAME = "Paweł Pietrzyk";
+				TargetAttributes = {
+					D7348DB825B0EE3F008BD961 = {
+						CreatedOnToolsVersion = 11.6;
+					};
+				};
+			};
+			buildConfigurationList = D7348DB425B0EE3F008BD961 /* Build configuration list for PBXProject "Pizza Napples" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D7348DB025B0EE3F008BD961;
+			productRefGroup = D7348DBA25B0EE3F008BD961 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D7348DB825B0EE3F008BD961 /* Pizza Napples */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D7348DB725B0EE3F008BD961 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D779E7B025B2E95D001077E5 /* DoughCell.xib in Resources */,
+				D7348DC925B0EE48008BD961 /* LaunchScreen.storyboard in Resources */,
+				D71FAC1725B1EC0F002DFAB8 /* GoogleService-Info.plist in Resources */,
+				D7348DC625B0EE48008BD961 /* Assets.xcassets in Resources */,
+				D7348DC425B0EE3F008BD961 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		98C5C2D5739AE1D477A16FEB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Pizza Napples/Pods-Pizza Napples-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Pizza Napples/Pods-Pizza Napples-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Pizza Napples/Pods-Pizza Napples-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FC9876080935FBDFF1C59601 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Pizza Napples-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D7348DB525B0EE3F008BD961 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D7BD045725CAFAC700D2490A /* DoughViewController.swift in Sources */,
+				D779E7A825B2E36C001077E5 /* CalculatorBrain.swift in Sources */,
+				D7A588B525B8BB1D0070DE0F /* UITextFieldExtension.swift in Sources */,
+				D751D03F25B30FA00069F31C /* TextAlert.swift in Sources */,
+				D71FAC1125B1E561002DFAB8 /* LoginViewController.swift in Sources */,
+				D7BD043F25CAE7DB00D2490A /* DoughTableViewController.swift in Sources */,
+				D71FAC1425B1E56C002DFAB8 /* RegisterViewController.swift in Sources */,
+				D778A64225D0574E0095E92D /* DoughProperties.swift in Sources */,
+				D7348DC125B0EE3F008BD961 /* WelcomeViewController.swift in Sources */,
+				D779E7AF25B2E95D001077E5 /* DoughCell.swift in Sources */,
+				D7A588B925B8BB5A0070DE0F /* Constants.swift in Sources */,
+				D778A64925D0647A0095E92D /* FirestoreManager.swift in Sources */,
+				D7127F0825B1FB6F00FFEFBC /* MainViewController.swift in Sources */,
+				D7348DBD25B0EE3F008BD961 /* AppDelegate.swift in Sources */,
+				D72B02DD25B76960008A0018 /* CalculatorItem.swift in Sources */,
+				D7E5F27425BADE2500F0C45E /* UIButtonExtension.swift in Sources */,
+				D712063525C1B65A0018FE22 /* UIResponder.swift in Sources */,
+				D712063225C15B690018FE22 /* FirebaseManager.swift in Sources */,
+				D779E7AB25B2E6F2001077E5 /* DoughCalculatorViewController.swift in Sources */,
+				D7348DBF25B0EE3F008BD961 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		D7348DC225B0EE3F008BD961 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D7348DC325B0EE3F008BD961 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		D7348DC725B0EE48008BD961 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D7348DC825B0EE48008BD961 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D7348DCB25B0EE48008BD961 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D7348DCC25B0EE48008BD961 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D7348DCE25B0EE48008BD961 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3CB4B5B42422BADBB88E622D /* Pods-Pizza Napples.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WVTUH5DZVD;
+				INFOPLIST_FILE = "Pizza Napples/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.PawelMP.Pizza-Napples";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D7348DCF25B0EE48008BD961 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 40C5F97AB1F6645C3FF2686B /* Pods-Pizza Napples.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WVTUH5DZVD;
+				INFOPLIST_FILE = "Pizza Napples/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.PawelMP.Pizza-Napples";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D7348DB425B0EE3F008BD961 /* Build configuration list for PBXProject "Pizza Napples" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D7348DCB25B0EE48008BD961 /* Debug */,
+				D7348DCC25B0EE48008BD961 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D7348DCD25B0EE48008BD961 /* Build configuration list for PBXNativeTarget "Pizza Napples" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D7348DCE25B0EE48008BD961 /* Debug */,
+				D7348DCF25B0EE48008BD961 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D7348DB125B0EE3F008BD961 /* Project object */;
+}
