@@ -15,9 +15,6 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //emailTextField.addDoneButtonOnKeyboard()
-        //passwordTextField.addDoneButtonOnKeyboard()
     }
     
     @IBAction func loginButtonPressed(_ sender: UIButton) {

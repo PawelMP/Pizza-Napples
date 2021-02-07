@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import FirebaseFirestoreSwift
 
 struct FirestoreManager {
     static let shared = FirestoreManager()
@@ -29,6 +30,38 @@ struct FirestoreManager {
                 else {
                     print("sucessfully wrote data")
                     viewController?.dismiss(animated: true, completion: nil)
+                }
+            }
+        }
+    }
+    
+    func readDoughFromFirestore() {
+        if let user = Auth.auth().currentUser?.email {
+            
+            db.collection("users dough").document(user).getDocument { (document, error) in
+                
+                if let e = error {
+                    print("Error reading data from firestore: \(e)")
+                }
+                else {
+                    
+                    let result = Result {
+                          try document?.data(as: DoughProperties.self)
+                        }
+                        switch result {
+                        case .success(let doughProperties):
+                            if let dough = doughProperties {
+                                // A `DoughProperties` value was successfully initialized from the DocumentSnapshot.
+                                print("Dough: \(dough)")
+                            } else {
+                                // A nil value was successfully initialized from the DocumentSnapshot,
+                                // or the DocumentSnapshot was nil.
+                                print("Document does not exist")
+                            }
+                        case .failure(let error):
+                            // A `DoughProperties` value could not be initialized from the DocumentSnapshot.
+                            print("Error decoding city: \(error)")
+                        }
                 }
             }
         }

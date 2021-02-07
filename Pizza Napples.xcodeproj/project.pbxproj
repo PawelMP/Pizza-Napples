@@ -25,7 +25,6 @@
 		D778A64225D0574E0095E92D /* DoughProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D778A64125D0574E0095E92D /* DoughProperties.swift */; };
 		D778A64925D0647A0095E92D /* FirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D778A64825D0647A0095E92D /* FirestoreManager.swift */; };
 		D779E7A825B2E36C001077E5 /* CalculatorBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = D779E7A725B2E36C001077E5 /* CalculatorBrain.swift */; };
-		D779E7AB25B2E6F2001077E5 /* DoughCalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D779E7AA25B2E6F2001077E5 /* DoughCalculatorViewController.swift */; };
 		D779E7AF25B2E95D001077E5 /* DoughCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D779E7AD25B2E95D001077E5 /* DoughCell.swift */; };
 		D779E7B025B2E95D001077E5 /* DoughCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D779E7AE25B2E95D001077E5 /* DoughCell.xib */; };
 		D7A588B525B8BB1D0070DE0F /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A588B425B8BB1D0070DE0F /* UITextFieldExtension.swift */; };
@@ -58,7 +57,6 @@
 		D778A64125D0574E0095E92D /* DoughProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoughProperties.swift; sourceTree = "<group>"; };
 		D778A64825D0647A0095E92D /* FirestoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreManager.swift; sourceTree = "<group>"; };
 		D779E7A725B2E36C001077E5 /* CalculatorBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorBrain.swift; sourceTree = "<group>"; };
-		D779E7AA25B2E6F2001077E5 /* DoughCalculatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoughCalculatorViewController.swift; sourceTree = "<group>"; };
 		D779E7AD25B2E95D001077E5 /* DoughCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoughCell.swift; sourceTree = "<group>"; };
 		D779E7AE25B2E95D001077E5 /* DoughCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DoughCell.xib; sourceTree = "<group>"; };
 		D7A588B425B8BB1D0070DE0F /* UITextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
@@ -156,7 +154,6 @@
 				D7127F0725B1FB6F00FFEFBC /* MainViewController.swift */,
 				D7BD045625CAFAC700D2490A /* DoughViewController.swift */,
 				D7BD043E25CAE7DB00D2490A /* DoughTableViewController.swift */,
-				D779E7AA25B2E6F2001077E5 /* DoughCalculatorViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -323,7 +320,6 @@
 				D7E5F27425BADE2500F0C45E /* UIButtonExtension.swift in Sources */,
 				D712063525C1B65A0018FE22 /* UIResponder.swift in Sources */,
 				D712063225C15B690018FE22 /* FirebaseManager.swift in Sources */,
-				D779E7AB25B2E6F2001077E5 /* DoughCalculatorViewController.swift in Sources */,
 				D7348DBF25B0EE3F008BD961 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

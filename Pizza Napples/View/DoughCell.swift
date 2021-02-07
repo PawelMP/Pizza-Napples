@@ -25,7 +25,6 @@ class DoughCell: UITableViewCell, UITextFieldDelegate {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        print("reuse!")
         hideError()
     }
     
@@ -35,16 +34,7 @@ class DoughCell: UITableViewCell, UITextFieldDelegate {
         label.adjustsFontSizeToFitWidth = true
         textField.adjustsFontSizeToFitWidth = true
         errorLabel.adjustsFontSizeToFitWidth = true
-        //textField.addDoneButtonOnKeyboard()
-        //textField.backgroundColor = UIColor(red: 0.96, green: 0.96, blue: 0.90, alpha: 1.00)
-        
-        //textField.delegate = self
-        //textField.addTarget(self, action: #selector(textFieldDidChange(textField:)), for: .editingChanged)
     }
-    
-    /*@objc func textFieldDidChange(textField : UITextField){
-       print("changed")
-    }*/
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
@@ -69,8 +59,6 @@ class DoughCell: UITableViewCell, UITextFieldDelegate {
             textField.placeholder = item.doughProportions[indexPath.row].placeholder
             errorLabel.text = item.doughProportions[indexPath.row].error
             
-            //print(item.doughProportions[indexPath.row].amount)
-            //print(item.doughProportions[indexPath.row].amount?.description)
             textField.tag = indexPath.row
             if let amount = item.doughProportions[indexPath.row].amount {
                 textField.text = amount.description
@@ -86,16 +74,6 @@ class DoughCell: UITableViewCell, UITextFieldDelegate {
             else {
                 textField.text = nil
             }
-            
-            
-            /*if let amount = item.doughProportions[indexPath.row].amount {
-                textField.text = amount.description
-                print("textFIELD:")
-                print(amount)
-            }
-            else {
-                textField.text = nil
-            }*/
         }
                 
         else if indexPath.section == 1 {
@@ -118,8 +96,6 @@ class DoughCell: UITableViewCell, UITextFieldDelegate {
                 textField.text = nil
             }
         }
-        //textField.tag = indexPath.row
-        //textField.delegate = self
     }
     
 }

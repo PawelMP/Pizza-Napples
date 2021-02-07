@@ -15,9 +15,6 @@ class RegisterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //emailTextField.addDoneButtonOnKeyboard()
-        //passwordTextField.addDoneButtonOnKeyboard()
     }
     
     @IBAction func registerButtonPressed(_ sender: UIButton) {

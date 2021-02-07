@@ -29,21 +29,8 @@ class DoughViewController: UIViewController {
     @IBAction func calculateButtonPressed(_ sender: UIButton) {
         
         FirestoreManager.shared.saveDoughToFirestore(calculatorBrain: doughTableViewController?.calculatorBrain, viewController: doughTableViewController)
-    }
-}
-
-extension DoughViewController: DoughTableViewControllerDelegate {
-    
-    func checkValues() {
-        print("check values pressed")
-        if let calculator = doughTableViewController?.calculatorBrain {
-            if calculator.checkAllElements() {
-                enableButton()
-            }
-            else {
-                disableButton()
-            }
-        }
+        
+        FirestoreManager.shared.readDoughFromFirestore()
     }
     
     func enableButton () {
@@ -54,6 +41,21 @@ extension DoughViewController: DoughTableViewControllerDelegate {
     func disableButton () {
         calculateButton.isEnabled = false
         calculateButton.alpha = 0.6
+    }
+    
+}
+
+extension DoughViewController: DoughTableViewControllerDelegate {
+    
+    func checkValues() {
+        if let calculator = doughTableViewController?.calculatorBrain {
+            if calculator.checkAllElements() {
+                enableButton()
+            }
+            else {
+                disableButton()
+            }
+        }
     }
     
 }
