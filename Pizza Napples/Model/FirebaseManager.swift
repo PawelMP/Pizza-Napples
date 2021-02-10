@@ -25,7 +25,7 @@ struct FirebaseManager {
                     alert.CreateAlert(text: e.localizedDescription, topVC: viewController)
                 }
                 else {
-                    viewController.performSegue(withIdentifier: "RegisterToApp", sender: viewController)
+                    viewController.performSegue(withIdentifier: K.Firebase.registerToApp, sender: viewController)
                 }
             }
         }
@@ -42,7 +42,7 @@ struct FirebaseManager {
                     
                 }
                 else {
-                    viewController.performSegue(withIdentifier: "LoginToApp", sender: viewController)
+                    viewController.performSegue(withIdentifier: K.Firebase.loginToApp, sender: viewController)
                 }
             }
         }
@@ -54,7 +54,8 @@ struct FirebaseManager {
             try Auth.auth().signOut()
             viewController.navigationController?.popToRootViewController(animated: true)
         } catch let signOutError as NSError {
-          print ("Error signing out: %@", signOutError)
+            let alert = TextAlert()
+            alert.CreateAlert(text: signOutError.localizedDescription, topVC: viewController)
         }
     }
     

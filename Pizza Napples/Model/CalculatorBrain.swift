@@ -11,20 +11,18 @@ import UIKit
 struct CalculatorBrain {
     
     var doughProportions = [
-        CalculatorItem(description: "Number of total dough balls", placeholder: "How many dough balls?", error: "Value must be higher than 0", amount: 10, minValue: 1, maxValue: nil, isValueCorrect: false),
-        CalculatorItem(description: "Single ball weight [g]", placeholder: "Enter ball weight", error: "Value must be higher than 0", amount: 20, minValue: 1, maxValue: nil, isValueCorrect: false),
-        CalculatorItem(description: "Hydration [%]", placeholder: "Enter hydration", error: "Value must be between 45% and 120%", amount: 45, minValue: 45, maxValue: 120, isValueCorrect: false),
-        CalculatorItem(description: "Salt per litre of water [g]", placeholder: "Enter amount of salt", error: " ", amount: 0, minValue: nil, maxValue: nil, isValueCorrect: true),
-        CalculatorItem(description: "Liquid fat per litre of water [g]", placeholder: "Enter amount of fat", error: " ", amount: 0, minValue: nil, maxValue: nil, isValueCorrect: true)
+        CalculatorItem(description: "Number of total dough balls", placeholder: "How many dough balls?", error: "Value must be higher than 0", amount: nil, minValue: 1, maxValue: nil, isValueCorrect: false),
+        CalculatorItem(description: "Single ball weight [g]", placeholder: "Enter ball weight", error: "Value must be higher than 0", amount: nil, minValue: 1, maxValue: nil, isValueCorrect: false),
+        CalculatorItem(description: "Hydration [%]", placeholder: "Enter hydration", error: "Value must be between 45% and 120%", amount: nil, minValue: 45, maxValue: 120, isValueCorrect: false),
+        CalculatorItem(description: "Salt per litre of water [g]", placeholder: "Enter amount of salt", error: " ", amount: nil, minValue: nil, maxValue: nil, isValueCorrect: true),
+        CalculatorItem(description: "Liquid fat per litre of water [g]", placeholder: "Enter amount of fat", error: " ", amount: nil, minValue: nil, maxValue: nil, isValueCorrect: true)
     ]
     
     var doughGrowth = [
-        CalculatorItem(description: "Total growth time [h]", placeholder: "Total growth time", error: "Value must be between 1 and 168 hours", amount: 5, minValue: 1, maxValue: 168, isValueCorrect: false),
-        CalculatorItem(description: "Growth time in fridge [h]", placeholder: "Fridge growth time", error: "Fridge growth time must be less than total growth time", amount: 4, minValue: nil, maxValue: nil, isValueCorrect: false),
-        CalculatorItem(description: "Ambient temperature [°C]", placeholder: "Room temperature", error: "Value must be between 15 C° and 35 C°", amount: 15, minValue: 15, maxValue: 35, isValueCorrect: false)
+        CalculatorItem(description: "Total growth time [h]", placeholder: "Total growth time", error: "Value must be between 1 and 168 hours", amount: nil, minValue: 1, maxValue: 168, isValueCorrect: false),
+        CalculatorItem(description: "Growth time in fridge [h]", placeholder: "Fridge growth time", error: "Fridge growth time must be less than total growth time", amount: nil, minValue: nil, maxValue: nil, isValueCorrect: false),
+        CalculatorItem(description: "Ambient temperature [°C]", placeholder: "Room temperature", error: "Value must be between 15 C° and 35 C°", amount: nil, minValue: 15, maxValue: 35, isValueCorrect: false)
     ]
-    
-    //var doughLeaven = []
     
     func setupTableView(tableView: UITableView) {
         tableView.separatorStyle = .none
@@ -49,13 +47,13 @@ struct CalculatorBrain {
     
     func getName (for section: Int) -> String {
         if(section == 0) {
-                    return "Dough proportions"
-                }
+            return K.CalculatorBrain.doughProportions
+        }
         else if (section == 1) {
-                    return "Growth time"
-                }
+            return K.CalculatorBrain.growthTime
+        }
         else {
-            return ""
+            return K.CalculatorBrain.empty
         }
     }
     
@@ -72,8 +70,7 @@ struct CalculatorBrain {
     }
     
     func configureHeaderView (for header: UITableViewHeaderFooterView) {
-        //let header = view as! UITableViewHeaderFooterView
-        header.textLabel?.font = UIFont(name: "Futura", size: 20)!
+        header.textLabel?.font = UIFont(name: K.futura, size: 20)!
         header.contentView.backgroundColor = UIColor(red: 0.96, green: 0.96, blue: 0.90, alpha: 1.00)
     }
     
@@ -87,12 +84,10 @@ struct CalculatorBrain {
             if doughProportions[indexPath.row].minValue != nil || doughProportions[indexPath.row].maxValue != nil {
                 doughProportions[indexPath.row].isValueCorrect = false
             }
-            print("saved")
         }
         else if indexPath.section == 1 {
             doughGrowth[indexPath.row].amount = value
             doughGrowth[indexPath.row].isValueCorrect = false
-            print("saved")
         }
     }
     
@@ -165,12 +160,11 @@ struct CalculatorBrain {
                 }
             }
             
-            if doughGrowth[indexPath.row].description == "Total growth time [h]" {
+            if doughGrowth[indexPath.row].description == K.CalculatorBrain.totalGrowthTime {
                 doughGrowth[indexPath.row + 1].maxValue = doughGrowth[indexPath.row].amount
                 if let maxValue = doughGrowth[indexPath.row + 1].maxValue, let amount = doughGrowth[indexPath.row + 1].amount  {
                     if maxValue <= amount {
                         doughGrowth[indexPath.row + 1].isValueCorrect = false
-                        print("FRIDGE TIME IS HIGHER THAN TOTAL TIME")
                         return
                     }
                     else {

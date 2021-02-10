@@ -22,6 +22,7 @@
 		D7348DC625B0EE48008BD961 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D7348DC525B0EE48008BD961 /* Assets.xcassets */; };
 		D7348DC925B0EE48008BD961 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7348DC725B0EE48008BD961 /* LaunchScreen.storyboard */; };
 		D751D03F25B30FA00069F31C /* TextAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = D751D03E25B30FA00069F31C /* TextAlert.swift */; };
+		D775436325D47FE200051EB3 /* UIStackViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D775436225D47FE100051EB3 /* UIStackViewExtension.swift */; };
 		D778A64225D0574E0095E92D /* DoughProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D778A64125D0574E0095E92D /* DoughProperties.swift */; };
 		D778A64925D0647A0095E92D /* FirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D778A64825D0647A0095E92D /* FirestoreManager.swift */; };
 		D779E7A825B2E36C001077E5 /* CalculatorBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = D779E7A725B2E36C001077E5 /* CalculatorBrain.swift */; };
@@ -56,6 +57,7 @@
 		D7348DC825B0EE48008BD961 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D7348DCA25B0EE48008BD961 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D751D03E25B30FA00069F31C /* TextAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAlert.swift; sourceTree = "<group>"; };
+		D775436225D47FE100051EB3 /* UIStackViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackViewExtension.swift; sourceTree = "<group>"; };
 		D778A64125D0574E0095E92D /* DoughProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoughProperties.swift; sourceTree = "<group>"; };
 		D778A64825D0647A0095E92D /* FirestoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreManager.swift; sourceTree = "<group>"; };
 		D779E7A725B2E36C001077E5 /* CalculatorBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorBrain.swift; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 				D7A588B425B8BB1D0070DE0F /* UITextFieldExtension.swift */,
 				D7E5F27325BADE2500F0C45E /* UIButtonExtension.swift */,
 				D712063425C1B65A0018FE22 /* UIResponder.swift */,
+				D775436225D47FE100051EB3 /* UIStackViewExtension.swift */,
 			);
 			path = CoreExtension;
 			sourceTree = "<group>";
@@ -325,6 +328,7 @@
 				D7127F0825B1FB6F00FFEFBC /* MainViewController.swift in Sources */,
 				D7348DBD25B0EE3F008BD961 /* AppDelegate.swift in Sources */,
 				D72B02DD25B76960008A0018 /* CalculatorItem.swift in Sources */,
+				D775436325D47FE200051EB3 /* UIStackViewExtension.swift in Sources */,
 				D7E5F27425BADE2500F0C45E /* UIButtonExtension.swift in Sources */,
 				D712063525C1B65A0018FE22 /* UIResponder.swift in Sources */,
 				D712063225C15B690018FE22 /* FirebaseManager.swift in Sources */,

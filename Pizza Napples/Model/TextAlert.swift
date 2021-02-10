@@ -10,9 +10,9 @@ import UIKit
 
 struct TextAlert {
     func CreateAlert(text: String, topVC: UIViewController) {
-        let alert = UIAlertController(title: "Error", message: text, preferredStyle: .alert)
+        let alert = UIAlertController(title: K.TextAlert.error, message: text, preferredStyle: .alert)
         
-        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (UIAlertAction) in
+        alert.addAction(UIAlertAction(title: K.TextAlert.ok, style: .default, handler: { (UIAlertAction) in
         }))
         topVC.present(alert, animated: true)
     }

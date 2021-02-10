@@ -15,7 +15,7 @@ class WelcomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         titleLabel.adjustsFontSizeToFitWidth = true
-        titleLabel.text = "🍕 Pizza Napples 🍕"
+        titleLabel.text = K.pizzaNapplesName
     }
 
 }

@@ -10,36 +10,38 @@ import Foundation
 
 struct DoughEquations {
     
-    func getIngredients(doughProperties: DoughProperties) -> [Int:Int] {
+    func getIngredients(doughProperties: DoughProperties) -> [String:Int] {
         
-        let yeast = 1
+        let hydration = Double(doughProperties.hydration!)
         
-        let totalWeight = doughProperties.ballWeight! * doughProperties.ballsAmount!
-        print(totalWeight)
-        let estimatedFlour = totalWeight * doughProperties.hydration!/100
-        print("estimatedFlour= \(estimatedFlour)")
+        let totalWeight = Double(doughProperties.ballWeight!) * Double(doughProperties.ballsAmount!)
+
+        let estimatedFlour = totalWeight * hydration / 100
         
-        let estimatedWater = estimatedFlour * doughProperties.hydration!/100
-        print("estimatedWater = \(estimatedWater)")
+        let estimatedWater = estimatedFlour * hydration / 100
         
-        let salt = round(Double(doughProperties.salt!) * Double(estimatedWater) / 1000)
-        let fat = round(Double(doughProperties.fat!) * Double(estimatedWater) / 1000)
+        let salt = round(Double(doughProperties.salt!) * estimatedWater / 1000)
+        let fat = round(Double(doughProperties.fat!) * estimatedWater / 1000)
         
-        let waterAndFlour = totalWeight - Int(salt) - Int(fat)
-        print("waterAndFlour = \(waterAndFlour)")
+        let waterAndFlour = totalWeight - salt - fat
         
-        let flour = round(Double((waterAndFlour)) / (1 + Double(doughProperties.hydration!) / 100))
-        print("flour = \(flour)")
+        let flour = round(waterAndFlour / (hydration / 100 + 1))
         
-        let water = round(flour * Double(doughProperties.hydration!) / 100)
-        print("water = \(water)")
+        let water = round(flour * hydration / 100)
         
-        let array = [1:Int(flour),
-                      2:Int(water),
-                      3:Int(yeast),
-                      4:Int(salt),
-                      5:Int(fat)
+        let yeast = estimatedFlour / 100
+        
+        let dictionary = [K.DoughEquations.flour:Int(flour),
+                     K.DoughEquations.water:Int(water),
+                     K.DoughEquations.yeast:Int(yeast),
+                     K.DoughEquations.salt:Int(salt),
+                     K.DoughEquations.fat:Int(fat),
+                     K.DoughEquations.ballWeight:doughProperties.ballWeight!,
+                     K.DoughEquations.portions:doughProperties.ballsAmount!,
+                     K.DoughEquations.hydration:doughProperties.hydration!,
+                     K.DoughEquations.roomTime:doughProperties.totalTime! - doughProperties.fridgeTime!,
+                     K.DoughEquations.fridgeTime:doughProperties.fridgeTime!
         ]
-        return array
+        return dictionary
     }
 }

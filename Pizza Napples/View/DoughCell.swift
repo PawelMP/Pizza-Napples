@@ -16,11 +16,11 @@ class DoughCell: UITableViewCell, UITextFieldDelegate {
     
     
     class var cellIdentifier: String {
-         return "ReusableDoughCell"
+        return K.DoughCell.cellIdentifier
     }
     
     class var cellNibName: String {
-        return "DoughCell"
+        return K.DoughCell.cellNibName
     }
     
     override func prepareForReuse() {

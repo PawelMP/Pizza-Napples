@@ -55,31 +55,6 @@ class DoughTableViewController: UITableViewController {
         return cell
     }
     
-    @objc func textFieldEditingEvents(textField: UITextField) {
-        guard let cell = textField.findParentTableViewCell(),
-              let indexPath = tableView.indexPath(for: cell) else {
-            return
-        }
-        
-        calculatorBrain.saveAmount(with: Int(textField.text!), indexPath: indexPath)
-        
-        if let value = textField.text {
-            calculatorBrain.checkAmount(with: Int(value), for: indexPath, cell: cell as! DoughCell)
-        }
-    }
-    
-    @objc func textFieldDidChange(textField : UITextField){
-        guard let cell = textField.findParentTableViewCell(),
-              let indexPath = tableView.indexPath(for: cell) else {
-            return
-        }
-        
-        if let value = textField.text {
-            calculatorBrain.checkAmount(with: Int(value), for: indexPath, cell: cell as! DoughCell)
-        }
-    }
-    
-
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
        let header = view as! UITableViewHeaderFooterView
        calculatorBrain.configureHeaderView(for: header)
@@ -91,7 +66,7 @@ class DoughTableViewController: UITableViewController {
    }
 
 }
-//MARK: - Textfield delegate
+//MARK: - Textfield delegate and methods
 extension DoughTableViewController: UITextFieldDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField) {
@@ -114,4 +89,18 @@ extension DoughTableViewController: UITextFieldDelegate {
         }
         delegate?.checkValues()
     }
+    
+    @objc func textFieldEditingEvents(textField: UITextField) {
+        guard let cell = textField.findParentTableViewCell(),
+              let indexPath = tableView.indexPath(for: cell) else {
+            return
+        }
+        
+        calculatorBrain.saveAmount(with: Int(textField.text!), indexPath: indexPath)
+        
+        if let value = textField.text {
+            calculatorBrain.checkAmount(with: Int(value), for: indexPath, cell: cell as! DoughCell)
+        }
+    }
+    
 }

@@ -29,12 +29,11 @@ struct FirestoreManager {
             
             let doughProperties = DoughProperties(ballsAmount: doughProportions[0].amount, ballWeight: doughProportions[1].amount, hydration: doughProportions[2].amount, salt: doughProportions[3].amount, fat: doughProportions[4].amount, totalTime: doughGrowth[0].amount, fridgeTime: doughGrowth[1].amount, temperature: doughGrowth[2].amount)
             
-            db.collection("users dough").document(user).setData(doughProperties.dictionary) { (error) in
+            db.collection(K.Firestore.usersDough).document(user).setData(doughProperties.dictionary) { (error) in
                 if let e = error {
-                    print("Error writing dough to Firestore: \(e)")
+                    print(e.localizedDescription)
                 }
                 else {
-                    print("sucessfully wrote data")
                     viewController?.dismiss(animated: true, completion: nil)
                 }
             }
@@ -45,10 +44,10 @@ struct FirestoreManager {
         
         if let user = Auth.auth().currentUser?.email {
             
-            db.collection("users dough").document(user).getDocument { (document, error) in
+            db.collection(K.Firestore.usersDough).document(user).getDocument { (document, error) in
                 
                 if let e = error {
-                    print("Error reading data from firestore: \(e)")
+                    print(e.localizedDescription)
                 }
                 else {
                     
@@ -65,11 +64,10 @@ struct FirestoreManager {
                             } else {
                                 // A nil value was successfully initialized from the DocumentSnapshot,
                                 // or the DocumentSnapshot was nil.
-                                print("Document does not exist")
                             }
                         case .failure(let error):
                             // A `DoughProperties` value could not be initialized from the DocumentSnapshot.
-                            print("Error decoding city: \(error)")
+                            print(error.localizedDescription)
                         }
                 }
             }
