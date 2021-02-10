@@ -27,10 +27,12 @@
 		D779E7A825B2E36C001077E5 /* CalculatorBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = D779E7A725B2E36C001077E5 /* CalculatorBrain.swift */; };
 		D779E7AF25B2E95D001077E5 /* DoughCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D779E7AD25B2E95D001077E5 /* DoughCell.swift */; };
 		D779E7B025B2E95D001077E5 /* DoughCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D779E7AE25B2E95D001077E5 /* DoughCell.xib */; };
+		D786311525D1CC0D00ED1414 /* DoughCalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D786311425D1CC0D00ED1414 /* DoughCalculatorViewController.swift */; };
 		D7A588B525B8BB1D0070DE0F /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A588B425B8BB1D0070DE0F /* UITextFieldExtension.swift */; };
 		D7A588B925B8BB5A0070DE0F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A588B825B8BB5A0070DE0F /* Constants.swift */; };
 		D7BD043F25CAE7DB00D2490A /* DoughTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BD043E25CAE7DB00D2490A /* DoughTableViewController.swift */; };
 		D7BD045725CAFAC700D2490A /* DoughViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BD045625CAFAC700D2490A /* DoughViewController.swift */; };
+		D7CCDF2225D291D7000BE262 /* DoughEquations.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CCDF2125D291D7000BE262 /* DoughEquations.swift */; };
 		D7E5F27425BADE2500F0C45E /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E5F27325BADE2500F0C45E /* UIButtonExtension.swift */; };
 /* End PBXBuildFile section */
 
@@ -59,10 +61,12 @@
 		D779E7A725B2E36C001077E5 /* CalculatorBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorBrain.swift; sourceTree = "<group>"; };
 		D779E7AD25B2E95D001077E5 /* DoughCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoughCell.swift; sourceTree = "<group>"; };
 		D779E7AE25B2E95D001077E5 /* DoughCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DoughCell.xib; sourceTree = "<group>"; };
+		D786311425D1CC0D00ED1414 /* DoughCalculatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoughCalculatorViewController.swift; sourceTree = "<group>"; };
 		D7A588B425B8BB1D0070DE0F /* UITextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
 		D7A588B825B8BB5A0070DE0F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		D7BD043E25CAE7DB00D2490A /* DoughTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoughTableViewController.swift; sourceTree = "<group>"; };
 		D7BD045625CAFAC700D2490A /* DoughViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoughViewController.swift; sourceTree = "<group>"; };
+		D7CCDF2125D291D7000BE262 /* DoughEquations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoughEquations.swift; sourceTree = "<group>"; };
 		D7E5F27325BADE2500F0C45E /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -128,6 +132,7 @@
 				D72B02DC25B76960008A0018 /* CalculatorItem.swift */,
 				D779E7A725B2E36C001077E5 /* CalculatorBrain.swift */,
 				D778A64125D0574E0095E92D /* DoughProperties.swift */,
+				D7CCDF2125D291D7000BE262 /* DoughEquations.swift */,
 				D712063125C15B690018FE22 /* FirebaseManager.swift */,
 				D778A64825D0647A0095E92D /* FirestoreManager.swift */,
 				D751D03E25B30FA00069F31C /* TextAlert.swift */,
@@ -152,6 +157,7 @@
 				D71FAC1025B1E561002DFAB8 /* LoginViewController.swift */,
 				D71FAC1325B1E56C002DFAB8 /* RegisterViewController.swift */,
 				D7127F0725B1FB6F00FFEFBC /* MainViewController.swift */,
+				D786311425D1CC0D00ED1414 /* DoughCalculatorViewController.swift */,
 				D7BD045625CAFAC700D2490A /* DoughViewController.swift */,
 				D7BD043E25CAE7DB00D2490A /* DoughTableViewController.swift */,
 			);
@@ -308,9 +314,11 @@
 				D751D03F25B30FA00069F31C /* TextAlert.swift in Sources */,
 				D71FAC1125B1E561002DFAB8 /* LoginViewController.swift in Sources */,
 				D7BD043F25CAE7DB00D2490A /* DoughTableViewController.swift in Sources */,
+				D786311525D1CC0D00ED1414 /* DoughCalculatorViewController.swift in Sources */,
 				D71FAC1425B1E56C002DFAB8 /* RegisterViewController.swift in Sources */,
 				D778A64225D0574E0095E92D /* DoughProperties.swift in Sources */,
 				D7348DC125B0EE3F008BD961 /* WelcomeViewController.swift in Sources */,
+				D7CCDF2225D291D7000BE262 /* DoughEquations.swift in Sources */,
 				D779E7AF25B2E95D001077E5 /* DoughCell.swift in Sources */,
 				D7A588B925B8BB5A0070DE0F /* Constants.swift in Sources */,
 				D778A64925D0647A0095E92D /* FirestoreManager.swift in Sources */,

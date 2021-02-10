@@ -22,6 +22,16 @@ class DoughViewController: UIViewController {
         doughTableViewController?.delegate = self
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+            super.viewWillDisappear(animated)
+
+            if let firstVC = presentingViewController as? DoughCalculatorViewController {
+                DispatchQueue.main.async {
+                    firstVC.viewWillAppear(true)
+                }
+            }
+        }
+    
     @IBAction func xButtonPressed(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true, completion: nil)
     }
@@ -30,7 +40,6 @@ class DoughViewController: UIViewController {
         
         FirestoreManager.shared.saveDoughToFirestore(calculatorBrain: doughTableViewController?.calculatorBrain, viewController: doughTableViewController)
         
-        FirestoreManager.shared.readDoughFromFirestore()
     }
     
     func enableButton () {

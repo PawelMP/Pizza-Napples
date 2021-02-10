@@ -10,10 +10,16 @@ import UIKit
 import Firebase
 import FirebaseFirestoreSwift
 
+protocol FirestoreManagerDelegate: class {
+    func readData(retrievedData: DoughProperties)
+}
+
 struct FirestoreManager {
-    static let shared = FirestoreManager()
+    static var shared = FirestoreManager()
     
     let db = Firestore.firestore()
+    
+    weak var delegate: FirestoreManagerDelegate?
     
     private init () {
     }
@@ -36,6 +42,7 @@ struct FirestoreManager {
     }
     
     func readDoughFromFirestore() {
+        
         if let user = Auth.auth().currentUser?.email {
             
             db.collection("users dough").document(user).getDocument { (document, error) in
@@ -52,7 +59,9 @@ struct FirestoreManager {
                         case .success(let doughProperties):
                             if let dough = doughProperties {
                                 // A `DoughProperties` value was successfully initialized from the DocumentSnapshot.
-                                print("Dough: \(dough)")
+                                //print("Dough: \(dough)")
+                                delegate?.readData(retrievedData: dough)
+                                
                             } else {
                                 // A nil value was successfully initialized from the DocumentSnapshot,
                                 // or the DocumentSnapshot was nil.
