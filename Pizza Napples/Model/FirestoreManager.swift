@@ -12,6 +12,8 @@ import FirebaseFirestoreSwift
 
 protocol FirestoreManagerDelegate: class {
     func readData(retrievedData: DoughProperties)
+    
+    func emptyData()
 }
 
 struct FirestoreManager {
@@ -64,6 +66,7 @@ struct FirestoreManager {
                             } else {
                                 // A nil value was successfully initialized from the DocumentSnapshot,
                                 // or the DocumentSnapshot was nil.
+                                delegate?.emptyData()
                             }
                         case .failure(let error):
                             // A `DoughProperties` value could not be initialized from the DocumentSnapshot.

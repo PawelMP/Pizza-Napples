@@ -34,6 +34,9 @@
 		D7BD043F25CAE7DB00D2490A /* DoughTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BD043E25CAE7DB00D2490A /* DoughTableViewController.swift */; };
 		D7BD045725CAFAC700D2490A /* DoughViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BD045625CAFAC700D2490A /* DoughViewController.swift */; };
 		D7CCDF2225D291D7000BE262 /* DoughEquations.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CCDF2125D291D7000BE262 /* DoughEquations.swift */; };
+		D7CFF9E125D5675500729426 /* UsersPizzasCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CFF9E025D5675500729426 /* UsersPizzasCollectionViewController.swift */; };
+		D7CFF9E525D5701B00729426 /* UserPizzaCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CFF9E325D5701B00729426 /* UserPizzaCollectionViewCell.swift */; };
+		D7CFF9E625D5701B00729426 /* UserPizzaCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7CFF9E425D5701B00729426 /* UserPizzaCollectionViewCell.xib */; };
 		D7E5F27425BADE2500F0C45E /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E5F27325BADE2500F0C45E /* UIButtonExtension.swift */; };
 /* End PBXBuildFile section */
 
@@ -69,6 +72,9 @@
 		D7BD043E25CAE7DB00D2490A /* DoughTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoughTableViewController.swift; sourceTree = "<group>"; };
 		D7BD045625CAFAC700D2490A /* DoughViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoughViewController.swift; sourceTree = "<group>"; };
 		D7CCDF2125D291D7000BE262 /* DoughEquations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoughEquations.swift; sourceTree = "<group>"; };
+		D7CFF9E025D5675500729426 /* UsersPizzasCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersPizzasCollectionViewController.swift; sourceTree = "<group>"; };
+		D7CFF9E325D5701B00729426 /* UserPizzaCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPizzaCollectionViewCell.swift; sourceTree = "<group>"; };
+		D7CFF9E425D5701B00729426 /* UserPizzaCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserPizzaCollectionViewCell.xib; sourceTree = "<group>"; };
 		D7E5F27325BADE2500F0C45E /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -148,6 +154,8 @@
 				D7348DC225B0EE3F008BD961 /* Main.storyboard */,
 				D779E7AD25B2E95D001077E5 /* DoughCell.swift */,
 				D779E7AE25B2E95D001077E5 /* DoughCell.xib */,
+				D7CFF9E325D5701B00729426 /* UserPizzaCollectionViewCell.swift */,
+				D7CFF9E425D5701B00729426 /* UserPizzaCollectionViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -162,6 +170,7 @@
 				D786311425D1CC0D00ED1414 /* DoughCalculatorViewController.swift */,
 				D7BD045625CAFAC700D2490A /* DoughViewController.swift */,
 				D7BD043E25CAE7DB00D2490A /* DoughTableViewController.swift */,
+				D7CFF9E025D5675500729426 /* UsersPizzasCollectionViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -256,6 +265,7 @@
 			files = (
 				D779E7B025B2E95D001077E5 /* DoughCell.xib in Resources */,
 				D7348DC925B0EE48008BD961 /* LaunchScreen.storyboard in Resources */,
+				D7CFF9E625D5701B00729426 /* UserPizzaCollectionViewCell.xib in Resources */,
 				D71FAC1725B1EC0F002DFAB8 /* GoogleService-Info.plist in Resources */,
 				D7348DC625B0EE48008BD961 /* Assets.xcassets in Resources */,
 				D7348DC425B0EE3F008BD961 /* Main.storyboard in Resources */,
@@ -317,6 +327,7 @@
 				D751D03F25B30FA00069F31C /* TextAlert.swift in Sources */,
 				D71FAC1125B1E561002DFAB8 /* LoginViewController.swift in Sources */,
 				D7BD043F25CAE7DB00D2490A /* DoughTableViewController.swift in Sources */,
+				D7CFF9E125D5675500729426 /* UsersPizzasCollectionViewController.swift in Sources */,
 				D786311525D1CC0D00ED1414 /* DoughCalculatorViewController.swift in Sources */,
 				D71FAC1425B1E56C002DFAB8 /* RegisterViewController.swift in Sources */,
 				D778A64225D0574E0095E92D /* DoughProperties.swift in Sources */,
@@ -326,6 +337,7 @@
 				D7A588B925B8BB5A0070DE0F /* Constants.swift in Sources */,
 				D778A64925D0647A0095E92D /* FirestoreManager.swift in Sources */,
 				D7127F0825B1FB6F00FFEFBC /* MainViewController.swift in Sources */,
+				D7CFF9E525D5701B00729426 /* UserPizzaCollectionViewCell.swift in Sources */,
 				D7348DBD25B0EE3F008BD961 /* AppDelegate.swift in Sources */,
 				D72B02DD25B76960008A0018 /* CalculatorItem.swift in Sources */,
 				D775436325D47FE200051EB3 /* UIStackViewExtension.swift in Sources */,

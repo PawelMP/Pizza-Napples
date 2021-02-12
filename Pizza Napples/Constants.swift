@@ -12,6 +12,7 @@ struct K {
     //static let doneText = "Done"
     static let futura = "Futura"
     static let pizzaNapplesName = "🍕 Pizza Napples 🍕"
+    static let modifyProportionsButtonName = " Modify proportions "
     
     struct CalculatorBrain {
         static let doughProportions = "Dough proportions"

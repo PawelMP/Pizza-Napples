@@ -21,6 +21,10 @@ class DoughCalculatorViewController: UIViewController {
     @IBOutlet weak var roomLabel: UILabel!
     @IBOutlet weak var fridgeLabel: UILabel!
     
+    @IBOutlet weak var mainStackView: UIStackView!
+    
+    @IBOutlet weak var modifyButton: UIButton!
+    
     let doughIngredients = DoughEquations()
     
     override func viewDidLoad() {
@@ -32,24 +36,35 @@ class DoughCalculatorViewController: UIViewController {
         FirestoreManager.shared.delegate = self
         FirestoreManager.shared.readDoughFromFirestore()
     }
+    
+    func setLabel(with text: String, postfix: String , data dictionary: [String:Int], label: UILabel){
+        label.alpha = 1
+        label.text = dictionary[text]!.description + postfix
+    }
 
 }
 //MARK: - Firestore Manager Delegate
 extension DoughCalculatorViewController: FirestoreManagerDelegate {
+    func emptyData() {
+        print("emoty")
+    }
+    
     func readData(retrievedData: DoughProperties) {
         
         let readyData = doughIngredients.getIngredients(doughProperties: retrievedData)
-        flourLabel.text = readyData[K.DoughEquations.flour]!.description + K.postfixes.gram
-        waterLabel.text = readyData[K.DoughEquations.water]!.description + K.postfixes.gram
-        yeastLabel.text = readyData[K.DoughEquations.yeast]!.description + K.postfixes.gram
-        saltLabel.text = readyData[K.DoughEquations.salt]!.description + K.postfixes.gram
-        fatLabel.text = readyData[K.DoughEquations.fat]!.description + K.postfixes.gram
-        ballWeightLabel.text = readyData[K.DoughEquations.ballWeight]!.description + K.postfixes.gram
-        portionsLabel.text = readyData[K.DoughEquations.portions]!.description + K.postfixes.gram
-        hydrationLabel.text = readyData[K.DoughEquations.hydration]!.description + K.postfixes.percent
-        roomLabel.text = readyData[K.DoughEquations.roomTime]!.description + K.postfixes.hour
-        fridgeLabel.text = readyData[K.DoughEquations.fridgeTime]!.description + K.postfixes.hour
+        setLabel(with: K.DoughEquations.flour, postfix: K.postfixes.gram, data: readyData, label: flourLabel)
+        setLabel(with: K.DoughEquations.water, postfix: K.postfixes.gram, data: readyData, label: waterLabel)
+        setLabel(with: K.DoughEquations.yeast, postfix: K.postfixes.gram, data: readyData, label: yeastLabel)
+        setLabel(with: K.DoughEquations.salt, postfix: K.postfixes.gram, data: readyData, label: saltLabel)
+        setLabel(with: K.DoughEquations.fat, postfix: K.postfixes.gram, data: readyData, label: fatLabel)
+        setLabel(with: K.DoughEquations.ballWeight, postfix: K.postfixes.gram, data: readyData, label: ballWeightLabel)
+        setLabel(with: K.DoughEquations.portions, postfix: K.postfixes.gram, data: readyData, label: portionsLabel)
+        setLabel(with: K.DoughEquations.hydration, postfix: K.postfixes.percent, data: readyData, label: hydrationLabel)
+        setLabel(with: K.DoughEquations.roomTime, postfix: K.postfixes.hour, data: readyData, label: roomLabel)
+        setLabel(with: K.DoughEquations.fridgeTime, postfix: K.postfixes.hour, data: readyData, label: fridgeLabel)
         
+        modifyButton.setTitle(K.modifyProportionsButtonName, for: .normal)
+        mainStackView.isHidden = false
     }
     
     

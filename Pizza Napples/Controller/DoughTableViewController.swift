@@ -25,9 +25,9 @@ class DoughTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
+}
     // MARK: - Table view data source
-
+extension DoughTableViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
         return calculatorBrain.getSections()
     }
