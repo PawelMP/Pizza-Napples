@@ -17,6 +17,7 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
     }
     
+    //Login user to firebase 
     @IBAction func loginButtonPressed(_ sender: UIButton) {
         
         FirebaseManager.shared.loginUser(email: emailTextField.text, password: passwordTextField.text, viewController: self)

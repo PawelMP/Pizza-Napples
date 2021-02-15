@@ -33,10 +33,16 @@ class DoughCalculatorViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        
+        //Hide "add" button"
+        self.tabBarController?.navigationItem.rightBarButtonItem = nil
+        
+        //Set FirestoreManager delegate and read data from firestore
         FirestoreManager.shared.delegate = self
         FirestoreManager.shared.readDoughFromFirestore()
     }
     
+    //Set label with given text
     func setLabel(with text: String, postfix: String , data dictionary: [String:Int], label: UILabel){
         label.alpha = 1
         label.text = dictionary[text]!.description + postfix
@@ -45,13 +51,12 @@ class DoughCalculatorViewController: UIViewController {
 }
 //MARK: - Firestore Manager Delegate
 extension DoughCalculatorViewController: FirestoreManagerDelegate {
-    func emptyData() {
-        print("emoty")
-    }
     
     func readData(retrievedData: DoughProperties) {
         
+        //Calculate ingredients
         let readyData = doughIngredients.getIngredients(doughProperties: retrievedData)
+        
         setLabel(with: K.DoughEquations.flour, postfix: K.postfixes.gram, data: readyData, label: flourLabel)
         setLabel(with: K.DoughEquations.water, postfix: K.postfixes.gram, data: readyData, label: waterLabel)
         setLabel(with: K.DoughEquations.yeast, postfix: K.postfixes.gram, data: readyData, label: yeastLabel)

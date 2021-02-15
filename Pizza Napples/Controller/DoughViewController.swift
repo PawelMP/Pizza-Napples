@@ -9,7 +9,9 @@
 import UIKit
 
 class DoughViewController: UIViewController {
+    
     @IBOutlet weak var calculateButton: UIButton!
+    
     var doughTableViewController: DoughTableViewController?
     
     override func viewDidLoad() {
@@ -18,6 +20,8 @@ class DoughViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        
+        //Assign children view controller and its delegate
         doughTableViewController = self.children[0] as? DoughTableViewController
         doughTableViewController?.delegate = self
     }
@@ -25,6 +29,7 @@ class DoughViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
             super.viewWillDisappear(animated)
 
+            //Call "viewWillAppear" from parent View Controller
             if let firstVC = presentingViewController as? DoughCalculatorViewController {
                 DispatchQueue.main.async {
                     firstVC.viewWillAppear(true)
@@ -32,21 +37,26 @@ class DoughViewController: UIViewController {
             }
         }
     
+    //"Quit" button pressed
     @IBAction func xButtonPressed(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true, completion: nil)
     }
     
+    //Calculate button pressed
     @IBAction func calculateButtonPressed(_ sender: UIButton) {
         
+        //Save dough properties to firestore
         FirestoreManager.shared.saveDoughToFirestore(calculatorBrain: doughTableViewController?.calculatorBrain, viewController: doughTableViewController)
         
     }
     
+    //Enable "calculate" button
     func enableButton () {
         calculateButton.isEnabled = true
         calculateButton.alpha = 1
     }
     
+    //Disable "calcualte" button
     func disableButton () {
         calculateButton.isEnabled = false
         calculateButton.alpha = 0.6
@@ -56,6 +66,7 @@ class DoughViewController: UIViewController {
 //MARK: - DoughTableViewController Delegate
 extension DoughViewController: DoughTableViewControllerDelegate {
     
+    //Check if all values are correct and enable/disable button
     func checkValues() {
         if let calculator = doughTableViewController?.calculatorBrain {
             if calculator.checkAllElements() {

@@ -9,11 +9,13 @@
 import UIKit
 
 struct TextAlert {
-    func CreateAlert(text: String, topVC: UIViewController) {
+    
+    //Create simple text alert
+    func CreateAlert(text: String, viewController: UIViewController) {
         let alert = UIAlertController(title: K.TextAlert.error, message: text, preferredStyle: .alert)
         
         alert.addAction(UIAlertAction(title: K.TextAlert.ok, style: .default, handler: { (UIAlertAction) in
         }))
-        topVC.present(alert, animated: true)
+        viewController.present(alert, animated: true)
     }
 }

@@ -17,6 +17,7 @@ class RegisterViewController: UIViewController {
         super.viewDidLoad()
     }
     
+    //Register user to firebase
     @IBAction func registerButtonPressed(_ sender: UIButton) {
         
         FirebaseManager.shared.registerUser(email: emailTextField.text, password: passwordTextField.text, viewController: self)

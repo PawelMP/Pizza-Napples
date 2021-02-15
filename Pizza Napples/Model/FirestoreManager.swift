@@ -12,10 +12,9 @@ import FirebaseFirestoreSwift
 
 protocol FirestoreManagerDelegate: class {
     func readData(retrievedData: DoughProperties)
-    
-    func emptyData()
 }
 
+//Firestore manager class
 struct FirestoreManager {
     static var shared = FirestoreManager()
     
@@ -26,6 +25,7 @@ struct FirestoreManager {
     private init () {
     }
     
+    //Save given dough properties to firestore
     func saveDoughToFirestore(calculatorBrain: CalculatorBrain?, viewController: UIViewController?) {
         if let user = Auth.auth().currentUser?.email, let doughProportions = calculatorBrain?.doughProportions, let doughGrowth = calculatorBrain?.doughGrowth {
             
@@ -42,6 +42,7 @@ struct FirestoreManager {
         }
     }
     
+    //Read dough properties from firestore
     func readDoughFromFirestore() {
         
         if let user = Auth.auth().currentUser?.email {
@@ -66,7 +67,7 @@ struct FirestoreManager {
                             } else {
                                 // A nil value was successfully initialized from the DocumentSnapshot,
                                 // or the DocumentSnapshot was nil.
-                                delegate?.emptyData()
+                                //delegate?.emptyData()
                             }
                         case .failure(let error):
                             // A `DoughProperties` value could not be initialized from the DocumentSnapshot.

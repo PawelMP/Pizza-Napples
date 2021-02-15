@@ -8,6 +8,7 @@
 
 import UIKit
 
+//Struct for sending and receiving data from firestore
 public struct DoughProperties: Codable {
     
     let ballsAmount: Int?
