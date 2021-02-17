@@ -43,9 +43,9 @@ class DoughCalculatorViewController: UIViewController {
     }
     
     //Set label with given text
-    func setLabel(with text: String, postfix: String , data dictionary: [String:Int], label: UILabel){
+    func setLabel(with text: String, postfix: String , data dictionary: [String:Any], label: UILabel){
         label.alpha = 1
-        label.text = dictionary[text]!.description + postfix
+        label.text = (dictionary[text]! as AnyObject).description + postfix
     }
 
 }

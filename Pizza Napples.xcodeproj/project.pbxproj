@@ -31,6 +31,7 @@
 		D779E7AF25B2E95D001077E5 /* DoughCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D779E7AD25B2E95D001077E5 /* DoughCell.swift */; };
 		D779E7B025B2E95D001077E5 /* DoughCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D779E7AE25B2E95D001077E5 /* DoughCell.xib */; };
 		D786311525D1CC0D00ED1414 /* DoughCalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D786311425D1CC0D00ED1414 /* DoughCalculatorViewController.swift */; };
+		D791DFA725DD129700223FBC /* UserPizzaPropertiesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D791DFA625DD129700223FBC /* UserPizzaPropertiesData.swift */; };
 		D7A588B525B8BB1D0070DE0F /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A588B425B8BB1D0070DE0F /* UITextFieldExtension.swift */; };
 		D7A588B925B8BB5A0070DE0F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A588B825B8BB5A0070DE0F /* Constants.swift */; };
 		D7BD043F25CAE7DB00D2490A /* DoughTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BD043E25CAE7DB00D2490A /* DoughTableViewController.swift */; };
@@ -74,6 +75,7 @@
 		D779E7AD25B2E95D001077E5 /* DoughCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoughCell.swift; sourceTree = "<group>"; };
 		D779E7AE25B2E95D001077E5 /* DoughCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DoughCell.xib; sourceTree = "<group>"; };
 		D786311425D1CC0D00ED1414 /* DoughCalculatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoughCalculatorViewController.swift; sourceTree = "<group>"; };
+		D791DFA625DD129700223FBC /* UserPizzaPropertiesData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPizzaPropertiesData.swift; sourceTree = "<group>"; };
 		D7A588B425B8BB1D0070DE0F /* UITextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
 		D7A588B825B8BB5A0070DE0F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		D7BD043E25CAE7DB00D2490A /* DoughTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoughTableViewController.swift; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 				D779E7A725B2E36C001077E5 /* CalculatorBrain.swift */,
 				D778A64125D0574E0095E92D /* DoughProperties.swift */,
 				D7CCDF2125D291D7000BE262 /* DoughEquations.swift */,
+				D791DFA625DD129700223FBC /* UserPizzaPropertiesData.swift */,
 				D712063125C15B690018FE22 /* FirebaseManager.swift */,
 				D778A64825D0647A0095E92D /* FirestoreManager.swift */,
 				D7D68ABD25DA9CFF0020DA0D /* StorageManager.swift */,
@@ -346,6 +349,7 @@
 				D7BD043F25CAE7DB00D2490A /* DoughTableViewController.swift in Sources */,
 				D7CFF9E125D5675500729426 /* UsersPizzasCollectionViewController.swift in Sources */,
 				D786311525D1CC0D00ED1414 /* DoughCalculatorViewController.swift in Sources */,
+				D791DFA725DD129700223FBC /* UserPizzaPropertiesData.swift in Sources */,
 				D71FAC1425B1E56C002DFAB8 /* RegisterViewController.swift in Sources */,
 				D778A64225D0574E0095E92D /* DoughProperties.swift in Sources */,
 				D7348DC125B0EE3F008BD961 /* WelcomeViewController.swift in Sources */,

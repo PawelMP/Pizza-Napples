@@ -16,14 +16,20 @@ struct StorageManager {
         
     }
     
-    func test (image: UIImage) {
-        let uuid = UUID.init()
+    /*typealias CompletionHandler = (_ success:String) -> String
+    
+    let handler: ([String]) -> Void = { (array) in
+     print("Done working, \(array)")
+    }*/
+    
+    typealias Result = String
+    
+    func test (image: UIImage, completionHandler: @escaping (Result) -> Void) {
         
+        let uuid = UUID.init()
         let storage = Storage.storage()
         let storageReference = storage.reference()
         let imagesReference = storageReference.child("images/\(uuid).png")
-        
-        
         
         guard let imageData = image.jpegData(compressionQuality: 1) else {
             return
@@ -43,6 +49,7 @@ struct StorageManager {
               return
             }
                 print(downloadURL.absoluteURL)
+                completionHandler(downloadURL.absoluteString)
           }
         }
     }

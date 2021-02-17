@@ -11,7 +11,7 @@ import Foundation
 struct DoughEquations {
     
     //Calculate ingredients based on the given properties
-    func getIngredients(doughProperties: DoughProperties) -> [String:Int] {
+    func getIngredients(doughProperties: DoughProperties) -> [String:Any] {
         
         let hydration = Double(doughProperties.hydration!)
         
@@ -30,12 +30,12 @@ struct DoughEquations {
         
         let water = round(flour * hydration / 100)
         
-        let yeast = estimatedFlour / 100
+        let yeast = flour / 1000
         
         //assign results to dictionary
         let dictionary = [K.DoughEquations.flour:Int(flour),
                      K.DoughEquations.water:Int(water),
-                     K.DoughEquations.yeast:Int(yeast),
+                     K.DoughEquations.yeast:yeast,
                      K.DoughEquations.salt:Int(salt),
                      K.DoughEquations.fat:Int(fat),
                      K.DoughEquations.ballWeight:doughProperties.ballWeight!,
@@ -43,7 +43,7 @@ struct DoughEquations {
                      K.DoughEquations.hydration:doughProperties.hydration!,
                      K.DoughEquations.roomTime:doughProperties.totalTime! - doughProperties.fridgeTime!,
                      K.DoughEquations.fridgeTime:doughProperties.fridgeTime!
-        ]
+        ] as [String : Any]
         return dictionary
     }
 }

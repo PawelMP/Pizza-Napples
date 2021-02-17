@@ -13,6 +13,7 @@ class NewCollectionViewDataViewController: UIViewController {
     @IBOutlet weak var descriptionTextView: UITextView!
     
     var photosManager = PhotosManager()
+    @IBOutlet weak var OKButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,9 +36,17 @@ class NewCollectionViewDataViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     @IBAction func OKButtonPressed(_ sender: UIBarButtonItem) {
-        print("OK")
-        if let image = imageView.image {
-            StorageManager.shared.test(image: image)
+        
+        if descriptionTextView.text.isEmpty == true {
+            let alert = TextAlert()
+            alert.CreateAlert(text: "Please write a description", viewController: self)
+            return
+        }
+        
+        if let image = imageView.image, let description = descriptionTextView.text {
+            StorageManager.shared.test(image: image, completionHandler: { result in
+                FirestoreManager.shared.saveUserPizzaToFirestore(description: description, imageURL: result, viewController: self)
+            })
         }
     }
     
@@ -56,8 +65,9 @@ class NewCollectionViewDataViewController: UIViewController {
 extension NewCollectionViewDataViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[UIImagePickerController.InfoKey(rawValue: "UIImagePickerControllerEditedImage")] {
-            imageView.backgroundColor = UIColor(red: 0.96, green: 0.96, blue: 0.90, alpha: 1.00)
+            //imageView.backgroundColor = UIColor(red: 0.96, green: 0.96, blue: 0.90, alpha: 1.00)
             imageView.image = image as? UIImage
+            OKButton.isEnabled = true
             
         }
         picker.dismiss(animated: true, completion: nil)

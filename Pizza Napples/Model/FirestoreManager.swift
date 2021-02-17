@@ -78,4 +78,62 @@ struct FirestoreManager {
         }
     }
     
+    func saveUserPizzaToFirestore(description: String, imageURL: String, viewController: UIViewController?) {
+        
+        let uuid = UUID().uuidString
+        
+        let email: String
+        if let word = Auth.auth().currentUser?.email {
+            if let index = word.range(of: "@")?.lowerBound {
+                let substring = word.prefix(upTo: index)
+                email = String(substring)
+                
+                let userPizzaPropertiesData = UserPizzaPropertiesData(downloadURL: imageURL, description: description, userID: email)
+                
+                db.collection("users pizza").document(uuid).setData(userPizzaPropertiesData.dictionary) { (error) in
+                    if let e = error {
+                        print(e.localizedDescription)
+                    }
+                    else {
+                        viewController?.dismiss(animated: true, completion: nil)
+                    }
+                }
+            }
+        }
+    }
+    
+    func readUserPizzaFromFirestore() {
+        
+        db.collection("users pizza").getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for document in querySnapshot!.documents {
+                    print("\(document.documentID) => \(document.data())")
+                    
+                    let result = Result {
+                        try document.data(as: UserPizzaPropertiesData.self)
+                        }
+                        switch result {
+                        case .success(let userPizzaProperties):
+                            if let userPizza = userPizzaProperties {
+                                // A `DoughProperties` value was successfully initialized from the DocumentSnapshot.
+                                //print("Dough: \(dough)")
+                                //delegate?.readData(retrievedData: dough)
+                                
+                            } else {
+                                // A nil value was successfully initialized from the DocumentSnapshot,
+                                // or the DocumentSnapshot was nil.
+                                //delegate?.emptyData()
+                            }
+                        case .failure(let error):
+                            // A `DoughProperties` value could not be initialized from the DocumentSnapshot.
+                            print(error.localizedDescription)
+                        }
+                    
+                }
+            }
+        }
+    }
+    
 }
