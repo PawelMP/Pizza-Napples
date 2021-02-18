@@ -10,6 +10,7 @@ target 'Pizza Napples' do
   pod 'Firebase/Firestore'
   pod 'FirebaseFirestoreSwift'
   pod 'Firebase/Storage'
+  pod 'FirebaseUI/Storage'
   pod 'CLTypingLabel'
   pod 'IQKeyboardManager'
 end

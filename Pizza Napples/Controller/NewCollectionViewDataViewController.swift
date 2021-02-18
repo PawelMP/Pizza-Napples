@@ -45,9 +45,10 @@ class NewCollectionViewDataViewController: UIViewController {
         
         if let image = imageView.image, let description = descriptionTextView.text {
             StorageManager.shared.test(image: image, completionHandler: { result in
-                FirestoreManager.shared.saveUserPizzaToFirestore(description: description, imageURL: result, viewController: self)
+                FirestoreManager.shared.saveUserPizzaToFirestore(description: description, imageURL: result)
             })
         }
+        self.dismiss(animated: true, completion: nil)
     }
     
     /*
@@ -73,3 +74,4 @@ extension NewCollectionViewDataViewController: UIImagePickerControllerDelegate, 
         picker.dismiss(animated: true, completion: nil)
     }
 }
+

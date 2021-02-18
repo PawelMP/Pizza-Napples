@@ -52,6 +52,9 @@ class DoughCalculatorViewController: UIViewController {
 //MARK: - Firestore Manager Delegate
 extension DoughCalculatorViewController: FirestoreManagerDelegate {
     
+    func readUserPizza(retrievedData: UserPizzaItem) {
+    }
+    
     func readData(retrievedData: DoughProperties) {
         
         //Calculate ingredients

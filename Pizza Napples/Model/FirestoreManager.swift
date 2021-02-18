@@ -12,6 +12,7 @@ import FirebaseFirestoreSwift
 
 protocol FirestoreManagerDelegate: class {
     func readData(retrievedData: DoughProperties)
+    func readUserPizza(retrievedData: UserPizzaItem)
 }
 
 //Firestore manager class
@@ -78,7 +79,7 @@ struct FirestoreManager {
         }
     }
     
-    func saveUserPizzaToFirestore(description: String, imageURL: String, viewController: UIViewController?) {
+    func saveUserPizzaToFirestore(description: String, imageURL: String/*, viewController: UIViewController?*/) {
         
         let uuid = UUID().uuidString
         
@@ -95,14 +96,15 @@ struct FirestoreManager {
                         print(e.localizedDescription)
                     }
                     else {
-                        viewController?.dismiss(animated: true, completion: nil)
+                        //viewController?.dismiss(animated: true, completion: nil)
                     }
                 }
             }
         }
     }
     
-    func readUserPizzaFromFirestore() {
+    /*func readUserPizzaFromFirestore() {
+        
         
         db.collection("users pizza").getDocuments() { (querySnapshot, err) in
             if let err = err {
@@ -120,6 +122,57 @@ struct FirestoreManager {
                                 // A `DoughProperties` value was successfully initialized from the DocumentSnapshot.
                                 //print("Dough: \(dough)")
                                 //delegate?.readData(retrievedData: dough)
+                                var userPizzaItem = UserPizzaItem()
+                                userPizzaItem.downloadURL = userPizza.downloadURL
+                                userPizzaItem.description = userPizza.description
+                                userPizzaItem.userID = userPizza.userID
+                                delegate?.readUserPizza(retrievedData: userPizzaItem)
+                                //array.append(userPizzaItem)
+                                
+                            } else {
+                                // A nil value was successfully initialized from the DocumentSnapshot,
+                                // or the DocumentSnapshot was nil.
+                                //delegate?.emptyData()
+                            }
+                        case .failure(let error):
+                            // A `DoughProperties` value could not be initialized from the DocumentSnapshot.
+                            print(error.localizedDescription)
+                        }
+                    
+                }
+            }
+        }
+    }*/
+    
+    func readUserPizzaFromFirestore(collectionView: UICollectionView) {
+        
+        pizzas = []
+        
+        db.collection("users pizza").addSnapshotListener { (querySnapshot, error) in
+            if let err = error {
+                print("Error getting documents: \(err)")
+            } else {
+                pizzas = []
+                for document in querySnapshot!.documents {
+                    //print("\(document.documentID) => \(document.data())")
+                    
+                    let result = Result {
+                        try document.data(as: UserPizzaPropertiesData.self)
+                        }
+                        switch result {
+                        case .success(let userPizzaProperties):
+                            if let userPizza = userPizzaProperties {
+                                // A `DoughProperties` value was successfully initialized from the DocumentSnapshot.
+                                //print("Dough: \(dough)")
+                                //delegate?.readData(retrievedData: dough)
+                                var userPizzaItem = UserPizzaItem()
+                                userPizzaItem.downloadURL = userPizza.downloadURL
+                                userPizzaItem.description = userPizza.description
+                                userPizzaItem.userID = userPizza.userID
+                                pizzas.append(userPizzaItem)
+                                collectionView.reloadData()
+                                //delegate?.readUserPizza(retrievedData: userPizzaItem)
+                                //array.append(userPizzaItem)
                                 
                             } else {
                                 // A nil value was successfully initialized from the DocumentSnapshot,

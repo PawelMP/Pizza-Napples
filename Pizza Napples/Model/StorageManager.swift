@@ -31,7 +31,7 @@ struct StorageManager {
         let storageReference = storage.reference()
         let imagesReference = storageReference.child("images/\(uuid).png")
         
-        guard let imageData = image.jpegData(compressionQuality: 1) else {
+        guard let imageData = image.jpegData(compressionQuality: 0.5) else {
             return
         }
         // Upload the file to the path "images/rivers.jpg"

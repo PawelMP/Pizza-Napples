@@ -7,8 +7,14 @@
 //
 
 import UIKit
+import FirebaseUI
+import Firebase
+
+var pizzas: [UserPizzaItem] = []
 
 class UsersPizzasCollectionViewController: UICollectionViewController, UINavigationControllerDelegate {
+    
+    //var pizzas: [UserPizzaItem] = []
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -27,10 +33,25 @@ class UsersPizzasCollectionViewController: UICollectionViewController, UINavigat
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //FirestoreManager.shared.delegate = self
+        FirestoreManager.shared.readUserPizzaFromFirestore(collectionView: collectionView)
+        
+        
+        
+        /*let itemSize = UIScreen.main.bounds.width/2 - 3
 
-        //if let flowLayout = collectionView?.collectionViewLayout as? //UICollectionViewFlowLayout {
-        //  flowLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
-        //}
+         let layout = UICollectionViewFlowLayout()
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+         layout.itemSize = CGSize(width: itemSize, height: itemSize)
+
+         layout.minimumInteritemSpacing = 3
+         layout.minimumLineSpacing = 3
+
+         collectionView.collectionViewLayout = layout*/
+        
+        /*if let flowLayout = collectionView?.collectionViewLayout as? UICollectionViewFlowLayout {
+          flowLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
+        }*/
         
         
         
@@ -41,10 +62,13 @@ class UsersPizzasCollectionViewController: UICollectionViewController, UINavigat
         self.collectionView!.register(.init(nibName: UserPizzaCollectionViewCell.nibName, bundle: nil), forCellWithReuseIdentifier: UserPizzaCollectionViewCell.cellIdentifier)
         
         if let collectionViewLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-            collectionViewLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
+            //collectionView.translatesAutoresizingMaskIntoConstraints = false
+            //collectionViewLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
+            
             collectionViewLayout.sectionInset = UIEdgeInsets(top: 5, left: 5, bottom: 0, right: 5)
             collectionViewLayout.minimumLineSpacing = 5
             collectionViewLayout.minimumInteritemSpacing = 5
+            
             //collectionViewLayout.itemSize = CGSize(width: (self.collectionView.frame.width)/3, height: (self.collectionView.frame.width)/3)
         }
         // Do any additional setup after loading the view.
@@ -73,15 +97,15 @@ class UsersPizzasCollectionViewController: UICollectionViewController, UINavigat
     
     // MARK: UICollectionViewDataSource
     
-    override func numberOfSections(in collectionView: UICollectionView) -> Int {
+    /*override func numberOfSections(in collectionView: UICollectionView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 2
-    }
+        return 1
+    }*/
     
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 5
+        return pizzas.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -90,7 +114,10 @@ class UsersPizzasCollectionViewController: UICollectionViewController, UINavigat
         }
         
         // Configure the cell
-        cell.textLabel.text = "LOL"
+        let reference = Storage.storage().reference(forURL: pizzas[indexPath.row].downloadURL!)
+        let placeholderImage = UIImage(named: pizzas[indexPath.row].userID ?? "no data" + ".jpg")
+        cell.imageView.sd_setImage(with: reference, placeholderImage: placeholderImage)
+        cell.textLabel.text = pizzas[indexPath.row].userID
         //cell.backgroundColor = UIColor.red
         return cell
     }
@@ -133,15 +160,30 @@ class UsersPizzasCollectionViewController: UICollectionViewController, UINavigat
 }
 
 extension UsersPizzasCollectionViewController: UICollectionViewDelegateFlowLayout {
-    /*func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
      //return CGSize(width: 150, height: 150)
      //return CGSize(width: collectionView.frame.width, height: UserPizzaCollectionViewCell.)
      //return CGSize(width: self.view.frame.width / 3 - 100 , height: collectionView.frame.size.height - 100)
      
      //return CGSize(width: collectionView.frame.width/3, height: collectionView.frame.height - 100)
-     let yourWidth = collectionView.bounds.width/3.0
-     let yourHeight = yourWidth
-     return CGSize(width: yourWidth, height: yourHeight)
-     }*/
+     /*let yourWidth = UIScreen.main.bounds.size.width/3-7.5
+     let yourHeight = UIScreen.main.bounds.size.width/3-7.5
+     return CGSize(width: yourWidth, height: yourHeight)*/
+        
+        let width  = (view.frame.width/3-7.5)
+        return CGSize(width: width, height: width)
+     }
     
 }
+
+/*extension UsersPizzasCollectionViewController: FirestoreManagerDelegate {
+    func readData(retrievedData: DoughProperties) {
+    }
+    
+    func readUserPizza(retrievedData: UserPizzaItem) {
+        pizzas.append(retrievedData)
+        collectionView.reloadData()
+    }
+    
+    
+}*/
