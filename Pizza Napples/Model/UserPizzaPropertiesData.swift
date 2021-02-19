@@ -8,6 +8,7 @@
 
 import UIKit
 
+//Struct for sending and receiving users pizza data from firestore
 struct UserPizzaPropertiesData: Codable {
     
     let downloadURL: String

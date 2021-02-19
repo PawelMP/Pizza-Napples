@@ -41,18 +41,21 @@ class DoughCell: UITableViewCell, UITextFieldDelegate {
 
     }
     
+    //Show error values
     func showError () {
         errorLabel.alpha = 1
         textField.borderColor = UIColor.red
         label.textColor = UIColor.red
     }
     
+    //Hide error values
     func hideError () {
         errorLabel.alpha = 0
         textField.borderColor = UIColor(red: 0.25, green: 0.27, blue: 0.29, alpha: 1.00)
         label.textColor = UIColor(red: 0.25, green: 0.27, blue: 0.29, alpha: 1.00)
     }
     
+    //Setup dough cell
     func setupCell (with item: CalculatorBrain, for indexPath: IndexPath) {
         if indexPath.section == 0 {
             label.text = item.doughProportions[indexPath.row].description

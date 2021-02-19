@@ -7,17 +7,18 @@
 //
 
 import UIKit
+import FirebaseUI
 
 class UserPizzaCell: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var mainView: UIView!
     
     class var cellIdentifier: String {
-        return "ReusableUserPizzaCell"
+        return K.UserPizzaCell.cellIdentifier
     }
     
     class var nibName: String {
-        return "UserPizzaCollectionViewCell"
+        return K.UserPizzaCell.cellNibName
     }
     
     
@@ -29,6 +30,13 @@ class UserPizzaCell: UICollectionViewCell {
         imageView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.size.width/3-7.5).isActive = true
         imageView.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.size.width/3-7.5).isActive = true
         
+    }
+    
+    //Setup cell with pizzas data
+    func setupCell(for indexPath: IndexPath) {
+        let reference = Storage.storage().reference(forURL: pizzas[indexPath.row].downloadURL!)
+        let placeholderImage = UIImage(named: pizzas[indexPath.row].userID ?? K.noData + K.Storage.dot + K.Storage.png)
+        imageView.sd_setImage(with: reference, placeholderImage: placeholderImage)
     }
 
 }

@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-//Firebase manager class
+//Firebase manager singleton
 struct FirebaseManager {
     static let shared = FirebaseManager()
     
@@ -21,12 +21,12 @@ struct FirebaseManager {
         if let givenEmail = email, let givenPassword = password {
             Auth.auth().createUser(withEmail: givenEmail, password: givenPassword) { authResult, error in
                 
-                if let e = error {
+                if let err = error {
                     let alert = TextAlert()
-                    alert.CreateAlert(text: e.localizedDescription, viewController: viewController)
+                    alert.CreateAlert(text: err.localizedDescription, viewController: viewController)
                 }
                 else {
-                    viewController.performSegue(withIdentifier: K.Firebase.registerToApp, sender: viewController)
+                    viewController.performSegue(withIdentifier: K.segues.registerToApp, sender: viewController)
                 }
             }
         }
@@ -38,13 +38,13 @@ struct FirebaseManager {
         if let givenEmail = email, let givenPassword = password {
             Auth.auth().signIn(withEmail: givenEmail, password: givenPassword) { authResult, error in
                 
-                if let e = error {
+                if let err = error {
                     let alert = TextAlert()
-                    alert.CreateAlert(text: e.localizedDescription, viewController: viewController)
+                    alert.CreateAlert(text: err.localizedDescription, viewController: viewController)
                     
                 }
                 else {
-                    viewController.performSegue(withIdentifier: K.Firebase.loginToApp, sender: viewController)
+                    viewController.performSegue(withIdentifier: K.segues.loginToApp, sender: viewController)
                 }
             }
         }

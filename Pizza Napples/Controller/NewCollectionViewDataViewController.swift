@@ -9,64 +9,65 @@
 import UIKit
 
 class NewCollectionViewDataViewController: UIViewController {
+    
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var descriptionTextView: UITextView!
+    @IBOutlet weak var OKButton: UIBarButtonItem!
     
     var photosManager = PhotosManager()
-    @IBOutlet weak var OKButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         photosManager.imagePicker.delegate = self
         
+        //Create tap recognizer to handle image tapping
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
         imageView.isUserInteractionEnabled = true
         imageView.addGestureRecognizer(tapGestureRecognizer)
-        // Do any additional setup after loading the view.
     }
     
+    //If image is tapped
     @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer)
     {
-        //let tappedImage = tapGestureRecognizer.view as! UIImageView
         photosManager.presentAlert(viewController: self)
-        // Your action
     }
     
+    //Cancel button is pressed
     @IBAction func cancelButtonPressed(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true, completion: nil)
     }
+    
+    //OK button is pressed
     @IBAction func OKButtonPressed(_ sender: UIBarButtonItem) {
         
+        //If text is empty create alert
         if descriptionTextView.text.isEmpty == true {
             let alert = TextAlert()
-            alert.CreateAlert(text: "Please write a description", viewController: self)
+            alert.CreateAlert(text: K.pleaseWriteDescription, viewController: self)
             return
         }
         
+        //If description != nil upload image to storage and save data to firestore
         if let image = imageView.image, let description = descriptionTextView.text {
-            StorageManager.shared.test(image: image, completionHandler: { result in
+            StorageManager.shared.uploadImage(image: image, completionHandler: { result in
                 FirestoreManager.shared.saveUserPizzaToFirestore(description: description, imageURL: result)
             })
         }
         self.dismiss(animated: true, completion: nil)
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 
+//MARK: - Image picker delegate
 extension NewCollectionViewDataViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    //If image was succesfully picked do
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        if let image = info[UIImagePickerController.InfoKey(rawValue: "UIImagePickerControllerEditedImage")] {
-            //imageView.backgroundColor = UIColor(red: 0.96, green: 0.96, blue: 0.90, alpha: 1.00)
+        
+        //Get image from info
+        if let image = info[UIImagePickerController.InfoKey(rawValue: K.pickerControllerEditedImage)] {
+
+            //Set image in view and enable button
             imageView.image = image as? UIImage
             OKButton.isEnabled = true
             

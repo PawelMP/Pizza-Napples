@@ -8,6 +8,7 @@
 
 import Foundation
 
+//Struct for holding user pizza data retrieved from firestore
 struct UserPizzaItem {
     var downloadURL: String?
     var description: String?

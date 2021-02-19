@@ -9,10 +9,22 @@
 import Foundation
 
 struct K {
-    //static let doneText = "Done"
+
     static let futura = "Futura"
     static let pizzaNapplesName = "🍕 Pizza Napples 🍕"
     static let modifyProportionsButtonName = " Modify proportions "
+    static let usersPizzas = "Users pizzas"
+    static let pleaseWriteDescription = "Please write a description"
+    static let pickerControllerEditedImage = "UIImagePickerControllerEditedImage"
+    static let noData = "no data"
+    static let author = "Author: "
+    
+    struct segues {
+        static let registerToApp = "RegisterToApp"
+        static let loginToApp = "LoginToApp"
+        static let usersPizzasToAddNewPhoto = "usersPizzasToAddNewPhoto"
+        static let toPizzaDetails = "toPizzaDetails"
+    }
     
     struct CalculatorBrain {
         static let doughProportions = "Dough proportions"
@@ -21,13 +33,28 @@ struct K {
         static let totalGrowthTime = "Total growth time [h]"
     }
     
-    struct Firebase {
-        static let registerToApp = "RegisterToApp"
-        static let loginToApp = "LoginToApp"
-    }
-    
     struct Firestore {
         static let usersDough = "users dough"
+        static let usersPizza = "users pizza"
+        static let at = "@"
+    }
+    
+    struct Storage {
+        static let images = "images"
+        static let slash = "/"
+        static let dot = "."
+        static let png = "png"
+    }
+    
+    struct PhotosManager {
+        static let chooseImage = "Choose Image"
+        static let camera = "Camera"
+        static let gallery = "Gallery"
+        static let cancel = "Cancel"
+        static let warning = "Warning"
+        static let noCamera = "You don't have camera"
+        static let noPermissionPhotoLibrary = "No permission to open photo library"
+        static let ok = "OK"
     }
     
     struct TextAlert {
@@ -51,6 +78,11 @@ struct K {
     struct DoughCell {
         static let cellIdentifier = "ReusableDoughCell"
         static let cellNibName = "DoughCell"
+    }
+    
+    struct UserPizzaCell {
+        static let cellIdentifier = "ReusableUserPizzaCell"
+        static let cellNibName = "UserPizzaCell"
     }
     
     struct postfixes {

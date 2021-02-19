@@ -12,21 +12,24 @@ struct PhotosManager {
     
     var imagePicker : UIImagePickerController = UIImagePickerController()
     
+    //Create alert and present it
     func presentAlert(viewController: UIViewController) {
-        let alert = UIAlertController(title: "Choose Image", message: nil, preferredStyle: .actionSheet)
-        alert.addAction(UIAlertAction(title: "Camera", style: .default, handler: { _ in
+        let alert = UIAlertController(title: K.PhotosManager.chooseImage, message: nil, preferredStyle: .actionSheet)
+        
+        alert.addAction(UIAlertAction(title: K.PhotosManager.camera, style: .default, handler: { _ in
             self.openCamera(viewController: viewController)
         }))
         
-        alert.addAction(UIAlertAction(title: "Gallery", style: .default, handler: { _ in
+        alert.addAction(UIAlertAction(title: K.PhotosManager.gallery, style: .default, handler: { _ in
             self.openGallery(viewController: viewController)
         }))
         
-        alert.addAction(UIAlertAction.init(title: "Cancel", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction.init(title: K.PhotosManager.cancel, style: .cancel, handler: nil))
         
         viewController.present(alert, animated: true, completion: nil)
     }
     
+    //Open camera
     func openCamera(viewController: UIViewController)
     {
         if(UIImagePickerController .isSourceTypeAvailable(UIImagePickerController.SourceType.camera))
@@ -37,12 +40,13 @@ struct PhotosManager {
         }
         else
         {
-            let alert  = UIAlertController(title: "Warning", message: "You don't have camera", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            let alert  = UIAlertController(title: K.PhotosManager.warning, message: K.PhotosManager.noCamera, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: K.PhotosManager.ok, style: .default, handler: nil))
             viewController.present(alert, animated: true, completion: nil)
         }
     }
     
+    //Open gallery
     func openGallery(viewController: UIViewController)
     {
         if(UIImagePickerController .isSourceTypeAvailable(UIImagePickerController.SourceType.photoLibrary))
@@ -52,8 +56,8 @@ struct PhotosManager {
             viewController.present(imagePicker, animated: true, completion: nil)
         }
         else {
-            let alert  = UIAlertController(title: "Warning", message: "No permission to open photo library", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            let alert  = UIAlertController(title: K.PhotosManager.warning, message: K.PhotosManager.noPermissionPhotoLibrary, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: K.PhotosManager.ok, style: .default, handler: nil))
             viewController.present(alert, animated: true, completion: nil)
         }
     }

@@ -23,13 +23,32 @@ class DoughTableViewController: UITableViewController {
         super.viewWillAppear(true)
         
         //Setup table view
-        calculatorBrain.setupTableView(tableView: tableView)
+        setupTableView()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
+    //Setup tableview
+    func setupTableView() {
+        tableView.separatorStyle = .none
+        tableView.backgroundColor = UIColor(red: 0.96, green: 0.96, blue: 0.90, alpha: 1.00)
+        
+        //Stop the table view headers from floating
+        let dummyViewHeight = CGFloat(40)
+        tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: dummyViewHeight))
+        tableView.contentInset = UIEdgeInsets(top: -dummyViewHeight, left: 0, bottom: 0, right: 0)
+        
+        //Make next/previous button on toolbar scroll to row
+        tableView.estimatedRowHeight = 1
+        
+        //Register custom cell
+        tableView.register(UINib(nibName: DoughCell.cellNibName, bundle: nil), forCellReuseIdentifier: DoughCell.cellIdentifier)
+    }
+    
 }
+
     // MARK: - Table view data source
 extension DoughTableViewController {
     
@@ -71,13 +90,24 @@ extension DoughTableViewController {
     //Configure headerview
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
        let header = view as! UITableViewHeaderFooterView
-       calculatorBrain.configureHeaderView(for: header)
+       configureHeaderView(for: header)
    }
    
    //Configure header height
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-       calculatorBrain.configureHeaderHeight()
+       configureHeaderHeight()
    }
+    
+    //Configre the header view
+    func configureHeaderView (for header: UITableViewHeaderFooterView) {
+        header.textLabel?.font = UIFont(name: K.futura, size: 20)!
+        header.contentView.backgroundColor = UIColor(red: 0.96, green: 0.96, blue: 0.90, alpha: 1.00)
+    }
+    
+    //Configure header height
+    func configureHeaderHeight () -> CGFloat {
+        return 50
+    }
 
 }
 //MARK: - Textfield delegate and methods

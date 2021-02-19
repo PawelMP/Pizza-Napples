@@ -34,6 +34,8 @@ class DoughCalculatorViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
+        //Hide navigation bar title
+        self.tabBarController?.navigationItem.title = ""
         //Hide "add" button"
         self.tabBarController?.navigationItem.rightBarButtonItem = nil
         
@@ -51,10 +53,7 @@ class DoughCalculatorViewController: UIViewController {
 }
 //MARK: - Firestore Manager Delegate
 extension DoughCalculatorViewController: FirestoreManagerDelegate {
-    
-    func readUserPizza(retrievedData: UserPizzaItem) {
-    }
-    
+
     func readData(retrievedData: DoughProperties) {
         
         //Calculate ingredients

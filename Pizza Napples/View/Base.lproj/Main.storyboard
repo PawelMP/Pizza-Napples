@@ -17,6 +17,9 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cAi-jX-72A">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.25490196079999999" green="0.2666666667" blue="0.29411764709999999" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="EmD-n1-p1x"/>
@@ -151,6 +154,93 @@
             </objects>
             <point key="canvasLocation" x="641" y="319"/>
         </scene>
+        <!--Pizza Details View Controller-->
+        <scene sceneID="kK6-zt-kbV">
+            <objects>
+                <viewController id="5OS-CG-vy0" customClass="PizzaDetailsViewController" customModule="Pizza_Napples" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cp2-Pv-N83">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3mZ-La-UAU">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="raX-qd-jGk">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="YSI-wh-mfh">
+                                                <rect key="frame" x="0.0" y="30" width="414" height="724"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YJB-XW-lv9">
+                                                        <rect key="frame" x="20" y="0.0" width="374" height="42"/>
+                                                        <color key="backgroundColor" red="0.96470588239999999" green="0.95686274510000002" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="20"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="0.0"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </label>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hHR-vG-ZMv">
+                                                        <rect key="frame" x="0.0" y="42" width="414" height="682"/>
+                                                    </imageView>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="hHR-vG-ZMv" firstAttribute="leading" secondItem="YSI-wh-mfh" secondAttribute="leading" id="4fH-nE-Oi2"/>
+                                                    <constraint firstAttribute="trailing" secondItem="hHR-vG-ZMv" secondAttribute="trailing" id="7um-Mf-9KR"/>
+                                                    <constraint firstItem="hHR-vG-ZMv" firstAttribute="top" secondItem="YJB-XW-lv9" secondAttribute="bottom" id="HX6-I1-1pS"/>
+                                                    <constraint firstItem="YJB-XW-lv9" firstAttribute="leading" secondItem="YSI-wh-mfh" secondAttribute="leading" constant="20" id="qiM-LV-RH0"/>
+                                                    <constraint firstAttribute="trailing" secondItem="YJB-XW-lv9" secondAttribute="trailing" constant="20" id="tdW-ze-Xpo"/>
+                                                </constraints>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.96470588239999999" green="0.95686274510000002" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="YSI-wh-mfh" firstAttribute="leading" secondItem="raX-qd-jGk" secondAttribute="leading" id="XqK-Mp-WfX"/>
+                                            <constraint firstAttribute="trailing" secondItem="YSI-wh-mfh" secondAttribute="trailing" id="c9q-mI-DEc"/>
+                                            <constraint firstAttribute="bottom" secondItem="YSI-wh-mfh" secondAttribute="bottom" constant="20" id="kNO-dZ-sgq"/>
+                                            <constraint firstItem="YSI-wh-mfh" firstAttribute="top" secondItem="raX-qd-jGk" secondAttribute="top" constant="30" id="uCZ-pv-tgn"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="raX-qd-jGk" firstAttribute="height" secondItem="3mZ-La-UAU" secondAttribute="height" id="04I-xP-95n"/>
+                                    <constraint firstItem="raX-qd-jGk" firstAttribute="leading" secondItem="3mZ-La-UAU" secondAttribute="leading" id="Bxo-Zy-95D"/>
+                                    <constraint firstAttribute="bottom" secondItem="raX-qd-jGk" secondAttribute="bottom" id="K5G-QF-EA6"/>
+                                    <constraint firstItem="raX-qd-jGk" firstAttribute="top" secondItem="3mZ-La-UAU" secondAttribute="top" id="SAk-0i-wcJ"/>
+                                    <constraint firstItem="raX-qd-jGk" firstAttribute="width" secondItem="3mZ-La-UAU" secondAttribute="width" id="aOg-Y0-zbg"/>
+                                    <constraint firstAttribute="trailing" secondItem="raX-qd-jGk" secondAttribute="trailing" id="exO-RH-R9P"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="7wO-As-nFB"/>
+                        <color key="backgroundColor" red="0.96470588239999999" green="0.95686274510000002" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="7wO-As-nFB" firstAttribute="bottom" secondItem="3mZ-La-UAU" secondAttribute="bottom" id="UlV-5U-FCs"/>
+                            <constraint firstItem="3mZ-La-UAU" firstAttribute="trailing" secondItem="7wO-As-nFB" secondAttribute="trailing" id="VEC-qU-KCP"/>
+                            <constraint firstItem="3mZ-La-UAU" firstAttribute="leading" secondItem="7wO-As-nFB" secondAttribute="leading" id="gpu-Vr-cGF"/>
+                            <constraint firstItem="3mZ-La-UAU" firstAttribute="top" secondItem="7wO-As-nFB" secondAttribute="top" id="wCS-Lu-203"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="v1t-5G-p96">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="chevron.backward" catalog="system" id="P7q-i1-qL9">
+                            <connections>
+                                <action selector="backButtonPressed:" destination="5OS-CG-vy0" id="jcl-Pi-tZe"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="imageView" destination="hHR-vG-ZMv" id="Jam-Od-lU8"/>
+                        <outlet property="scrollView" destination="3mZ-La-UAU" id="37d-ez-r1U"/>
+                        <outlet property="textLabel" destination="YJB-XW-lv9" id="J7E-Ip-TWI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WTV-8f-h53" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4439.130434782609" y="1059.375"/>
+        </scene>
         <!--Users pizzas-->
         <scene sceneID="kIt-ar-Ris">
             <objects>
@@ -183,11 +273,12 @@
                     <tabBarItem key="tabBarItem" title="Users pizzas" image="pizza" id="naf-cQ-7Hl"/>
                     <connections>
                         <segue destination="ra4-JM-vRo" kind="presentation" identifier="usersPizzasToAddNewPhoto" modalPresentationStyle="fullScreen" id="2il-qB-8ZD"/>
+                        <segue destination="PNf-9B-EcW" kind="presentation" identifier="toPizzaDetails" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="cxh-oR-8qL"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GJq-dx-zIi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2654" y="319"/>
+            <point key="canvasLocation" x="2636" y="659"/>
         </scene>
         <!--New Collection View Data View Controller-->
         <scene sceneID="ltl-VN-fgy">
@@ -226,7 +317,7 @@
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="200" id="sLy-Xu-uMt"/>
                                 </constraints>
                                 <color key="textColor" systemColor="labelColor"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -269,7 +360,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="omn-hK-1Qn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4439.130434782609" y="318.75"/>
+            <point key="canvasLocation" x="4439" y="319"/>
         </scene>
         <!--Dough calculator-->
         <scene sceneID="yFq-aF-6sx">
@@ -857,7 +948,26 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R3Q-l3-Cq3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3528.985507246377" y="318.75"/>
+            <point key="canvasLocation" x="3529" y="319"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="grW-t7-TcQ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="PNf-9B-EcW" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="MGy-kU-dbi"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="fjb-ge-fKN">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="5OS-CG-vy0" kind="relationship" relationship="rootViewController" id="W6B-T3-fW8"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zsl-Kl-OLr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3528.985507246377" y="1059.375"/>
         </scene>
     </scenes>
     <designables>
@@ -869,6 +979,7 @@
     <color key="tintColor" red="0.25490196078431371" green="0.26666666666666666" blue="0.29411764705882354" alpha="1" colorSpace="calibratedRGB"/>
     <resources>
         <image name="camera" width="170.66667175292969" height="170.66667175292969"/>
+        <image name="chevron.backward" catalog="system" width="96" height="128"/>
         <image name="dough" width="25" height="25"/>
         <image name="multiply" catalog="system" width="128" height="111"/>
         <image name="pizza" width="25" height="25"/>
