@@ -11,11 +11,16 @@ import UIKit
 struct TextAlert {
     
     //Create simple text alert
-    func CreateAlert(text: String, viewController: UIViewController) {
+    func createTextAlert(text: String, viewController: UIViewController) {
         let alert = UIAlertController(title: K.TextAlert.error, message: text, preferredStyle: .alert)
         
         alert.addAction(UIAlertAction(title: K.TextAlert.ok, style: .default, handler: { (UIAlertAction) in
+            //if alert is created in ForgotPasswordViewController dismiss it after clicking OK
+            if let forgotPasswordVC = viewController as? ForgotPasswordViewController {
+                forgotPasswordVC.dismiss(animated: true, completion: nil)
+            }
         }))
         viewController.present(alert, animated: true)
     }
+    
 }

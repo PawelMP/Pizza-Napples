@@ -18,12 +18,14 @@ struct K {
     static let pickerControllerEditedImage = "UIImagePickerControllerEditedImage"
     static let noData = "no data"
     static let author = "Author: "
+    static let pleaseTypeEmail = "Please type in your e-mail"
     
     struct segues {
-        static let registerToApp = "RegisterToApp"
-        static let loginToApp = "LoginToApp"
+        static let registerToApp = "registerToApp"
+        static let loginToApp = "loginToApp"
         static let usersPizzasToAddNewPhoto = "usersPizzasToAddNewPhoto"
         static let toPizzaDetails = "toPizzaDetails"
+        static let userLoggedToApp = "userLoggedToApp"
     }
     
     struct CalculatorBrain {
@@ -33,10 +35,15 @@ struct K {
         static let totalGrowthTime = "Total growth time [h]"
     }
     
+    struct Firebase {
+        static let passwordResetSent = "Password reset sent to e-mail"
+    }
+    
     struct Firestore {
         static let usersDough = "users dough"
         static let usersPizza = "users pizza"
         static let at = "@"
+        static let date = "date"
     }
     
     struct Storage {
@@ -89,5 +96,6 @@ struct K {
         static let gram = "g"
         static let hour = "h"
         static let percent = "%"
+        static let blank = ""
     }
 }

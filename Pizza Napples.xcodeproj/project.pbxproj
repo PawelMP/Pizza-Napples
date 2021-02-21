@@ -29,6 +29,8 @@
 		D779E7A825B2E36C001077E5 /* CalculatorBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = D779E7A725B2E36C001077E5 /* CalculatorBrain.swift */; };
 		D779E7AF25B2E95D001077E5 /* DoughCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D779E7AD25B2E95D001077E5 /* DoughCell.swift */; };
 		D779E7B025B2E95D001077E5 /* DoughCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D779E7AE25B2E95D001077E5 /* DoughCell.xib */; };
+		D7817E0025E2925300FB34A7 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7817DFF25E2925300FB34A7 /* ForgotPasswordViewController.swift */; };
+		D7817E0925E2FABB00FB34A7 /* UserSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7817E0825E2FABB00FB34A7 /* UserSettingsTableViewController.swift */; };
 		D786311525D1CC0D00ED1414 /* DoughCalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D786311425D1CC0D00ED1414 /* DoughCalculatorViewController.swift */; };
 		D791DFA725DD129700223FBC /* UserPizzaPropertiesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D791DFA625DD129700223FBC /* UserPizzaPropertiesData.swift */; };
 		D794174B25DE7BB400EAC9F5 /* UserPizzaItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D794174A25DE7BB300EAC9F5 /* UserPizzaItem.swift */; };
@@ -74,6 +76,8 @@
 		D779E7A725B2E36C001077E5 /* CalculatorBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorBrain.swift; sourceTree = "<group>"; };
 		D779E7AD25B2E95D001077E5 /* DoughCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoughCell.swift; sourceTree = "<group>"; };
 		D779E7AE25B2E95D001077E5 /* DoughCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DoughCell.xib; sourceTree = "<group>"; };
+		D7817DFF25E2925300FB34A7 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		D7817E0825E2FABB00FB34A7 /* UserSettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingsTableViewController.swift; sourceTree = "<group>"; };
 		D786311425D1CC0D00ED1414 /* DoughCalculatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoughCalculatorViewController.swift; sourceTree = "<group>"; };
 		D791DFA625DD129700223FBC /* UserPizzaPropertiesData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPizzaPropertiesData.swift; sourceTree = "<group>"; };
 		D794174A25DE7BB300EAC9F5 /* UserPizzaItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPizzaItem.swift; sourceTree = "<group>"; };
@@ -183,7 +187,9 @@
 			children = (
 				D7348DC025B0EE3F008BD961 /* WelcomeViewController.swift */,
 				D71FAC1025B1E561002DFAB8 /* LoginViewController.swift */,
+				D7817DFF25E2925300FB34A7 /* ForgotPasswordViewController.swift */,
 				D71FAC1325B1E56C002DFAB8 /* RegisterViewController.swift */,
+				D7817E0825E2FABB00FB34A7 /* UserSettingsTableViewController.swift */,
 				D7127F0725B1FB6F00FFEFBC /* MainViewController.swift */,
 				D786311425D1CC0D00ED1414 /* DoughCalculatorViewController.swift */,
 				D7BD045625CAFAC700D2490A /* DoughViewController.swift */,
@@ -342,6 +348,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7817E0025E2925300FB34A7 /* ForgotPasswordViewController.swift in Sources */,
 				D7BD045725CAFAC700D2490A /* DoughViewController.swift in Sources */,
 				D779E7A825B2E36C001077E5 /* CalculatorBrain.swift in Sources */,
 				D7C1475A25DFB17F00AE9F0C /* PizzaDetailsViewController.swift in Sources */,
@@ -350,6 +357,7 @@
 				D751D03F25B30FA00069F31C /* TextAlert.swift in Sources */,
 				D71FAC1125B1E561002DFAB8 /* LoginViewController.swift in Sources */,
 				D7BD043F25CAE7DB00D2490A /* DoughTableViewController.swift in Sources */,
+				D7817E0925E2FABB00FB34A7 /* UserSettingsTableViewController.swift in Sources */,
 				D7CFF9E125D5675500729426 /* UsersPizzasCollectionViewController.swift in Sources */,
 				D786311525D1CC0D00ED1414 /* DoughCalculatorViewController.swift in Sources */,
 				D791DFA725DD129700223FBC /* UserPizzaPropertiesData.swift in Sources */,

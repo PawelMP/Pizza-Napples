@@ -43,7 +43,7 @@ class NewCollectionViewDataViewController: UIViewController {
         //If text is empty create alert
         if descriptionTextView.text.isEmpty == true {
             let alert = TextAlert()
-            alert.CreateAlert(text: K.pleaseWriteDescription, viewController: self)
+            alert.createTextAlert(text: K.pleaseWriteDescription, viewController: self)
             return
         }
         

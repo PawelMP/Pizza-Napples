@@ -59,13 +59,14 @@ extension DoughCalculatorViewController: FirestoreManagerDelegate {
         //Calculate ingredients
         let readyData = doughIngredients.getIngredients(doughProperties: retrievedData)
         
+        //Set labels with data
         setLabel(with: K.DoughEquations.flour, postfix: K.postfixes.gram, data: readyData, label: flourLabel)
         setLabel(with: K.DoughEquations.water, postfix: K.postfixes.gram, data: readyData, label: waterLabel)
         setLabel(with: K.DoughEquations.yeast, postfix: K.postfixes.gram, data: readyData, label: yeastLabel)
         setLabel(with: K.DoughEquations.salt, postfix: K.postfixes.gram, data: readyData, label: saltLabel)
         setLabel(with: K.DoughEquations.fat, postfix: K.postfixes.gram, data: readyData, label: fatLabel)
         setLabel(with: K.DoughEquations.ballWeight, postfix: K.postfixes.gram, data: readyData, label: ballWeightLabel)
-        setLabel(with: K.DoughEquations.portions, postfix: K.postfixes.gram, data: readyData, label: portionsLabel)
+        setLabel(with: K.DoughEquations.portions, postfix: K.postfixes.blank, data: readyData, label: portionsLabel)
         setLabel(with: K.DoughEquations.hydration, postfix: K.postfixes.percent, data: readyData, label: hydrationLabel)
         setLabel(with: K.DoughEquations.roomTime, postfix: K.postfixes.hour, data: readyData, label: roomLabel)
         setLabel(with: K.DoughEquations.fridgeTime, postfix: K.postfixes.hour, data: readyData, label: fridgeLabel)

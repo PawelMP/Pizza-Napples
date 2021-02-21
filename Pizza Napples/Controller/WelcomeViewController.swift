@@ -12,8 +12,14 @@ import CLTypingLabel
 class WelcomeViewController: UIViewController {
     @IBOutlet weak var titleLabel: CLTypingLabel!
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        FirebaseManager.shared.checkForLoggedUser(viewController: self)
         titleLabel.adjustsFontSizeToFitWidth = true
         titleLabel.text = K.pizzaNapplesName
     }

@@ -14,11 +14,13 @@ struct UserPizzaPropertiesData: Codable {
     let downloadURL: String
     let description: String
     let userID: String
+    let date: Double
     
     enum CodingKeys: String, CodingKey {
         case downloadURL
         case description
         case userID
+        case date
     }
     
     var dictionary: [String: Any] {

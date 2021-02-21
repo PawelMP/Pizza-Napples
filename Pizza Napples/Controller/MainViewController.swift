@@ -18,7 +18,7 @@ class MainViewController: UITabBarController {
     
     //Logout user from firebase
     @IBAction func logoutButtonPressed(_ sender: UIBarButtonItem) {
-        FirebaseManager.shared.logoutUser(viewController: self)
+        //FirebaseManager.shared.logoutUser(viewController: self)
     }
 
 }

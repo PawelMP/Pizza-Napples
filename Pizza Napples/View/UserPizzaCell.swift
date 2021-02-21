@@ -32,6 +32,10 @@ class UserPizzaCell: UICollectionViewCell {
         
     }
     
+    override func prepareForReuse() {
+        imageView.image = nil
+    }
+    
     //Setup cell with pizzas data
     func setupCell(for indexPath: IndexPath) {
         let reference = Storage.storage().reference(forURL: pizzas[indexPath.row].downloadURL!)

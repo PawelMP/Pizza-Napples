@@ -23,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print(db)
         print(storage)
         IQKeyboardManager.shared().isEnabled = true
+        
         return true
     }
 

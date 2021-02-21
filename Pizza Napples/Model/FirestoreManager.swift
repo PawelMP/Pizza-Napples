@@ -93,7 +93,7 @@ struct FirestoreManager {
                 let substring = word.prefix(upTo: index)
                 email = String(substring)
                 
-                let userPizzaPropertiesData = UserPizzaPropertiesData(downloadURL: imageURL, description: description, userID: email)
+                let userPizzaPropertiesData = UserPizzaPropertiesData(downloadURL: imageURL, description: description, userID: email, date: Date().timeIntervalSince1970)
                 
                 db.collection(K.Firestore.usersPizza).document(uuid).setData(userPizzaPropertiesData.dictionary) { (error) in
                     if let err = error {
@@ -113,15 +113,15 @@ struct FirestoreManager {
         pizzas = []
         
         //Read document and listen for changes in a collection
-        db.collection(K.Firestore.usersPizza).addSnapshotListener { (querySnapshot, error) in
+        db.collection(K.Firestore.usersPizza).order(by: K.Firestore.date).addSnapshotListener { (querySnapshot, error) in
             if let err = error {
                 print(err.localizedDescription)
             } else {
                 //Clear pizzas array
                 pizzas = []
                 
-                //
-                for document in querySnapshot!.documents {
+                //Read all data but reversed to show newest files at the top of collection view
+                for document in querySnapshot!.documents.reversed() {
                     
                     let result = Result {
                         //Decode data as UserPizzaPropertiesData
