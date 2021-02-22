@@ -87,21 +87,21 @@ struct FirestoreManager {
         //Create unique ID
         let uuid = UUID().uuidString
         
-        let email: String
-        if let word = Auth.auth().currentUser?.email {
-            if let index = word.range(of: K.Firestore.at)?.lowerBound {
-                let substring = word.prefix(upTo: index)
-                email = String(substring)
-                
-                let userPizzaPropertiesData = UserPizzaPropertiesData(downloadURL: imageURL, description: description, userID: email, date: Date().timeIntervalSince1970)
-                
-                db.collection(K.Firestore.usersPizza).document(uuid).setData(userPizzaPropertiesData.dictionary) { (error) in
-                    if let err = error {
-                        print(err.localizedDescription)
-                    }
-                    else {
-                    }
+        //let email: String
+        if let username = Auth.auth().currentUser?.displayName {
+            //if let index = word.range(of: K.Firestore.at)?.lowerBound {
+            //let substring = word.prefix(upTo: index)
+            //email = String(substring)
+            
+            let userPizzaPropertiesData = UserPizzaPropertiesData(downloadURL: imageURL, description: description, username: username, date: Date().timeIntervalSince1970)
+            
+            db.collection(K.Firestore.usersPizza).document(uuid).setData(userPizzaPropertiesData.dictionary) { (error) in
+                if let err = error {
+                    print(err.localizedDescription)
                 }
+                else {
+                }
+                //}
             }
         }
     }
@@ -134,7 +134,7 @@ struct FirestoreManager {
                                 var userPizzaItem = UserPizzaItem()
                                 userPizzaItem.downloadURL = userPizza.downloadURL
                                 userPizzaItem.description = userPizza.description
-                                userPizzaItem.userID = userPizza.userID
+                                userPizzaItem.username = userPizza.username
                                 pizzas.append(userPizzaItem)
                                 collectionView.reloadData()
                                 

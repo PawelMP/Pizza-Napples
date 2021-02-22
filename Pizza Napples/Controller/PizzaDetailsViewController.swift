@@ -36,14 +36,14 @@ class PizzaDetailsViewController: UIViewController {
     func setupContent() {
         
         //Set navigation bar title
-        navigationItem.title = K.author + (pizzaItem.userID ?? K.noData)
+        navigationItem.title = K.author + (pizzaItem.username ?? K.noData)
         
         //Set description
         textLabel.text = pizzaItem.description ?? K.noData
         
         //Set image
         let reference = Storage.storage().reference(forURL: pizzaItem.downloadURL!)
-        let placeholderImage = UIImage(named: pizzaItem.userID ?? K.noData + K.Storage.dot + K.Storage.png)
+        let placeholderImage = UIImage(named: pizzaItem.username ?? K.noData + K.Storage.dot + K.Storage.png)
         imageView.sd_setImage(with: reference, placeholderImage: placeholderImage)
     }
 

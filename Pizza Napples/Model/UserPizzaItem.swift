@@ -12,5 +12,5 @@ import Foundation
 struct UserPizzaItem {
     var downloadURL: String?
     var description: String?
-    var userID: String?
+    var username: String?
 }

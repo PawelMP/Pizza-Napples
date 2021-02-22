@@ -16,6 +16,8 @@ class UsersPizzasCollectionViewController: UICollectionViewController, UINavigat
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         self.tabBarController?.navigationItem.title = K.usersPizzas
+        self.tabBarController?.navigationItem.leftBarButtonItem = nil
+        self.tabBarController?.navigationItem.hidesBackButton = true
         addViewItems()
         
     }

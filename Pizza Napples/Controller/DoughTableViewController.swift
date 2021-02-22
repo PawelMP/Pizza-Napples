@@ -100,7 +100,7 @@ extension DoughTableViewController {
     
     //Configre the header view
     func configureHeaderView (for header: UITableViewHeaderFooterView) {
-        header.textLabel?.font = UIFont(name: K.futura, size: 20)!
+        header.textLabel?.font = UIFont(name: K.markerFeltThin, size: 25)!
         header.contentView.backgroundColor = UIColor(red: 0.96, green: 0.96, blue: 0.90, alpha: 1.00)
     }
     

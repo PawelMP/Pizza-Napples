@@ -11,6 +11,7 @@ import Foundation
 struct K {
 
     static let futura = "Futura"
+    static let markerFeltThin = "Marker Felt Thin"
     static let pizzaNapplesName = "🍕 Pizza Napples 🍕"
     static let modifyProportionsButtonName = " Modify proportions "
     static let usersPizzas = "Users pizzas"
@@ -19,6 +20,7 @@ struct K {
     static let noData = "no data"
     static let author = "Author: "
     static let pleaseTypeEmail = "Please type in your e-mail"
+    static let pleaseTypeUsername = "Please type in your username"
     
     struct segues {
         static let registerToApp = "registerToApp"
@@ -26,6 +28,8 @@ struct K {
         static let usersPizzasToAddNewPhoto = "usersPizzasToAddNewPhoto"
         static let toPizzaDetails = "toPizzaDetails"
         static let userLoggedToApp = "userLoggedToApp"
+        static let toCreateUsername = "toCreateUsername"
+        static let toUserSettings = "toUserSettings"
     }
     
     struct CalculatorBrain {
@@ -90,6 +94,11 @@ struct K {
     struct UserPizzaCell {
         static let cellIdentifier = "ReusableUserPizzaCell"
         static let cellNibName = "UserPizzaCell"
+    }
+    
+    struct UserSettingsCell {
+        static let cellIdentifier = "ReusableUserSettingsCell"
+        static let cellNibName = "UserSettingsCell"
     }
     
     struct postfixes {

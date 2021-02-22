@@ -13,12 +13,7 @@ class MainViewController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //navigationItem.hidesBackButton = true
-    }
-    
-    //Logout user from firebase
-    @IBAction func logoutButtonPressed(_ sender: UIBarButtonItem) {
-        //FirebaseManager.shared.logoutUser(viewController: self)
+        FirebaseManager.shared.checkIfUserHasUsername(viewController: self)
     }
 
 }

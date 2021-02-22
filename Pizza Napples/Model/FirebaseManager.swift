@@ -79,13 +79,46 @@ struct FirebaseManager {
     //Check if user was/just logged in
     func checkForLoggedUser (viewController: UIViewController) {
         Auth.auth().addStateDidChangeListener { [weak viewController] (_, user) in
-                    if user != nil {
-                        // user is already logged in go to MainViewController
-                        viewController?.performSegue(withIdentifier: K.segues.userLoggedToApp, sender: self)
-                    } else {
-                        // user is not logged in
-                    }
+            if user != nil {
+                // user is already logged in go to MainViewController
+                viewController?.performSegue(withIdentifier: K.segues.userLoggedToApp, sender: self)
+            } else {
+                // user is not logged in
+            }
+        }
+    }
+    
+    //Check if user has username
+    func checkIfUserHasUsername (viewController: UIViewController) {
+        if let user = Auth.auth().currentUser {
+            //If user does not have user name - perform segue 
+            if user.displayName == nil {
+                viewController.performSegue(withIdentifier: K.segues.toCreateUsername, sender: self)
+            }
+        }
+        
+    }
+    
+    //Change user displayname
+    func changeUserDisplayName (to username: String?, viewController: UIViewController) {
+        //create change request
+        if let name = username {
+            let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
+            //change user display name
+            changeRequest?.displayName = name
+            changeRequest?.commitChanges { (error) in
+                //if error ocurred
+                if let err = error {
+                    let alert = TextAlert()
+                    alert.createTextAlert(text: err.localizedDescription, viewController: viewController)
+                    
                 }
+                //if there was no error
+                else {
+                    viewController.dismiss(animated: true, completion: nil)
+                }
+            }
+        }
     }
     
 }

@@ -39,7 +39,7 @@ class UserPizzaCell: UICollectionViewCell {
     //Setup cell with pizzas data
     func setupCell(for indexPath: IndexPath) {
         let reference = Storage.storage().reference(forURL: pizzas[indexPath.row].downloadURL!)
-        let placeholderImage = UIImage(named: pizzas[indexPath.row].userID ?? K.noData + K.Storage.dot + K.Storage.png)
+        let placeholderImage = UIImage(named: pizzas[indexPath.row].username ?? K.noData + K.Storage.dot + K.Storage.png)
         imageView.sd_setImage(with: reference, placeholderImage: placeholderImage)
     }
 

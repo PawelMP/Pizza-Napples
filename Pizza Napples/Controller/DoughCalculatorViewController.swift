@@ -39,9 +39,25 @@ class DoughCalculatorViewController: UIViewController {
         //Hide "add" button"
         self.tabBarController?.navigationItem.rightBarButtonItem = nil
         
+        addViewItems()
+        
         //Set FirestoreManager delegate and read data from firestore
         FirestoreManager.shared.delegate = self
         FirestoreManager.shared.readDoughFromFirestore()
+    }
+    
+    //Create view items
+    func addViewItems() {
+        //Add bar button item
+        let userSettingsButton = UIBarButtonItem(image: UIImage(systemName: "person.circle"), style: .plain, target: self, action: #selector(userSettingsButtonPressed(_:)))
+        //let userSettingsButton = UIBarButtonItem(barButtonSystemItem: .add , target: self, action: #selector(userSettingsButtonPressed(_:)))
+        //userSettingsButton.image = UIImage(systemName: "person.circle")
+        self.tabBarController?.navigationItem.leftBarButtonItem = userSettingsButton
+    }
+    
+    //Action for "Add" bar button
+    @objc func userSettingsButtonPressed(_ sender: UIBarButtonItem) {
+        performSegue(withIdentifier: K.segues.toUserSettings, sender: self)
     }
     
     //Set label with given text
