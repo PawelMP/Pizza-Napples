@@ -18,6 +18,9 @@ class NewCollectionViewDataViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationItem.title = "Display name: " + FirebaseManager.shared.getUserDisplayName()
+        
         photosManager.imagePicker.delegate = self
         
         //Create tap recognizer to handle image tapping
@@ -43,7 +46,7 @@ class NewCollectionViewDataViewController: UIViewController {
         //If text is empty create alert
         if descriptionTextView.text.isEmpty == true {
             let alert = TextAlert()
-            alert.createTextAlert(text: K.pleaseWriteDescription, viewController: self)
+            alert.createTextAlert(title: K.TextAlert.error, text: K.pleaseWriteDescription, viewController: self)
             return
         }
         

@@ -30,6 +30,9 @@ struct K {
         static let userLoggedToApp = "userLoggedToApp"
         static let toCreateUsername = "toCreateUsername"
         static let toUserSettings = "toUserSettings"
+        static let toReauthenticate = "toReauthenticate"
+        static let toPasswordChange = "toPasswordChange"
+        static let toPersonalDetails = "toPersonalDetails"
     }
     
     struct CalculatorBrain {
@@ -70,6 +73,7 @@ struct K {
     
     struct TextAlert {
         static let error = "Error"
+        static let success = "Success"
         static let ok = "Ok"
     }
     
@@ -99,6 +103,11 @@ struct K {
     struct UserSettingsCell {
         static let cellIdentifier = "ReusableUserSettingsCell"
         static let cellNibName = "UserSettingsCell"
+    }
+    
+    struct PersonalDetailsCell {
+        static let cellIdentifier = "ReusablePersonalDetailsCell"
+        static let cellNibName = "PersonalDetailsCell"
     }
     
     struct postfixes {

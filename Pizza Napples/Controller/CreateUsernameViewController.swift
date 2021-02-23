@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Firebase
 
 class CreateUsernameViewController: UIViewController {
 
@@ -22,7 +21,7 @@ class CreateUsernameViewController: UIViewController {
         //If textfield is empty create alert and return
         if usernameTextField.text?.isEmpty == true {
             let alert = TextAlert()
-            alert.createTextAlert(text: K.pleaseTypeUsername, viewController: self)
+            alert.createTextAlert(title: K.TextAlert.error, text: K.pleaseTypeUsername, viewController: self)
             return
         }
         //Set user display name

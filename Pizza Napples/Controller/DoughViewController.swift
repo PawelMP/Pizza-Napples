@@ -44,6 +44,7 @@ class DoughViewController: UIViewController {
     
     //Calculate button pressed
     @IBAction func calculateButtonPressed(_ sender: UIButton) {
+        calculateButton.isEnabled = false
         
         //Save dough properties to firestore
         FirestoreManager.shared.saveDoughToFirestore(calculatorBrain: doughTableViewController?.calculatorBrain, viewController: doughTableViewController)

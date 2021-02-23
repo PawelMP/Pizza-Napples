@@ -89,9 +89,6 @@ struct FirestoreManager {
         
         //let email: String
         if let username = Auth.auth().currentUser?.displayName {
-            //if let index = word.range(of: K.Firestore.at)?.lowerBound {
-            //let substring = word.prefix(upTo: index)
-            //email = String(substring)
             
             let userPizzaPropertiesData = UserPizzaPropertiesData(downloadURL: imageURL, description: description, username: username, date: Date().timeIntervalSince1970)
             
@@ -101,7 +98,6 @@ struct FirestoreManager {
                 }
                 else {
                 }
-                //}
             }
         }
     }

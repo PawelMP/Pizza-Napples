@@ -12,6 +12,7 @@ import Firebase
 //Firebase manager singleton
 struct FirebaseManager {
     static let shared = FirebaseManager()
+    typealias Result = Bool
     
     private init() {
     }
@@ -23,7 +24,7 @@ struct FirebaseManager {
                 
                 if let err = error {
                     let alert = TextAlert()
-                    alert.createTextAlert(text: err.localizedDescription, viewController: viewController)
+                    alert.createTextAlert(title: K.TextAlert.error, text: err.localizedDescription, viewController: viewController)
                 }
                 else {
                     //viewController.performSegue(withIdentifier: K.segues.registerToApp, sender: viewController)
@@ -40,7 +41,7 @@ struct FirebaseManager {
                 
                 if let err = error {
                     let alert = TextAlert()
-                    alert.createTextAlert(text: err.localizedDescription, viewController: viewController)
+                    alert.createTextAlert(title: K.TextAlert.error, text: err.localizedDescription, viewController: viewController)
                     
                 }
                 else {
@@ -58,7 +59,7 @@ struct FirebaseManager {
             viewController.navigationController?.popToRootViewController(animated: true)
         } catch let signOutError as NSError {
             let alert = TextAlert()
-            alert.createTextAlert(text: signOutError.localizedDescription, viewController: viewController)
+            alert.createTextAlert(title: K.TextAlert.error, text: signOutError.localizedDescription, viewController: viewController)
         }
     }
     
@@ -67,11 +68,11 @@ struct FirebaseManager {
         Auth.auth().sendPasswordReset(withEmail: email) { error in
             if let err = error {
                 let alert = TextAlert()
-                alert.createTextAlert(text: err.localizedDescription, viewController: viewController)
+                alert.createTextAlert(title: K.TextAlert.error, text: err.localizedDescription, viewController: viewController)
             }
             else {
                 let alert = TextAlert()
-                alert.createTextAlert(text: K.Firebase.passwordResetSent, viewController: viewController)
+                alert.createTextAlert(title: K.TextAlert.success, text: K.Firebase.passwordResetSent, viewController: viewController)
             }
         }
     }
@@ -110,12 +111,88 @@ struct FirebaseManager {
                 //if error ocurred
                 if let err = error {
                     let alert = TextAlert()
-                    alert.createTextAlert(text: err.localizedDescription, viewController: viewController)
+                    alert.createTextAlert(title: K.TextAlert.error, text: err.localizedDescription, viewController: viewController)
                     
                 }
                 //if there was no error
                 else {
+                    //if alert is created in PersonalDetailsTableViewController dont dismiss it after click ok
+                    if viewController is PersonalDetailsTableViewController {
+                    }
+                    else {
+                        viewController.dismiss(animated: true, completion: nil)
+                    }
+                }
+            }
+        }
+    }
+    
+    //Change user password
+    func changeUserPassword (to password: String?, viewController: UIViewController) {
+        if let givenPassword = password {
+            Auth.auth().currentUser?.updatePassword(to: givenPassword) { (error) in
+                if let err = error {
+                    let alert = TextAlert()
+                    alert.createTextAlert(title: K.TextAlert.error, text: err.localizedDescription, viewController: viewController)
+                }
+                else {
                     viewController.dismiss(animated: true, completion: nil)
+                }
+            }
+        }
+    }
+    
+    //Change user email
+    func changeUserEmail (to email: String?, viewController: UIViewController, completionHandler: @escaping (Result) -> Void) {
+        if let givenEmail = email {
+            Auth.auth().currentUser?.updateEmail(to: givenEmail) { (error) in
+                if let err = error {
+                    let alert = TextAlert()
+                    alert.createTextAlert(title: K.TextAlert.error, text: err.localizedDescription, viewController: viewController)
+                    completionHandler(false)
+                }
+                else {
+                    completionHandler(true)
+                    //viewController.dismiss(animated: true, completion: nil)
+                }
+            }
+        }
+    }
+    
+    //Get user display name
+    func getUserDisplayName () -> String {
+        if let username = Auth.auth().currentUser?.displayName {
+            return username
+        }
+        else {
+            return "No data"
+        }
+    }
+    
+    //Get user email
+    func getUserEmail () -> String {
+        if let email = Auth.auth().currentUser?.email {
+            return email
+        }
+        else {
+            return "No data"
+        }
+    }
+    
+    //Reauthenticate user to be able to change password
+    func reauthenticateUser (email: String?, password: String?, viewController: UIViewController) {
+        if let givenEmail = email, let givenPassword = password {
+            //var credential: AuthCredential
+            let credential = EmailAuthProvider.credential(withEmail: givenEmail, password: givenPassword)
+            
+            Auth.auth().currentUser?.reauthenticate(with: credential) { (result, error)  in
+                if let err = error {
+                    // An error happened.
+                    let alert = TextAlert()
+                    alert.createTextAlert(title: K.TextAlert.error, text: err.localizedDescription, viewController: viewController)
+                } else {
+                    // User re-authenticated.
+                    viewController.performSegue(withIdentifier: K.segues.toPasswordChange, sender: viewController)
                 }
             }
         }

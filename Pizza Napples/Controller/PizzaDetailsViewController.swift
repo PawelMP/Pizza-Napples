@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import FirebaseUI
 
 class PizzaDetailsViewController: UIViewController {
     
@@ -42,9 +41,7 @@ class PizzaDetailsViewController: UIViewController {
         textLabel.text = pizzaItem.description ?? K.noData
         
         //Set image
-        let reference = Storage.storage().reference(forURL: pizzaItem.downloadURL!)
-        let placeholderImage = UIImage(named: pizzaItem.username ?? K.noData + K.Storage.dot + K.Storage.png)
-        imageView.sd_setImage(with: reference, placeholderImage: placeholderImage)
+        StorageManager.shared.setImageToView(with: pizzaItem, to: imageView)
     }
 
 }

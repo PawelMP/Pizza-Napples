@@ -33,7 +33,7 @@ class DoughTableViewController: UITableViewController {
     //Setup tableview
     func setupTableView() {
         tableView.separatorStyle = .none
-        tableView.backgroundColor = UIColor(red: 0.96, green: 0.96, blue: 0.90, alpha: 1.00)
+        tableView.backgroundColor = UIColor(red: 0.97, green: 0.96, blue: 0.92, alpha: 1.00)
         
         //Stop the table view headers from floating
         let dummyViewHeight = CGFloat(40)
@@ -101,7 +101,7 @@ extension DoughTableViewController {
     //Configre the header view
     func configureHeaderView (for header: UITableViewHeaderFooterView) {
         header.textLabel?.font = UIFont(name: K.markerFeltThin, size: 25)!
-        header.contentView.backgroundColor = UIColor(red: 0.96, green: 0.96, blue: 0.90, alpha: 1.00)
+        header.contentView.backgroundColor = UIColor(red: 0.97, green: 0.96, blue: 0.92, alpha: 1.00)
     }
     
     //Configure header height

@@ -14,6 +14,11 @@
 		D71FAC1125B1E561002DFAB8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71FAC1025B1E561002DFAB8 /* LoginViewController.swift */; };
 		D71FAC1425B1E56C002DFAB8 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71FAC1325B1E56C002DFAB8 /* RegisterViewController.swift */; };
 		D71FAC1725B1EC0F002DFAB8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D71FAC1625B1EC0F002DFAB8 /* GoogleService-Info.plist */; };
+		D728EA6625E4FABF009746F4 /* PersonalDetailsBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = D728EA6425E4FABF009746F4 /* PersonalDetailsBrain.swift */; };
+		D728EA6725E4FABF009746F4 /* PersonalDetailsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D728EA6525E4FABF009746F4 /* PersonalDetailsItem.swift */; };
+		D728EA6B25E528D0009746F4 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D728EA6A25E528D0009746F4 /* ChangePasswordViewController.swift */; };
+		D728EA6F25E53E82009746F4 /* ReauthenticateUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D728EA6E25E53E82009746F4 /* ReauthenticateUserViewController.swift */; };
+		D728EA7325E56D26009746F4 /* PersonalDetailsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D728EA7225E56D26009746F4 /* PersonalDetailsTableViewController.swift */; };
 		D72B02DD25B76960008A0018 /* CalculatorItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72B02DC25B76960008A0018 /* CalculatorItem.swift */; };
 		D7348DBD25B0EE3F008BD961 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7348DBC25B0EE3F008BD961 /* AppDelegate.swift */; };
 		D7348DBF25B0EE3F008BD961 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7348DBE25B0EE3F008BD961 /* SceneDelegate.swift */; };
@@ -33,10 +38,8 @@
 		D7817E0925E2FABB00FB34A7 /* UserSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7817E0825E2FABB00FB34A7 /* UserSettingsTableViewController.swift */; };
 		D786311525D1CC0D00ED1414 /* DoughCalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D786311425D1CC0D00ED1414 /* DoughCalculatorViewController.swift */; };
 		D78E0B4025E3DED0000127EE /* CreateUsernameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78E0B3F25E3DED0000127EE /* CreateUsernameViewController.swift */; };
-		D78E0B4425E43D26000127EE /* PersonalDetailsBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78E0B4325E43D26000127EE /* PersonalDetailsBrain.swift */; };
 		D78E0B4B25E43EAA000127EE /* PersonalDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78E0B4925E43EAA000127EE /* PersonalDetailsCell.swift */; };
 		D78E0B4C25E43EAA000127EE /* PersonalDetailsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D78E0B4A25E43EAA000127EE /* PersonalDetailsCell.xib */; };
-		D78E0B4F25E44633000127EE /* PersonalDetailsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78E0B4E25E44633000127EE /* PersonalDetailsItem.swift */; };
 		D78E0B5525E448E5000127EE /* UserSettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78E0B5325E448E5000127EE /* UserSettingsCell.swift */; };
 		D78E0B5625E448E5000127EE /* UserSettingsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D78E0B5425E448E5000127EE /* UserSettingsCell.xib */; };
 		D78E0B5B25E44A0E000127EE /* UserSettingsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78E0B5A25E44A0E000127EE /* UserSettingsItem.swift */; };
@@ -68,6 +71,11 @@
 		D71FAC1025B1E561002DFAB8 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		D71FAC1325B1E56C002DFAB8 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		D71FAC1625B1EC0F002DFAB8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D728EA6425E4FABF009746F4 /* PersonalDetailsBrain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalDetailsBrain.swift; sourceTree = "<group>"; };
+		D728EA6525E4FABF009746F4 /* PersonalDetailsItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalDetailsItem.swift; sourceTree = "<group>"; };
+		D728EA6A25E528D0009746F4 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
+		D728EA6E25E53E82009746F4 /* ReauthenticateUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReauthenticateUserViewController.swift; sourceTree = "<group>"; };
+		D728EA7225E56D26009746F4 /* PersonalDetailsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalDetailsTableViewController.swift; sourceTree = "<group>"; };
 		D72B02DC25B76960008A0018 /* CalculatorItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorItem.swift; sourceTree = "<group>"; };
 		D7348DB925B0EE3F008BD961 /* Pizza Napples.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pizza Napples.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7348DBC25B0EE3F008BD961 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -89,10 +97,8 @@
 		D7817E0825E2FABB00FB34A7 /* UserSettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingsTableViewController.swift; sourceTree = "<group>"; };
 		D786311425D1CC0D00ED1414 /* DoughCalculatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoughCalculatorViewController.swift; sourceTree = "<group>"; };
 		D78E0B3F25E3DED0000127EE /* CreateUsernameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUsernameViewController.swift; sourceTree = "<group>"; };
-		D78E0B4325E43D26000127EE /* PersonalDetailsBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalDetailsBrain.swift; sourceTree = "<group>"; };
 		D78E0B4925E43EAA000127EE /* PersonalDetailsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalDetailsCell.swift; sourceTree = "<group>"; };
 		D78E0B4A25E43EAA000127EE /* PersonalDetailsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PersonalDetailsCell.xib; sourceTree = "<group>"; };
-		D78E0B4E25E44633000127EE /* PersonalDetailsItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalDetailsItem.swift; sourceTree = "<group>"; };
 		D78E0B5325E448E5000127EE /* UserSettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingsCell.swift; sourceTree = "<group>"; };
 		D78E0B5425E448E5000127EE /* UserSettingsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserSettingsCell.xib; sourceTree = "<group>"; };
 		D78E0B5A25E44A0E000127EE /* UserSettingsItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingsItem.swift; sourceTree = "<group>"; };
@@ -179,15 +185,15 @@
 				D7CCDF2125D291D7000BE262 /* DoughEquations.swift */,
 				D794174A25DE7BB300EAC9F5 /* UserPizzaItem.swift */,
 				D791DFA625DD129700223FBC /* UserPizzaPropertiesData.swift */,
+				D78E0B5A25E44A0E000127EE /* UserSettingsItem.swift */,
+				D78E0B5D25E44A30000127EE /* UserSettingsBrain.swift */,
+				D728EA6525E4FABF009746F4 /* PersonalDetailsItem.swift */,
+				D728EA6425E4FABF009746F4 /* PersonalDetailsBrain.swift */,
 				D712063125C15B690018FE22 /* FirebaseManager.swift */,
 				D778A64825D0647A0095E92D /* FirestoreManager.swift */,
 				D7D68ABD25DA9CFF0020DA0D /* StorageManager.swift */,
-				D751D03E25B30FA00069F31C /* TextAlert.swift */,
 				D7D68AC125DABAAF0020DA0D /* PhotosManager.swift */,
-				D78E0B5A25E44A0E000127EE /* UserSettingsItem.swift */,
-				D78E0B5D25E44A30000127EE /* UserSettingsBrain.swift */,
-				D78E0B4E25E44633000127EE /* PersonalDetailsItem.swift */,
-				D78E0B4325E43D26000127EE /* PersonalDetailsBrain.swift */,
+				D751D03E25B30FA00069F31C /* TextAlert.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -216,6 +222,9 @@
 				D7817DFF25E2925300FB34A7 /* ForgotPasswordViewController.swift */,
 				D71FAC1325B1E56C002DFAB8 /* RegisterViewController.swift */,
 				D7817E0825E2FABB00FB34A7 /* UserSettingsTableViewController.swift */,
+				D728EA6E25E53E82009746F4 /* ReauthenticateUserViewController.swift */,
+				D728EA6A25E528D0009746F4 /* ChangePasswordViewController.swift */,
+				D728EA7225E56D26009746F4 /* PersonalDetailsTableViewController.swift */,
 				D78E0B3F25E3DED0000127EE /* CreateUsernameViewController.swift */,
 				D7127F0725B1FB6F00FFEFBC /* MainViewController.swift */,
 				D786311425D1CC0D00ED1414 /* DoughCalculatorViewController.swift */,
@@ -377,6 +386,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D728EA7325E56D26009746F4 /* PersonalDetailsTableViewController.swift in Sources */,
 				D7817E0025E2925300FB34A7 /* ForgotPasswordViewController.swift in Sources */,
 				D7BD045725CAFAC700D2490A /* DoughViewController.swift in Sources */,
 				D779E7A825B2E36C001077E5 /* CalculatorBrain.swift in Sources */,
@@ -396,11 +406,15 @@
 				D71FAC1425B1E56C002DFAB8 /* RegisterViewController.swift in Sources */,
 				D778A64225D0574E0095E92D /* DoughProperties.swift in Sources */,
 				D7348DC125B0EE3F008BD961 /* WelcomeViewController.swift in Sources */,
+				D728EA6F25E53E82009746F4 /* ReauthenticateUserViewController.swift in Sources */,
 				D7CCDF2225D291D7000BE262 /* DoughEquations.swift in Sources */,
 				D779E7AF25B2E95D001077E5 /* DoughCell.swift in Sources */,
+				D728EA6725E4FABF009746F4 /* PersonalDetailsItem.swift in Sources */,
 				D7A588B925B8BB5A0070DE0F /* Constants.swift in Sources */,
+				D728EA6625E4FABF009746F4 /* PersonalDetailsBrain.swift in Sources */,
 				D778A64925D0647A0095E92D /* FirestoreManager.swift in Sources */,
 				D7127F0825B1FB6F00FFEFBC /* MainViewController.swift in Sources */,
+				D728EA6B25E528D0009746F4 /* ChangePasswordViewController.swift in Sources */,
 				D7D68AC525DAD2710020DA0D /* NewCollectionViewDataViewController.swift in Sources */,
 				D794174B25DE7BB400EAC9F5 /* UserPizzaItem.swift in Sources */,
 				D78E0B5B25E44A0E000127EE /* UserSettingsItem.swift in Sources */,
@@ -414,9 +428,7 @@
 				D7E5F27425BADE2500F0C45E /* UIButtonExtension.swift in Sources */,
 				D712063525C1B65A0018FE22 /* UIResponder.swift in Sources */,
 				D712063225C15B690018FE22 /* FirebaseManager.swift in Sources */,
-				D78E0B4F25E44633000127EE /* PersonalDetailsItem.swift in Sources */,
 				D7348DBF25B0EE3F008BD961 /* SceneDelegate.swift in Sources */,
-				D78E0B4425E43D26000127EE /* PersonalDetailsBrain.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

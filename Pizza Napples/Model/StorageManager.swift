@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import FirebaseUI
 
 //Storage manager singleton
 struct StorageManager {
@@ -47,6 +48,13 @@ struct StorageManager {
                 completionHandler(downloadURL.absoluteString)
           }
         }
+    }
+    
+    //Set image to ImageView
+    func setImageToView (with item: UserPizzaItem, to view: UIImageView) {
+        let reference = Storage.storage().reference(forURL: item.downloadURL!)
+        let placeholderImage = UIImage(named: item.username ?? K.noData + K.Storage.dot + K.Storage.png)
+        view.sd_setImage(with: reference, placeholderImage: placeholderImage)
     }
     
 }

@@ -10,6 +10,5 @@ import Foundation
 
 struct PersonalDetailsItem {
     let description: String
-    let userData: String
-    let placeholder: String
+    var userData: String
 }

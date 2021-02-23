@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import FirebaseUI
 
 class UserPizzaCell: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
@@ -38,9 +37,8 @@ class UserPizzaCell: UICollectionViewCell {
     
     //Setup cell with pizzas data
     func setupCell(for indexPath: IndexPath) {
-        let reference = Storage.storage().reference(forURL: pizzas[indexPath.row].downloadURL!)
-        let placeholderImage = UIImage(named: pizzas[indexPath.row].username ?? K.noData + K.Storage.dot + K.Storage.png)
-        imageView.sd_setImage(with: reference, placeholderImage: placeholderImage)
+        let item = pizzas[indexPath.row]
+        StorageManager.shared.setImageToView(with: item, to: imageView)
     }
 
 }

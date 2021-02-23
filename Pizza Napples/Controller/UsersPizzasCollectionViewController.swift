@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Firebase
 
 var pizzas: [UserPizzaItem] = []
 
