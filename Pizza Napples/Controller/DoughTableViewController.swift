@@ -9,7 +9,7 @@
 import UIKit
 
 protocol DoughTableViewControllerDelegate {
-  func checkValues()
+    func checkValues()
 }
 
 class DoughTableViewController: UITableViewController {
@@ -18,7 +18,9 @@ class DoughTableViewController: UITableViewController {
     
     //Set delegate to pass data between to parent view controller
     var delegate: DoughTableViewControllerDelegate?
-
+    
+    // MARK: - View controller lifecycle methods
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
@@ -29,6 +31,8 @@ class DoughTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
+    //MARK: - TableView setup
     
     //Setup tableview
     func setupTableView() {
@@ -49,7 +53,7 @@ class DoughTableViewController: UITableViewController {
     
 }
 
-    // MARK: - Table view data source
+// MARK: - Table view data source
 extension DoughTableViewController {
     
     //Numbers of sections
@@ -59,14 +63,14 @@ extension DoughTableViewController {
     
     //Title for sections headers
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-       calculatorBrain.getName(for: section)
-   }
-
+        calculatorBrain.getName(for: section)
+    }
+    
     //Number of row in each section
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return calculatorBrain.getRowsForSections(for: section)
     }
-
+    
     
     //Setup cell for row
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -77,40 +81,42 @@ extension DoughTableViewController {
         }
         //Setup cell with data
         cell.setupCell(with: calculatorBrain, for: indexPath)
-
+        
         //Check if any editing event ocured on cell's textfield
         cell.textField.addTarget(self, action: #selector(textFieldEditingEvents(textField:)), for: .allEditingEvents)
         
         //Set cell's textfield delegate
         cell.textField.delegate = self
-
+        
         return cell
     }
-    
+}
+//MARK: - TableView delegate
+extension DoughTableViewController {
     //Configure headerview
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-       let header = view as! UITableViewHeaderFooterView
-       configureHeaderView(for: header)
-   }
-   
-   //Configure header height
+        let header = view as! UITableViewHeaderFooterView
+        configureHeaderView(for: header)
+    }
+    
+    //Configure header height
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-       configureHeaderHeight()
-   }
+        configureHeaderHeight()
+    }
     
     //Configre the header view
     func configureHeaderView (for header: UITableViewHeaderFooterView) {
-        header.textLabel?.font = UIFont(name: K.markerFeltThin, size: 25)!
-        header.contentView.backgroundColor = UIColor(red: 0.97, green: 0.96, blue: 0.92, alpha: 1.00)
+        header.textLabel?.font = K.Design.Font.MarkerFeltThin
+        header.contentView.backgroundColor = K.Design.Color.Beige
     }
     
     //Configure header height
     func configureHeaderHeight () -> CGFloat {
         return 50
     }
-
+    
 }
-//MARK: - Textfield delegate and methods
+//MARK: - Textfield delegate
 extension DoughTableViewController: UITextFieldDelegate {
     
     
@@ -124,7 +130,7 @@ extension DoughTableViewController: UITextFieldDelegate {
         
         //Save value from text field
         calculatorBrain.saveAmount(with: Int(textField.text!), indexPath: indexPath)
-
+        
         if let value = textField.text {
             //Check if value is correct
             calculatorBrain.checkAmount(with: Int(value), for: indexPath, cell: cell)

@@ -12,9 +12,13 @@ class ReauthenticateUserViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
+    // MARK: - View controller lifecycle methods
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
+    //MARK: - UI action methods
     
     @IBAction func backButtonPressed(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true, completion: nil)
@@ -23,14 +27,5 @@ class ReauthenticateUserViewController: UIViewController {
     @IBAction func reauthenticateButtonPressed(_ sender: UIButton) {
         FirebaseManager.shared.reauthenticateUser(email: emailTextField.text, password: passwordTextField.text, viewController: self)
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

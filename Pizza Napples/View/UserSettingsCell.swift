@@ -12,6 +12,7 @@ class UserSettingsCell: UITableViewCell {
     
     @IBOutlet weak var descriptionImage: UIImageView!
     @IBOutlet weak var label: UILabel!
+    
     class var cellIdentifier: String {
         return K.UserSettingsCell.cellIdentifier
     }
@@ -23,7 +24,6 @@ class UserSettingsCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         label.adjustsFontSizeToFitWidth = true
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

@@ -19,8 +19,6 @@ protocol FirestoreManagerDelegate: class {
 struct FirestoreManager {
     static var shared = FirestoreManager()
     
-    let db = Firestore.firestore()
-    
     weak var delegate: FirestoreManagerDelegate?
     
     private init () {
@@ -28,11 +26,11 @@ struct FirestoreManager {
     
     //Save given dough properties to firestore
     func saveDoughToFirestore(calculatorBrain: CalculatorBrain?, viewController: UIViewController?) {
-        if let user = Auth.auth().currentUser?.email, let doughProportions = calculatorBrain?.doughProportions, let doughGrowth = calculatorBrain?.doughGrowth {
+        if let user = K.API.USER_EMAIL, let doughProportions = calculatorBrain?.doughProportions, let doughGrowth = calculatorBrain?.doughGrowth {
             
             let doughProperties = DoughProperties(ballsAmount: doughProportions[0].amount, ballWeight: doughProportions[1].amount, hydration: doughProportions[2].amount, salt: doughProportions[3].amount, fat: doughProportions[4].amount, totalTime: doughGrowth[0].amount, fridgeTime: doughGrowth[1].amount, temperature: doughGrowth[2].amount)
             
-            db.collection(K.Firestore.usersDough).document(user).setData(doughProperties.dictionary) { (error) in
+            K.API.USERS_DOUGH_DB_REF.document(user).setData(doughProperties.dictionary) { (error) in
                 if let err = error {
                     print(err.localizedDescription)
                 }
@@ -46,10 +44,10 @@ struct FirestoreManager {
     //Read dough properties from firestore
     func readDoughFromFirestore() {
         
-        if let user = Auth.auth().currentUser?.email {
+        if let user = K.API.USER_EMAIL {
             
             //Get document based on current user
-            db.collection(K.Firestore.usersDough).document(user).getDocument { (document, error) in
+            K.API.USERS_DOUGH_DB_REF.document(user).getDocument { (document, error) in
                 
                 if let err = error {
                     print(err.localizedDescription)
@@ -72,9 +70,9 @@ struct FirestoreManager {
                                 // or the DocumentSnapshot was nil.
                                 //delegate?.emptyData()
                             }
-                        case .failure(let error):
+                        case .failure(let err):
                             // A `DoughProperties` value could not be initialized from the DocumentSnapshot.
-                            print(error.localizedDescription)
+                            print(err.localizedDescription)
                         }
                 }
             }
@@ -87,12 +85,11 @@ struct FirestoreManager {
         //Create unique ID
         let uuid = UUID().uuidString
         
-        //let email: String
-        if let username = Auth.auth().currentUser?.displayName {
+        if let username = K.API.USER_DISPLAY_NAME {
             
             let userPizzaPropertiesData = UserPizzaPropertiesData(downloadURL: imageURL, description: description, username: username, date: Date().timeIntervalSince1970)
             
-            db.collection(K.Firestore.usersPizza).document(uuid).setData(userPizzaPropertiesData.dictionary) { (error) in
+            K.API.USERS_PIZZA_DB_REF.document(uuid).setData(userPizzaPropertiesData.dictionary) { (error) in
                 if let err = error {
                     print(err.localizedDescription)
                 }
@@ -109,7 +106,7 @@ struct FirestoreManager {
         pizzas = []
         
         //Read document and listen for changes in a collection
-        db.collection(K.Firestore.usersPizza).order(by: K.Firestore.date).addSnapshotListener { (querySnapshot, error) in
+        K.API.USERS_PIZZA_DB_REF.order(by: K.Content.Date).limit(to: 100).addSnapshotListener { (querySnapshot, error) in
             if let err = error {
                 print(err.localizedDescription)
             } else {
@@ -143,6 +140,22 @@ struct FirestoreManager {
                             print(error.localizedDescription)
                         }
                     
+                }
+            }
+        }
+    }
+    
+    //Change username in documents when user changes username in app settings
+    func changeUsernameInUserPizza (oldUsername: String?) {
+        if let givenOldUsername = oldUsername {
+            K.API.USERS_PIZZA_DB_REF.whereField(K.Content.UsernameLowercase, isEqualTo: givenOldUsername).getDocuments { (querySnapshot, error) in
+                if let err = error {
+                    print(err.localizedDescription)
+                }
+                else {
+                    for document in querySnapshot!.documents {
+                        K.API.USERS_PIZZA_DB_REF.document(document.documentID).updateData([K.Content.UsernameLowercase : FirebaseManager.shared.getUserDisplayName()])
+                    }
                 }
             }
         }

@@ -8,6 +8,7 @@
 
 import UIKit
 
+//Struct for user settings table view item
 struct UserSettingsItem {
     let description: String
     let image: UIImage?

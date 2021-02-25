@@ -12,7 +12,9 @@ class DoughViewController: UIViewController {
     
     @IBOutlet weak var calculateButton: UIButton!
     
-    var doughTableViewController: DoughTableViewController?
+    private var doughTableViewController: DoughTableViewController?
+    
+    // MARK: - View controller lifecycle methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +38,8 @@ class DoughViewController: UIViewController {
                 }
             }
         }
+    
+    //MARK: - UI action methods
     
     //"Quit" button pressed
     @IBAction func xButtonPressed(_ sender: UIBarButtonItem) {

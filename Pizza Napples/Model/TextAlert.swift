@@ -14,7 +14,7 @@ struct TextAlert {
     func createTextAlert(title: String, text: String, viewController: UIViewController) {
         let alert = UIAlertController(title: title, message: text, preferredStyle: .alert)
         
-        alert.addAction(UIAlertAction(title: K.TextAlert.ok, style: .default, handler: { (UIAlertAction) in
+        alert.addAction(UIAlertAction(title: K.Content.OK, style: .default, handler: { (UIAlertAction) in
             //if alert is created in ForgotPasswordViewController dismiss it after clicking OK
             if let forgotPasswordVC = viewController as? ForgotPasswordViewController {
                 forgotPasswordVC.dismiss(animated: true, completion: nil)

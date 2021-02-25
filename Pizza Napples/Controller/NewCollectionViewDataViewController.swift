@@ -14,20 +14,34 @@ class NewCollectionViewDataViewController: UIViewController {
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var OKButton: UIBarButtonItem!
     
-    var photosManager = PhotosManager()
+    private var photosManager = PhotosManager()
+    
+    // MARK: - View controller lifecycle methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationItem.title = "Display name: " + FirebaseManager.shared.getUserDisplayName()
+        setNavigationItemTitle()
         
         photosManager.imagePicker.delegate = self
         
+        createTapRecognizer()
+    }
+    
+    //MARK: - ViewController custom methods
+    
+    func setNavigationItemTitle() {
+        self.navigationItem.title = K.Content.DisplayName + FirebaseManager.shared.getUserDisplayName()
+    }
+    
+    func createTapRecognizer() {
         //Create tap recognizer to handle image tapping
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
         imageView.isUserInteractionEnabled = true
         imageView.addGestureRecognizer(tapGestureRecognizer)
     }
+    
+    //MARK: - UI action methods
     
     //If image is tapped
     @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer)
@@ -46,7 +60,7 @@ class NewCollectionViewDataViewController: UIViewController {
         //If text is empty create alert
         if descriptionTextView.text.isEmpty == true {
             let alert = TextAlert()
-            alert.createTextAlert(title: K.TextAlert.error, text: K.pleaseWriteDescription, viewController: self)
+            alert.createTextAlert(title: K.Content.Error, text: K.pleaseWriteDescription, viewController: self)
             return
         }
         

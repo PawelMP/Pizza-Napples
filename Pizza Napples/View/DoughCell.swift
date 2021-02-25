@@ -44,15 +44,15 @@ class DoughCell: UITableViewCell, UITextFieldDelegate {
     //Show error values
     func showError () {
         errorLabel.alpha = 1
-        textField.borderColor = UIColor.red
-        label.textColor = UIColor.red
+        textField.borderColor = K.Design.Color.Red
+        label.textColor = K.Design.Color.Red
     }
     
     //Hide error values
     func hideError () {
         errorLabel.alpha = 0
-        textField.borderColor = UIColor(red: 0.25, green: 0.27, blue: 0.29, alpha: 1.00)
-        label.textColor = UIColor(red: 0.25, green: 0.27, blue: 0.29, alpha: 1.00)
+        textField.borderColor = K.Design.Color.DarkGrey
+        label.textColor = K.Design.Color.DarkGrey
     }
     
     //Setup dough cell

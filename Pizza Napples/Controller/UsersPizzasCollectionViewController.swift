@@ -12,29 +12,23 @@ var pizzas: [UserPizzaItem] = []
 
 class UsersPizzasCollectionViewController: UICollectionViewController, UINavigationControllerDelegate {
     
+    // MARK: - View controller lifecycle methods
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        self.tabBarController?.navigationItem.title = K.usersPizzas
-        self.tabBarController?.navigationItem.leftBarButtonItem = nil
-        self.tabBarController?.navigationItem.hidesBackButton = true
+        setupTabBarItems()
         addViewItems()
         
     }
     
-    //Create view items
-    func addViewItems() {
-        //Add bar button item
-        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonPressed(_:)))
-        self.tabBarController?.navigationItem.rightBarButtonItem = addButton
-    }
-    
-    //Action for "Add" bar button
-    @objc func addButtonPressed(_ sender: UIBarButtonItem) {
-        performSegue(withIdentifier: K.segues.usersPizzasToAddNewPhoto, sender: self)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupCollectionView()
+    }
+    
+    //MARK: - CollectionView setup
+    
+    func setupCollectionView() {
         //Read users pizza data from firestore
         FirestoreManager.shared.readUserPizzaFromFirestore(collectionView: collectionView)
         
@@ -49,15 +43,37 @@ class UsersPizzasCollectionViewController: UICollectionViewController, UINavigat
             //Set spacing
             collectionViewLayout.minimumLineSpacing = 5
             collectionViewLayout.minimumInteritemSpacing = 5
-
+            
         }
+    }
+    
+    //MARK: - ViewController custom methods
+    
+    //Create view items
+    func addViewItems() {
+        //Add bar button item
+        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonPressed(_:)))
+        self.tabBarController?.navigationItem.rightBarButtonItem = addButton
+    }
+    
+    func setupTabBarItems() {
+        self.tabBarController?.navigationItem.title = K.usersPizzas
+        self.tabBarController?.navigationItem.leftBarButtonItem = nil
+        self.tabBarController?.navigationItem.hidesBackButton = true
+    }
+    
+    //MARK: - UI action methods
+    
+    //Action for "Add" bar button
+    @objc func addButtonPressed(_ sender: UIBarButtonItem) {
+        performSegue(withIdentifier: K.Segues.UsersPizzasToAddNewPhoto, sender: self)
     }
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         //Get navigation controller
-        if let destinationNavigationController = segue.destination as? UINavigationController, segue.identifier == K.segues.toPizzaDetails{
+        if let destinationNavigationController = segue.destination as? UINavigationController, segue.identifier == K.Segues.ToPizzaDetails{
             
             //Get target controller - PizzaDetailsViewController
             if let targetController = destinationNavigationController.topViewController as? PizzaDetailsViewController {
@@ -71,10 +87,10 @@ class UsersPizzasCollectionViewController: UICollectionViewController, UINavigat
             }
         }
     }
-    
-    
-    // MARK: UICollectionViewDataSource
-    
+}
+
+// MARK: UICollectionViewDataSource
+extension UsersPizzasCollectionViewController {
     //Set number of items in section
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return pizzas.count
@@ -98,7 +114,7 @@ class UsersPizzasCollectionViewController: UICollectionViewController, UINavigat
     
     //Handle item selection
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        performSegue(withIdentifier: K.segues.toPizzaDetails, sender: self)
+        performSegue(withIdentifier: K.Segues.ToPizzaDetails, sender: self)
         collectionView.deselectItem(at: indexPath, animated: true)
     }
     

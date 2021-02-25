@@ -8,6 +8,7 @@
 
 import Foundation
 
+//Struct for personal data item
 struct PersonalDetailsItem {
     let description: String
     var userData: String

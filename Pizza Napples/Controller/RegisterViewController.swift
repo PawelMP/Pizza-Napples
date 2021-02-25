@@ -12,9 +12,13 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
+    // MARK: - View controller lifecycle methods
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
+    //MARK: - UI action methods
     
     //Register user to firebase
     @IBAction func registerButtonPressed(_ sender: UIButton) {

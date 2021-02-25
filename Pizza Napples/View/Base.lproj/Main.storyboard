@@ -1323,7 +1323,7 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="OZf-dA-yxO"/>
-                        <color key="backgroundColor" red="0.97254901960784312" green="0.96470588235294119" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.97254901960784312" green="0.96470588235294119" blue="0.9137254901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="cme-AG-NLI" firstAttribute="leading" secondItem="OZf-dA-yxO" secondAttribute="leading" constant="70" id="fCM-PS-Elx"/>
                             <constraint firstItem="cme-AG-NLI" firstAttribute="centerY" secondItem="kQm-Zc-NbU" secondAttribute="centerY" id="fNc-rq-6EC"/>

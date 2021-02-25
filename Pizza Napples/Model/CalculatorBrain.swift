@@ -11,17 +11,17 @@ import UIKit
 struct CalculatorBrain {
     
     var doughProportions = [
-        CalculatorItem(description: "Number of total dough balls", placeholder: "How many dough balls?", error: "Value must be higher than 0", amount: nil, minValue: 1, maxValue: nil, isValueCorrect: false),
-        CalculatorItem(description: "Single ball weight [g]", placeholder: "Enter ball weight", error: "Value must be higher than 0", amount: nil, minValue: 1, maxValue: nil, isValueCorrect: false),
-        CalculatorItem(description: "Hydration [%]", placeholder: "Enter hydration", error: "Value must be between 45% and 120%", amount: nil, minValue: 45, maxValue: 120, isValueCorrect: false),
-        CalculatorItem(description: "Salt per litre of water [g]", placeholder: "Enter amount of salt", error: " ", amount: nil, minValue: nil, maxValue: nil, isValueCorrect: true),
-        CalculatorItem(description: "Liquid fat per litre of water [g]", placeholder: "Enter amount of fat", error: " ", amount: nil, minValue: nil, maxValue: nil, isValueCorrect: true)
+        CalculatorItem(description: K.Content.CalculatorBrain.BallsNumberDescription, placeholder: K.Content.CalculatorBrain.BallsNumberPlaceholder, error: K.Content.CalculatorBrain.ValueGreaterThan0Error, amount: nil, minValue: 1, maxValue: nil, isValueCorrect: false),
+        CalculatorItem(description: K.Content.CalculatorBrain.BallWeightDescription, placeholder: K.Content.CalculatorBrain.BallWeightPlaceholder, error: K.Content.CalculatorBrain.ValueGreaterThan0Error, amount: nil, minValue: 1, maxValue: nil, isValueCorrect: false),
+        CalculatorItem(description: K.Content.CalculatorBrain.HydrationDescription, placeholder: K.Content.CalculatorBrain.HydrationPlaceholder, error: K.Content.CalculatorBrain.HydrationError, amount: nil, minValue: 45, maxValue: 120, isValueCorrect: false),
+        CalculatorItem(description: K.Content.CalculatorBrain.SaltDescription, placeholder: K.Content.CalculatorBrain.SaltPlaceholder, error: K.Content.CalculatorBrain.SpaceSign, amount: nil, minValue: nil, maxValue: nil, isValueCorrect: true),
+        CalculatorItem(description: K.Content.CalculatorBrain.FatDescription, placeholder: K.Content.CalculatorBrain.FatPlaceholder, error: K.Content.CalculatorBrain.SpaceSign, amount: nil, minValue: nil, maxValue: nil, isValueCorrect: true)
     ]
     
     var doughGrowth = [
-        CalculatorItem(description: "Total growth time [h]", placeholder: "Total growth time", error: "Value must be between 1 and 168 hours", amount: nil, minValue: 1, maxValue: 168, isValueCorrect: false),
-        CalculatorItem(description: "Growth time in fridge [h]", placeholder: "Fridge growth time", error: "Fridge growth time must be less than total growth time", amount: nil, minValue: nil, maxValue: nil, isValueCorrect: false),
-        CalculatorItem(description: "Ambient temperature [°C]", placeholder: "Room temperature", error: "Value must be between 15 C° and 35 C°", amount: nil, minValue: 15, maxValue: 35, isValueCorrect: false)
+        CalculatorItem(description: K.Content.CalculatorBrain.GrowthTimeDescription, placeholder: K.Content.CalculatorBrain.GrowthTimePlaceholder, error: K.Content.CalculatorBrain.GrowthTimeError, amount: nil, minValue: 1, maxValue: 168, isValueCorrect: false),
+        CalculatorItem(description: K.Content.CalculatorBrain.FridgeTimeDescription, placeholder: K.Content.CalculatorBrain.FridgeTimePlaceholder, error: K.Content.CalculatorBrain.FridgeTimeError, amount: nil, minValue: nil, maxValue: nil, isValueCorrect: false),
+        CalculatorItem(description: K.Content.CalculatorBrain.TemperatureDescription, placeholder: K.Content.CalculatorBrain.TemperaturePlaceholder, error: K.Content.CalculatorBrain.TemperatureError, amount: nil, minValue: 15, maxValue: 35, isValueCorrect: false)
     ]
     
     //Get number of sections in tableView
@@ -32,13 +32,13 @@ struct CalculatorBrain {
     //Get name for each section
     func getName (for section: Int) -> String {
         if(section == 0) {
-            return K.CalculatorBrain.doughProportions
+            return K.Content.CalculatorBrain.DoughProportions
         }
         else if (section == 1) {
-            return K.CalculatorBrain.growthTime
+            return K.Content.CalculatorBrain.GrowthTime
         }
         else {
-            return K.CalculatorBrain.empty
+            return K.Content.CalculatorBrain.Empty
         }
     }
     
@@ -69,25 +69,6 @@ struct CalculatorBrain {
         }
     }
     
-    //Check if value is higher/lower than minimum
-    func checkMin (with value: Int, comparing min: Int, for indexPath: IndexPath) -> Bool {
-        if min > value {
-            return false
-        }
-        else {
-            return true
-        }
-    }
-    //Check if value is higher/lower than maximum
-    func checkMax (with value: Int, comparing max: Int, for indexPath: IndexPath) -> Bool {
-        if max < value {
-            return false
-        }
-        else {
-            return true
-        }
-    }
-    
     //Check if given value is correct
     mutating func checkAmount (with value: Int?, for indexPath: IndexPath, cell: DoughCell) {
         
@@ -97,7 +78,7 @@ struct CalculatorBrain {
         
         saveAmount(with: value, indexPath: indexPath)
         
-        //For section 1 = Dough Proportions
+        //For section 0 = Dough Proportions
         if indexPath.section == 0 {
             if let max = doughProportions[indexPath.row].maxValue {
                 if checkMax(with: value, comparing: max, for: indexPath) {
@@ -144,7 +125,7 @@ struct CalculatorBrain {
             }
             
             //Additional condition for total time and fridge time
-            if doughGrowth[indexPath.row].description == K.CalculatorBrain.totalGrowthTime {
+            if doughGrowth[indexPath.row].description == K.Content.CalculatorBrain.TotalGrowthTime {
                 doughGrowth[indexPath.row + 1].maxValue = doughGrowth[indexPath.row].amount
                 if let maxValue = doughGrowth[indexPath.row + 1].maxValue, let amount = doughGrowth[indexPath.row + 1].amount  {
                     if maxValue <= amount {
@@ -175,4 +156,24 @@ struct CalculatorBrain {
         }
         return true
     }
+    
+    //Check if value is higher/lower than minimum
+    private func checkMin (with value: Int, comparing min: Int, for indexPath: IndexPath) -> Bool {
+        if min > value {
+            return false
+        }
+        else {
+            return true
+        }
+    }
+    //Check if value is higher/lower than maximum
+    private func checkMax (with value: Int, comparing max: Int, for indexPath: IndexPath) -> Bool {
+        if max < value {
+            return false
+        }
+        else {
+            return true
+        }
+    }
+    
 }

@@ -11,10 +11,14 @@ import UIKit
 class ForgotPasswordViewController: UIViewController {
 
     @IBOutlet weak var textField: UITextField!
+    
+    // MARK: - View controller lifecycle methods
 
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
+    //MARK: - UI action methods
     
     //Forgot password button pressed
     @IBAction func forgotPasswordButtonPressed(_ sender: UIButton) {
@@ -25,7 +29,7 @@ class ForgotPasswordViewController: UIViewController {
         else {
             //Create error alert
             let alert = TextAlert()
-            alert.createTextAlert(title: K.TextAlert.error, text: K.pleaseTypeEmail, viewController: self)
+            alert.createTextAlert(title: K.Content.Error, text: K.pleaseTypeEmail, viewController: self)
         }
     }
 

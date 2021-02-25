@@ -10,17 +10,18 @@ import UIKit
 import Firebase
 
 struct UserSettingsBrain {
-    let settings = [UserSettingsItem(description: "My personal details", image: UIImage(systemName: "person.crop.square.fill.and.at.rectangle")),
-                    UserSettingsItem(description: "Change password", image: UIImage(systemName: "lock.fill")),
-                    UserSettingsItem(description: "Logout", image: UIImage(systemName: "arrow.left.square"))
+    let settings = [UserSettingsItem(description: K.Content.UserSettings.PersonalDetails, image: K.Design.Image.PersonSquare),
+                    UserSettingsItem(description: K.Content.UserSettings.ChangePassword, image: K.Design.Image.LockFill),
+                    UserSettingsItem(description: K.Content.UserSettings.Logout, image: K.Design.Image.LogoutSymbol)
     ]
     
+    //Perfom action based on IndexPath of selected row
     func performAction (for indexPath: IndexPath, viewController: UIViewController) {
         if indexPath.row == 0 {
-            viewController.performSegue(withIdentifier: K.segues.toPersonalDetails, sender: viewController)
+            viewController.performSegue(withIdentifier: K.Segues.ToPersonalDetails, sender: viewController)
         }
         else if indexPath.row == 1 {
-            viewController.performSegue(withIdentifier: K.segues.toReauthenticate, sender: viewController)
+            viewController.performSegue(withIdentifier: K.Segues.ToReauthenticate, sender: viewController)
         }
         else {
             FirebaseManager.shared.logoutUser(viewController: viewController)

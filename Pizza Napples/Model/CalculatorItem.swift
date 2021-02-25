@@ -7,7 +7,8 @@
 //
 
 import Foundation
-//Stuct for tableView cell data
+
+//Struct for dough tableView cell data
 struct CalculatorItem {
     let description: String
     let placeholder: String

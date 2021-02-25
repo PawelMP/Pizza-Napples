@@ -11,6 +11,7 @@ import Firebase
 
 //Firebase manager singleton
 struct FirebaseManager {
+    
     static let shared = FirebaseManager()
     typealias Result = Bool
     
@@ -20,11 +21,11 @@ struct FirebaseManager {
     //Register new user to firebase
     func registerUser(email: String?, password: String?, viewController: UIViewController) {
         if let givenEmail = email, let givenPassword = password {
-            Auth.auth().createUser(withEmail: givenEmail, password: givenPassword) { authResult, error in
+            K.API.AUTH_REF.createUser(withEmail: givenEmail, password: givenPassword) { authResult, error in
                 
                 if let err = error {
                     let alert = TextAlert()
-                    alert.createTextAlert(title: K.TextAlert.error, text: err.localizedDescription, viewController: viewController)
+                    alert.createTextAlert(title: K.Content.Error, text: err.localizedDescription, viewController: viewController)
                 }
                 else {
                     //viewController.performSegue(withIdentifier: K.segues.registerToApp, sender: viewController)
@@ -37,11 +38,11 @@ struct FirebaseManager {
     func loginUser(email: String?, password: String?, viewController: UIViewController) {
         
         if let givenEmail = email, let givenPassword = password {
-            Auth.auth().signIn(withEmail: givenEmail, password: givenPassword) { authResult, error in
+            K.API.AUTH_REF.signIn(withEmail: givenEmail, password: givenPassword) { authResult, error in
                 
                 if let err = error {
                     let alert = TextAlert()
-                    alert.createTextAlert(title: K.TextAlert.error, text: err.localizedDescription, viewController: viewController)
+                    alert.createTextAlert(title: K.Content.Error, text: err.localizedDescription, viewController: viewController)
                     
                 }
                 else {
@@ -55,34 +56,34 @@ struct FirebaseManager {
     //Logout current user from firebase
     func logoutUser (viewController: UIViewController) {
         do {
-            try Auth.auth().signOut()
+            try K.API.AUTH_REF.signOut()
             viewController.navigationController?.popToRootViewController(animated: true)
         } catch let signOutError as NSError {
             let alert = TextAlert()
-            alert.createTextAlert(title: K.TextAlert.error, text: signOutError.localizedDescription, viewController: viewController)
+            alert.createTextAlert(title: K.Content.Error, text: signOutError.localizedDescription, viewController: viewController)
         }
     }
     
     //Send email to the user with password reset link
     func sendPasswordResetEmail (with email: String, viewController: UIViewController) {
-        Auth.auth().sendPasswordReset(withEmail: email) { error in
+        K.API.AUTH_REF.sendPasswordReset(withEmail: email) { error in
             if let err = error {
                 let alert = TextAlert()
-                alert.createTextAlert(title: K.TextAlert.error, text: err.localizedDescription, viewController: viewController)
+                alert.createTextAlert(title: K.Content.Error, text: err.localizedDescription, viewController: viewController)
             }
             else {
                 let alert = TextAlert()
-                alert.createTextAlert(title: K.TextAlert.success, text: K.Firebase.passwordResetSent, viewController: viewController)
+                alert.createTextAlert(title: K.Content.Success, text: K.Content.PasswordResetSent, viewController: viewController)
             }
         }
     }
     
     //Check if user was/just logged in
     func checkForLoggedUser (viewController: UIViewController) {
-        Auth.auth().addStateDidChangeListener { [weak viewController] (_, user) in
+        K.API.AUTH_REF.addStateDidChangeListener { [weak viewController] (_, user) in
             if user != nil {
                 // user is already logged in go to MainViewController
-                viewController?.performSegue(withIdentifier: K.segues.userLoggedToApp, sender: self)
+                viewController?.performSegue(withIdentifier: K.Segues.UserLoggedToApp, sender: self)
             } else {
                 // user is not logged in
             }
@@ -91,27 +92,30 @@ struct FirebaseManager {
     
     //Check if user has username
     func checkIfUserHasUsername (viewController: UIViewController) {
-        if let user = Auth.auth().currentUser {
+        if let user = K.API.CURRENT_USER_REF {
             //If user does not have user name - perform segue 
             if user.displayName == nil {
-                viewController.performSegue(withIdentifier: K.segues.toCreateUsername, sender: self)
+                viewController.performSegue(withIdentifier: K.Segues.ToCreateUsername, sender: self)
             }
         }
         
     }
     
     //Change user displayname
-    func changeUserDisplayName (to username: String?, viewController: UIViewController) {
+    func changeUserDisplayName (to username: String?, viewController: UIViewController, completionHandler: ((Bool) -> Void)?) {
         //create change request
         if let name = username {
-            let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
+            print("change user display name:")
+            print(name)
+            let changeRequest = K.API.CURRENT_USER_REF?.createProfileChangeRequest()
             //change user display name
             changeRequest?.displayName = name
             changeRequest?.commitChanges { (error) in
                 //if error ocurred
                 if let err = error {
                     let alert = TextAlert()
-                    alert.createTextAlert(title: K.TextAlert.error, text: err.localizedDescription, viewController: viewController)
+                    alert.createTextAlert(title: K.Content.Error, text: err.localizedDescription, viewController: viewController)
+                    completionHandler?(false)
                     
                 }
                 //if there was no error
@@ -122,6 +126,7 @@ struct FirebaseManager {
                     else {
                         viewController.dismiss(animated: true, completion: nil)
                     }
+                    completionHandler?(true)
                 }
             }
         }
@@ -130,10 +135,10 @@ struct FirebaseManager {
     //Change user password
     func changeUserPassword (to password: String?, viewController: UIViewController) {
         if let givenPassword = password {
-            Auth.auth().currentUser?.updatePassword(to: givenPassword) { (error) in
+            K.API.CURRENT_USER_REF?.updatePassword(to: givenPassword) { (error) in
                 if let err = error {
                     let alert = TextAlert()
-                    alert.createTextAlert(title: K.TextAlert.error, text: err.localizedDescription, viewController: viewController)
+                    alert.createTextAlert(title: K.Content.Error, text: err.localizedDescription, viewController: viewController)
                 }
                 else {
                     viewController.dismiss(animated: true, completion: nil)
@@ -145,10 +150,10 @@ struct FirebaseManager {
     //Change user email
     func changeUserEmail (to email: String?, viewController: UIViewController, completionHandler: @escaping (Result) -> Void) {
         if let givenEmail = email {
-            Auth.auth().currentUser?.updateEmail(to: givenEmail) { (error) in
+            K.API.CURRENT_USER_REF?.updateEmail(to: givenEmail) { (error) in
                 if let err = error {
                     let alert = TextAlert()
-                    alert.createTextAlert(title: K.TextAlert.error, text: err.localizedDescription, viewController: viewController)
+                    alert.createTextAlert(title: K.Content.Error, text: err.localizedDescription, viewController: viewController)
                     completionHandler(false)
                 }
                 else {
@@ -161,21 +166,23 @@ struct FirebaseManager {
     
     //Get user display name
     func getUserDisplayName () -> String {
-        if let username = Auth.auth().currentUser?.displayName {
+        if let username = K.API.USER_DISPLAY_NAME {
+            print("get suer display name")
+            print(username)
             return username
         }
         else {
-            return "No data"
+            return K.Content.NoData
         }
     }
     
     //Get user email
     func getUserEmail () -> String {
-        if let email = Auth.auth().currentUser?.email {
+        if let email = K.API.USER_EMAIL {
             return email
         }
         else {
-            return "No data"
+            return K.Content.NoData
         }
     }
     
@@ -185,14 +192,14 @@ struct FirebaseManager {
             //var credential: AuthCredential
             let credential = EmailAuthProvider.credential(withEmail: givenEmail, password: givenPassword)
             
-            Auth.auth().currentUser?.reauthenticate(with: credential) { (result, error)  in
+            K.API.CURRENT_USER_REF?.reauthenticate(with: credential) { (result, error)  in
                 if let err = error {
                     // An error happened.
                     let alert = TextAlert()
-                    alert.createTextAlert(title: K.TextAlert.error, text: err.localizedDescription, viewController: viewController)
+                    alert.createTextAlert(title: K.Content.Error, text: err.localizedDescription, viewController: viewController)
                 } else {
                     // User re-authenticated.
-                    viewController.performSegue(withIdentifier: K.segues.toPasswordChange, sender: viewController)
+                    viewController.performSegue(withIdentifier: K.Segues.ToPasswordChange, sender: viewController)
                 }
             }
         }

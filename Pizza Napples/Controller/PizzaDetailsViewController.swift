@@ -16,6 +16,7 @@ class PizzaDetailsViewController: UIViewController {
     
     var pizzaItem = UserPizzaItem()
 
+    // MARK: - View controller lifecycle methods
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -26,22 +27,26 @@ class PizzaDetailsViewController: UIViewController {
         super.viewDidLoad()
     }
     
-    //Back button pressed
-    @IBAction func backButtonPressed(_ sender: UIBarButtonItem) {
-        self.dismiss(animated: true, completion: nil)
-    }
+    //MARK: - ViewController custom methods
     
     //Setup view content
     func setupContent() {
         
         //Set navigation bar title
-        navigationItem.title = K.author + (pizzaItem.username ?? K.noData)
+        navigationItem.title = K.author + (pizzaItem.username ?? K.Content.NoData)
         
         //Set description
-        textLabel.text = pizzaItem.description ?? K.noData
+        textLabel.text = pizzaItem.description ?? K.Content.NoData
         
         //Set image
         StorageManager.shared.setImageToView(with: pizzaItem, to: imageView)
+    }
+    
+    //MARK: - UI action methods
+    
+    //Back button pressed
+    @IBAction func backButtonPressed(_ sender: UIBarButtonItem) {
+        self.dismiss(animated: true, completion: nil)
     }
 
 }

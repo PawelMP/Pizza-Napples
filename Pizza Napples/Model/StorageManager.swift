@@ -24,9 +24,7 @@ struct StorageManager {
     func uploadImage (image: UIImage, completionHandler: @escaping (Result) -> Void) {
         
         let uuid = UUID.init()
-        let storage = Storage.storage()
-        let storageReference = storage.reference()
-        let imagesReference = storageReference.child(K.Storage.images + K.Storage.slash + "\(uuid)" + K.Storage.dot + K.Storage.png)
+        let imagesReference = K.API.STORAGE_REF.child(K.Content.Images + K.Content.Slash + "\(uuid)" + K.Content.Dot + K.Content.Png)
         
         guard let imageData = image.jpegData(compressionQuality: 0.5) else {
             return
@@ -52,8 +50,8 @@ struct StorageManager {
     
     //Set image to ImageView
     func setImageToView (with item: UserPizzaItem, to view: UIImageView) {
-        let reference = Storage.storage().reference(forURL: item.downloadURL!)
-        let placeholderImage = UIImage(named: item.username ?? K.noData + K.Storage.dot + K.Storage.png)
+        let reference = K.API.STORAGE.reference(forURL: item.downloadURL!)
+        let placeholderImage = UIImage(named: item.username ?? K.Content.NoData + K.Content.Dot + K.Content.Png)
         view.sd_setImage(with: reference, placeholderImage: placeholderImage)
     }
     

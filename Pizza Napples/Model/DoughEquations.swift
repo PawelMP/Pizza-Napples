@@ -33,16 +33,16 @@ struct DoughEquations {
         let yeast = flour / 1000
         
         //assign results to dictionary
-        let dictionary = [K.DoughEquations.flour:Int(flour),
-                     K.DoughEquations.water:Int(water),
-                     K.DoughEquations.yeast:yeast,
-                     K.DoughEquations.salt:Int(salt),
-                     K.DoughEquations.fat:Int(fat),
-                     K.DoughEquations.ballWeight:doughProperties.ballWeight!,
-                     K.DoughEquations.portions:doughProperties.ballsAmount!,
-                     K.DoughEquations.hydration:doughProperties.hydration!,
-                     K.DoughEquations.roomTime:doughProperties.totalTime! - doughProperties.fridgeTime!,
-                     K.DoughEquations.fridgeTime:doughProperties.fridgeTime!
+        let dictionary = [K.Content.DoughEquations.Flour:Int(flour),
+                          K.Content.DoughEquations.Water:Int(water),
+                          K.Content.DoughEquations.Yeast:yeast,
+                          K.Content.DoughEquations.Salt:Int(salt),
+                          K.Content.DoughEquations.Fat:Int(fat),
+                          K.Content.DoughEquations.BallWeight:doughProperties.ballWeight!,
+                          K.Content.DoughEquations.Portions:doughProperties.ballsAmount!,
+                          K.Content.DoughEquations.Hydration:doughProperties.hydration!,
+                          K.Content.DoughEquations.RoomTime:doughProperties.totalTime! - doughProperties.fridgeTime!,
+                          K.Content.DoughEquations.FridgeTime:doughProperties.fridgeTime!
         ] as [String : Any]
         return dictionary
     }

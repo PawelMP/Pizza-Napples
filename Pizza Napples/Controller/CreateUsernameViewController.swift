@@ -11,22 +11,25 @@ import UIKit
 class CreateUsernameViewController: UIViewController {
 
     @IBOutlet weak var usernameTextField: UITextField!
+    
+    // MARK: - View controller lifecycle methods
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
+    
+    //MARK: - UI action methods
     
     @IBAction func submitButtonPressed(_ sender: UIButton) {
         //If textfield is empty create alert and return
         if usernameTextField.text?.isEmpty == true {
             let alert = TextAlert()
-            alert.createTextAlert(title: K.TextAlert.error, text: K.pleaseTypeUsername, viewController: self)
+            alert.createTextAlert(title: K.Content.Error, text: K.pleaseTypeUsername, viewController: self)
             return
         }
         //Set user display name
         else {
-            FirebaseManager.shared.changeUserDisplayName(to: usernameTextField.text, viewController: self)
+            FirebaseManager.shared.changeUserDisplayName(to: usernameTextField.text, viewController: self, completionHandler: nil)
         }
     }
 
