@@ -26,7 +26,7 @@ struct FirestoreManager {
     
     //Save given dough properties to firestore
     func saveDoughToFirestore(calculatorBrain: CalculatorBrain?, viewController: UIViewController?) {
-        if let user = K.API.USER_EMAIL, let doughProportions = calculatorBrain?.doughProportions, let doughGrowth = calculatorBrain?.doughGrowth {
+        if let user = K.API.AUTH_REF.currentUser?.email, let doughProportions = calculatorBrain?.doughProportions, let doughGrowth = calculatorBrain?.doughGrowth {
             
             let doughProperties = DoughProperties(ballsAmount: doughProportions[0].amount, ballWeight: doughProportions[1].amount, hydration: doughProportions[2].amount, salt: doughProportions[3].amount, fat: doughProportions[4].amount, totalTime: doughGrowth[0].amount, fridgeTime: doughGrowth[1].amount, temperature: doughGrowth[2].amount)
             
@@ -44,7 +44,7 @@ struct FirestoreManager {
     //Read dough properties from firestore
     func readDoughFromFirestore() {
         
-        if let user = K.API.USER_EMAIL {
+        if let user = K.API.AUTH_REF.currentUser?.email {
             
             //Get document based on current user
             K.API.USERS_DOUGH_DB_REF.document(user).getDocument { (document, error) in
@@ -85,7 +85,7 @@ struct FirestoreManager {
         //Create unique ID
         let uuid = UUID().uuidString
         
-        if let username = K.API.USER_DISPLAY_NAME {
+        if let username = K.API.AUTH_REF.currentUser?.displayName {
             
             let userPizzaPropertiesData = UserPizzaPropertiesData(downloadURL: imageURL, description: description, username: username, date: Date().timeIntervalSince1970)
             

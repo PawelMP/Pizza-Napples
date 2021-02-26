@@ -58,8 +58,6 @@ class PersonalDetailsTableViewController: UITableViewController {
         }
         
         FirebaseManager.shared.changeUserDisplayName(to: personalDetailsBrain.details[0].userData, viewController: self, completionHandler: { _ in
-            print("completion handler change user display name:")
-            print(self.oldUsername)
             FirestoreManager.shared.changeUsernameInUserPizza(oldUsername: self.oldUsername)
         })
         
@@ -67,8 +65,6 @@ class PersonalDetailsTableViewController: UITableViewController {
             if success {
                 
                 self.personalDetailsBrain = PersonalDetailsBrain()
-                print("change user email completion handler")
-                print(self.personalDetailsBrain.details[0].userData)
                 self.tableView.reloadData()
                 
                 let alert = TextAlert()

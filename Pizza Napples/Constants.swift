@@ -134,9 +134,6 @@ struct K {
     
     struct API {
         static let AUTH_REF = Auth.auth()
-        static let CURRENT_USER_REF = AUTH_REF.currentUser
-        static let USER_DISPLAY_NAME = CURRENT_USER_REF?.displayName
-        static let USER_EMAIL = CURRENT_USER_REF?.email
         static let DB_REF = Firestore.firestore()
         static let USER_DOUGH_REF = "users dough"
         static let USERS_DOUGH_DB_REF = DB_REF.collection(USER_DOUGH_REF)

@@ -92,7 +92,7 @@ struct FirebaseManager {
     
     //Check if user has username
     func checkIfUserHasUsername (viewController: UIViewController) {
-        if let user = K.API.CURRENT_USER_REF {
+        if let user = K.API.AUTH_REF.currentUser {
             //If user does not have user name - perform segue 
             if user.displayName == nil {
                 viewController.performSegue(withIdentifier: K.Segues.ToCreateUsername, sender: self)
@@ -105,9 +105,7 @@ struct FirebaseManager {
     func changeUserDisplayName (to username: String?, viewController: UIViewController, completionHandler: ((Bool) -> Void)?) {
         //create change request
         if let name = username {
-            print("change user display name:")
-            print(name)
-            let changeRequest = K.API.CURRENT_USER_REF?.createProfileChangeRequest()
+            let changeRequest = K.API.AUTH_REF.currentUser?.createProfileChangeRequest()
             //change user display name
             changeRequest?.displayName = name
             changeRequest?.commitChanges { (error) in
@@ -135,7 +133,7 @@ struct FirebaseManager {
     //Change user password
     func changeUserPassword (to password: String?, viewController: UIViewController) {
         if let givenPassword = password {
-            K.API.CURRENT_USER_REF?.updatePassword(to: givenPassword) { (error) in
+            K.API.AUTH_REF.currentUser?.updatePassword(to: givenPassword) { (error) in
                 if let err = error {
                     let alert = TextAlert()
                     alert.createTextAlert(title: K.Content.Error, text: err.localizedDescription, viewController: viewController)
@@ -150,7 +148,7 @@ struct FirebaseManager {
     //Change user email
     func changeUserEmail (to email: String?, viewController: UIViewController, completionHandler: @escaping (Result) -> Void) {
         if let givenEmail = email {
-            K.API.CURRENT_USER_REF?.updateEmail(to: givenEmail) { (error) in
+            K.API.AUTH_REF.currentUser?.updateEmail(to: givenEmail) { (error) in
                 if let err = error {
                     let alert = TextAlert()
                     alert.createTextAlert(title: K.Content.Error, text: err.localizedDescription, viewController: viewController)
@@ -166,9 +164,7 @@ struct FirebaseManager {
     
     //Get user display name
     func getUserDisplayName () -> String {
-        if let username = K.API.USER_DISPLAY_NAME {
-            print("get suer display name")
-            print(username)
+        if let username = K.API.AUTH_REF.currentUser?.displayName {
             return username
         }
         else {
@@ -178,7 +174,7 @@ struct FirebaseManager {
     
     //Get user email
     func getUserEmail () -> String {
-        if let email = K.API.USER_EMAIL {
+        if let email = K.API.AUTH_REF.currentUser?.email {
             return email
         }
         else {
@@ -192,7 +188,7 @@ struct FirebaseManager {
             //var credential: AuthCredential
             let credential = EmailAuthProvider.credential(withEmail: givenEmail, password: givenPassword)
             
-            K.API.CURRENT_USER_REF?.reauthenticate(with: credential) { (result, error)  in
+            K.API.AUTH_REF.currentUser?.reauthenticate(with: credential) { (result, error)  in
                 if let err = error {
                     // An error happened.
                     let alert = TextAlert()
