@@ -33,7 +33,7 @@ class PizzaDetailsViewController: UIViewController {
     func setupContent() {
         
         //Set navigation bar title
-        navigationItem.title = K.author + (pizzaItem.username ?? K.Content.NoData)
+        navigationItem.title = K.Content.Author + (pizzaItem.username ?? K.Content.NoData)
         
         //Set description
         textLabel.text = pizzaItem.description ?? K.Content.NoData

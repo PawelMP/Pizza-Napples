@@ -29,7 +29,7 @@ class ForgotPasswordViewController: UIViewController {
         else {
             //Create error alert
             let alert = TextAlert()
-            alert.createTextAlert(title: K.Content.Error, text: K.pleaseTypeEmail, viewController: self)
+            alert.createTextAlert(title: K.Content.Error, text: K.Content.TypeEmail, viewController: self)
         }
     }
 

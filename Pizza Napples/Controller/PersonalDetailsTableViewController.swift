@@ -15,7 +15,7 @@ class PersonalDetailsTableViewController: UITableViewController {
     
     private var personalDetailsBrain = PersonalDetailsBrain()
     private var currentTextField: UITextField?
-    private var oldUsername: String?
+    //private var oldEmail: String?
     
     // MARK: - View controller lifecycle methods
     
@@ -23,7 +23,7 @@ class PersonalDetailsTableViewController: UITableViewController {
         super.viewWillAppear(true)
         setupTableView()
         //Save current user's username
-        oldUsername = personalDetailsBrain.details[0].userData
+        //oldEmail = personalDetailsBrain.details[1].userData
     }
     
     override func viewDidLoad() {
@@ -57,12 +57,12 @@ class PersonalDetailsTableViewController: UITableViewController {
             currentTextField.resignFirstResponder()
         }
         
-        FirebaseManager.shared.changeUserDisplayName(to: personalDetailsBrain.details[0].userData, viewController: self, completionHandler: { _ in
-            FirestoreManager.shared.changeUsernameInUserPizza(oldUsername: self.oldUsername)
-        })
-        
-        FirebaseManager.shared.changeUserEmail(to: personalDetailsBrain.details[1].userData, viewController: self, completionHandler: { success in
+        //Update user display name
+        FirebaseManager.shared.changeUserDisplayName(to: personalDetailsBrain.details[0].userData, viewController: self, completionHandler: { success in
             if success {
+                
+                //Update username in user pizza colletion
+                FirestoreManager.shared.changeUsernameInUserPizza()
                 
                 self.personalDetailsBrain = PersonalDetailsBrain()
                 self.tableView.reloadData()
@@ -70,8 +70,10 @@ class PersonalDetailsTableViewController: UITableViewController {
                 let alert = TextAlert()
                 alert.createTextAlert(title: K.Content.Success, text: K.Content.ProfileUpdateSuccess, viewController: self)
             }
+            
             self.backButton.isEnabled = true
         })
+        
     }
 }
 // MARK: - Table view data source

@@ -23,7 +23,7 @@ class WelcomeViewController: UIViewController {
         super.viewDidLoad()
         FirebaseManager.shared.checkForLoggedUser(viewController: self)
         titleLabel.adjustsFontSizeToFitWidth = true
-        titleLabel.text = K.pizzaNapplesName
+        titleLabel.text = K.Content.AppName
     }
 
 }

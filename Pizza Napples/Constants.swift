@@ -10,17 +10,9 @@ import Foundation
 import UIKit
 import Firebase
 import FirebaseFirestoreSwift
+import FirebaseStorage
 
 struct K {
-
-    static let pizzaNapplesName = "🍕 Pizza Napples 🍕"
-    static let modifyProportionsButtonName = " Modify proportions "
-    static let usersPizzas = "Users pizzas"
-    static let pleaseWriteDescription = "Please write a description"
-    static let pickerControllerEditedImage = "UIImagePickerControllerEditedImage"
-    static let author = "Author: "
-    static let pleaseTypeEmail = "Please type in your e-mail"
-    static let pleaseTypeUsername = "Please type in your username"
     
     struct Design {
         
@@ -46,6 +38,7 @@ struct K {
     struct Content {
         
         static let Email = "E-mail"
+        static let EmailLowercase = "email"
         static let Username = "Username"
         static let UsernameLowercase = "username"
         static let Error = "Error"
@@ -70,6 +63,15 @@ struct K {
         static let ProfileUpdateSuccess = "Succesfully updated profile"
         
         static let DisplayName = "Display name: "
+        static let Author = "Author: "
+        
+        static let AppName = "🍕 Pizza Napples 🍕"
+        static let ModifyProportionsButtonName = " Modify proportions "
+        static let UsersPizzas = "Users pizzas"
+        static let WriteDescription = "Please write a description"
+        static let PickerControllerEditedImage = "UIImagePickerControllerEditedImage"
+        static let TypeEmail = "Please type in your e-mail"
+        static let TypeUsername = "Please type in your username"
 
         struct CalculatorBrain {
             static let BallsNumberDescription = "Number of total dough balls"

@@ -60,7 +60,7 @@ class NewCollectionViewDataViewController: UIViewController {
         //If text is empty create alert
         if descriptionTextView.text.isEmpty == true {
             let alert = TextAlert()
-            alert.createTextAlert(title: K.Content.Error, text: K.pleaseWriteDescription, viewController: self)
+            alert.createTextAlert(title: K.Content.Error, text: K.Content.WriteDescription, viewController: self)
             return
         }
         
@@ -82,7 +82,7 @@ extension NewCollectionViewDataViewController: UIImagePickerControllerDelegate, 
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
         //Get image from info
-        if let image = info[UIImagePickerController.InfoKey(rawValue: K.pickerControllerEditedImage)] {
+        if let image = info[UIImagePickerController.InfoKey(rawValue: K.Content.PickerControllerEditedImage)] {
 
             //Set image in view and enable button
             imageView.image = image as? UIImage

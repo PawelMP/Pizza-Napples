@@ -145,23 +145,6 @@ struct FirebaseManager {
         }
     }
     
-    //Change user email
-    func changeUserEmail (to email: String?, viewController: UIViewController, completionHandler: @escaping (Result) -> Void) {
-        if let givenEmail = email {
-            K.API.AUTH_REF.currentUser?.updateEmail(to: givenEmail) { (error) in
-                if let err = error {
-                    let alert = TextAlert()
-                    alert.createTextAlert(title: K.Content.Error, text: err.localizedDescription, viewController: viewController)
-                    completionHandler(false)
-                }
-                else {
-                    completionHandler(true)
-                    //viewController.dismiss(animated: true, completion: nil)
-                }
-            }
-        }
-    }
-    
     //Get user display name
     func getUserDisplayName () -> String {
         if let username = K.API.AUTH_REF.currentUser?.displayName {

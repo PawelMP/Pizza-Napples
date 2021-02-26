@@ -85,9 +85,10 @@ struct FirestoreManager {
         //Create unique ID
         let uuid = UUID().uuidString
         
-        if let username = K.API.AUTH_REF.currentUser?.displayName {
+        if let username = K.API.AUTH_REF.currentUser?.displayName, let email = K.API.AUTH_REF
+            .currentUser?.email{
             
-            let userPizzaPropertiesData = UserPizzaPropertiesData(downloadURL: imageURL, description: description, username: username, date: Date().timeIntervalSince1970)
+            let userPizzaPropertiesData = UserPizzaPropertiesData(downloadURL: imageURL, description: description, username: username, date: Date().timeIntervalSince1970, email: email)
             
             K.API.USERS_PIZZA_DB_REF.document(uuid).setData(userPizzaPropertiesData.dictionary) { (error) in
                 if let err = error {
@@ -145,10 +146,10 @@ struct FirestoreManager {
         }
     }
     
-    //Change username in documents when user changes username in app settings
-    func changeUsernameInUserPizza (oldUsername: String?) {
-        if let givenOldUsername = oldUsername {
-            K.API.USERS_PIZZA_DB_REF.whereField(K.Content.UsernameLowercase, isEqualTo: givenOldUsername).getDocuments { (querySnapshot, error) in
+    //Change username in documents when user changes username in app settings (based on email)
+    func changeUsernameInUserPizza () {
+        if let email = K.API.AUTH_REF.currentUser?.email {
+            K.API.USERS_PIZZA_DB_REF.whereField(K.Content.EmailLowercase, isEqualTo: email).getDocuments { (querySnapshot, error) in
                 if let err = error {
                     print(err.localizedDescription)
                 }

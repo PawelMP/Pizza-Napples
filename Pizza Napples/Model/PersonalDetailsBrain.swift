@@ -10,7 +10,6 @@ import UIKit
 
 struct PersonalDetailsBrain {
     var details = [PersonalDetailsItem(description: K.Content.Username, userData: FirebaseManager.shared.getUserDisplayName()),
-                   PersonalDetailsItem(description: K.Content.Email, userData: FirebaseManager.shared.getUserEmail())
     ]
     
 }

@@ -57,7 +57,7 @@ class UsersPizzasCollectionViewController: UICollectionViewController, UINavigat
     }
     
     func setupTabBarItems() {
-        self.tabBarController?.navigationItem.title = K.usersPizzas
+        self.tabBarController?.navigationItem.title = K.Content.UsersPizzas
         self.tabBarController?.navigationItem.leftBarButtonItem = nil
         self.tabBarController?.navigationItem.hidesBackButton = true
     }

@@ -95,7 +95,7 @@ extension DoughCalculatorViewController: FirestoreManagerDelegate {
         setLabel(with: K.Content.DoughEquations.RoomTime, postfix: K.Content.Hour, data: readyData, label: roomLabel)
         setLabel(with: K.Content.DoughEquations.FridgeTime, postfix: K.Content.Hour, data: readyData, label: fridgeLabel)
         
-        modifyButton.setTitle(K.modifyProportionsButtonName, for: .normal)
+        modifyButton.setTitle(K.Content.ModifyProportionsButtonName, for: .normal)
         mainStackView.isHidden = false
     }
     

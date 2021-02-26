@@ -24,7 +24,7 @@ class CreateUsernameViewController: UIViewController {
         //If textfield is empty create alert and return
         if usernameTextField.text?.isEmpty == true {
             let alert = TextAlert()
-            alert.createTextAlert(title: K.Content.Error, text: K.pleaseTypeUsername, viewController: self)
+            alert.createTextAlert(title: K.Content.Error, text: K.Content.TypeUsername, viewController: self)
             return
         }
         //Set user display name
