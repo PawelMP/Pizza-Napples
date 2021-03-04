@@ -161,9 +161,12 @@
 		D7348DBB25B0EE3F008BD961 /* Pizza Napples */ = {
 			isa = PBXGroup;
 			children = (
-				D7A588B225B8BB060070DE0F /* Resources */,
 				D7348DBC25B0EE3F008BD961 /* AppDelegate.swift */,
 				D7348DBE25B0EE3F008BD961 /* SceneDelegate.swift */,
+				D7A588B225B8BB060070DE0F /* Resources */,
+				D75BF20425F17E9C005A280F /* Constants */,
+				D75BF1FB25F17CF9005A280F /* Helper */,
+				D75BF1FE25F17D90005A280F /* Storyboard */,
 				D7348DD025B0EE78008BD961 /* Model */,
 				D7348DD125B0EE7D008BD961 /* View */,
 				D7348DD225B0EE85008BD961 /* Controller */,
@@ -171,7 +174,6 @@
 				D7348DC725B0EE48008BD961 /* LaunchScreen.storyboard */,
 				D7348DCA25B0EE48008BD961 /* Info.plist */,
 				D71FAC1625B1EC0F002DFAB8 /* GoogleService-Info.plist */,
-				D7A588B825B8BB5A0070DE0F /* Constants.swift */,
 			);
 			path = "Pizza Napples";
 			sourceTree = "<group>";
@@ -179,21 +181,13 @@
 		D7348DD025B0EE78008BD961 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				D72B02DC25B76960008A0018 /* CalculatorItem.swift */,
-				D779E7A725B2E36C001077E5 /* CalculatorBrain.swift */,
-				D778A64125D0574E0095E92D /* DoughProperties.swift */,
-				D7CCDF2125D291D7000BE262 /* DoughEquations.swift */,
-				D794174A25DE7BB300EAC9F5 /* UserPizzaItem.swift */,
-				D791DFA625DD129700223FBC /* UserPizzaPropertiesData.swift */,
-				D78E0B5A25E44A0E000127EE /* UserSettingsItem.swift */,
-				D78E0B5D25E44A30000127EE /* UserSettingsBrain.swift */,
-				D728EA6525E4FABF009746F4 /* PersonalDetailsItem.swift */,
-				D728EA6425E4FABF009746F4 /* PersonalDetailsBrain.swift */,
-				D712063125C15B690018FE22 /* FirebaseManager.swift */,
-				D778A64825D0647A0095E92D /* FirestoreManager.swift */,
-				D7D68ABD25DA9CFF0020DA0D /* StorageManager.swift */,
-				D7D68AC125DABAAF0020DA0D /* PhotosManager.swift */,
-				D751D03E25B30FA00069F31C /* TextAlert.swift */,
+				D75BF20D25F17F4E005A280F /* Calculator Model */,
+				D75BF20B25F17F43005A280F /* DoughProperties Model */,
+				D75BF20925F17F3A005A280F /* UserPizza Model */,
+				D75BF20825F17F1A005A280F /* UserSettings Model */,
+				D75BF20725F17F0B005A280F /* PersonalDetails Model */,
+				D75BF20525F17EDF005A280F /* API Manager */,
+				D75BF21525F180EE005A280F /* Photos Manager */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -201,20 +195,155 @@
 		D7348DD125B0EE7D008BD961 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				D7348DC225B0EE3F008BD961 /* Main.storyboard */,
-				D779E7AD25B2E95D001077E5 /* DoughCell.swift */,
-				D779E7AE25B2E95D001077E5 /* DoughCell.xib */,
-				D7CFF9E325D5701B00729426 /* UserPizzaCell.swift */,
-				D7CFF9E425D5701B00729426 /* UserPizzaCell.xib */,
-				D78E0B5325E448E5000127EE /* UserSettingsCell.swift */,
-				D78E0B5425E448E5000127EE /* UserSettingsCell.xib */,
-				D78E0B4925E43EAA000127EE /* PersonalDetailsCell.swift */,
-				D78E0B4A25E43EAA000127EE /* PersonalDetailsCell.xib */,
+				D75BF1FC25F17D5F005A280F /* Custom cells */,
 			);
 			path = View;
 			sourceTree = "<group>";
 		};
 		D7348DD225B0EE85008BD961 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D75BF23025F18DCA005A280F /* User Management VCs */,
+				D75BF23225F18DDE005A280F /* Main App VCs */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		D75BF1FB25F17CF9005A280F /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				D751D03E25B30FA00069F31C /* TextAlert.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		D75BF1FC25F17D5F005A280F /* Custom cells */ = {
+			isa = PBXGroup;
+			children = (
+				D75BF20025F17DF7005A280F /* DoughCell */,
+				D75BF20125F17E25005A280F /* UserPizzaCell */,
+				D75BF20225F17E31005A280F /* UserSettingsCell */,
+				D75BF20325F17E3E005A280F /* PersonalDetailsCell */,
+			);
+			path = "Custom cells";
+			sourceTree = "<group>";
+		};
+		D75BF1FE25F17D90005A280F /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				D7348DC225B0EE3F008BD961 /* Main.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		D75BF20025F17DF7005A280F /* DoughCell */ = {
+			isa = PBXGroup;
+			children = (
+				D779E7AD25B2E95D001077E5 /* DoughCell.swift */,
+				D779E7AE25B2E95D001077E5 /* DoughCell.xib */,
+			);
+			path = DoughCell;
+			sourceTree = "<group>";
+		};
+		D75BF20125F17E25005A280F /* UserPizzaCell */ = {
+			isa = PBXGroup;
+			children = (
+				D7CFF9E325D5701B00729426 /* UserPizzaCell.swift */,
+				D7CFF9E425D5701B00729426 /* UserPizzaCell.xib */,
+			);
+			path = UserPizzaCell;
+			sourceTree = "<group>";
+		};
+		D75BF20225F17E31005A280F /* UserSettingsCell */ = {
+			isa = PBXGroup;
+			children = (
+				D78E0B5325E448E5000127EE /* UserSettingsCell.swift */,
+				D78E0B5425E448E5000127EE /* UserSettingsCell.xib */,
+			);
+			path = UserSettingsCell;
+			sourceTree = "<group>";
+		};
+		D75BF20325F17E3E005A280F /* PersonalDetailsCell */ = {
+			isa = PBXGroup;
+			children = (
+				D78E0B4925E43EAA000127EE /* PersonalDetailsCell.swift */,
+				D78E0B4A25E43EAA000127EE /* PersonalDetailsCell.xib */,
+			);
+			path = PersonalDetailsCell;
+			sourceTree = "<group>";
+		};
+		D75BF20425F17E9C005A280F /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				D7A588B825B8BB5A0070DE0F /* Constants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		D75BF20525F17EDF005A280F /* API Manager */ = {
+			isa = PBXGroup;
+			children = (
+				D712063125C15B690018FE22 /* FirebaseManager.swift */,
+				D778A64825D0647A0095E92D /* FirestoreManager.swift */,
+				D7D68ABD25DA9CFF0020DA0D /* StorageManager.swift */,
+			);
+			path = "API Manager";
+			sourceTree = "<group>";
+		};
+		D75BF20725F17F0B005A280F /* PersonalDetails Model */ = {
+			isa = PBXGroup;
+			children = (
+				D728EA6525E4FABF009746F4 /* PersonalDetailsItem.swift */,
+				D728EA6425E4FABF009746F4 /* PersonalDetailsBrain.swift */,
+			);
+			path = "PersonalDetails Model";
+			sourceTree = "<group>";
+		};
+		D75BF20825F17F1A005A280F /* UserSettings Model */ = {
+			isa = PBXGroup;
+			children = (
+				D78E0B5A25E44A0E000127EE /* UserSettingsItem.swift */,
+				D78E0B5D25E44A30000127EE /* UserSettingsBrain.swift */,
+			);
+			path = "UserSettings Model";
+			sourceTree = "<group>";
+		};
+		D75BF20925F17F3A005A280F /* UserPizza Model */ = {
+			isa = PBXGroup;
+			children = (
+				D794174A25DE7BB300EAC9F5 /* UserPizzaItem.swift */,
+				D791DFA625DD129700223FBC /* UserPizzaPropertiesData.swift */,
+			);
+			path = "UserPizza Model";
+			sourceTree = "<group>";
+		};
+		D75BF20B25F17F43005A280F /* DoughProperties Model */ = {
+			isa = PBXGroup;
+			children = (
+				D778A64125D0574E0095E92D /* DoughProperties.swift */,
+				D7CCDF2125D291D7000BE262 /* DoughEquations.swift */,
+			);
+			path = "DoughProperties Model";
+			sourceTree = "<group>";
+		};
+		D75BF20D25F17F4E005A280F /* Calculator Model */ = {
+			isa = PBXGroup;
+			children = (
+				D72B02DC25B76960008A0018 /* CalculatorItem.swift */,
+				D779E7A725B2E36C001077E5 /* CalculatorBrain.swift */,
+			);
+			path = "Calculator Model";
+			sourceTree = "<group>";
+		};
+		D75BF21525F180EE005A280F /* Photos Manager */ = {
+			isa = PBXGroup;
+			children = (
+				D7D68AC125DABAAF0020DA0D /* PhotosManager.swift */,
+			);
+			path = "Photos Manager";
+			sourceTree = "<group>";
+		};
+		D75BF23025F18DCA005A280F /* User Management VCs */ = {
 			isa = PBXGroup;
 			children = (
 				D7348DC025B0EE3F008BD961 /* WelcomeViewController.swift */,
@@ -226,6 +355,13 @@
 				D728EA6A25E528D0009746F4 /* ChangePasswordViewController.swift */,
 				D728EA7225E56D26009746F4 /* PersonalDetailsTableViewController.swift */,
 				D78E0B3F25E3DED0000127EE /* CreateUsernameViewController.swift */,
+			);
+			path = "User Management VCs";
+			sourceTree = "<group>";
+		};
+		D75BF23225F18DDE005A280F /* Main App VCs */ = {
+			isa = PBXGroup;
+			children = (
 				D7127F0725B1FB6F00FFEFBC /* MainViewController.swift */,
 				D786311425D1CC0D00ED1414 /* DoughCalculatorViewController.swift */,
 				D7BD045625CAFAC700D2490A /* DoughViewController.swift */,
@@ -234,7 +370,7 @@
 				D7D68AC425DAD2710020DA0D /* NewCollectionViewDataViewController.swift */,
 				D7C1475925DFB17F00AE9F0C /* PizzaDetailsViewController.swift */,
 			);
-			path = Controller;
+			path = "Main App VCs";
 			sourceTree = "<group>";
 		};
 		D7A588B225B8BB060070DE0F /* Resources */ = {

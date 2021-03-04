@@ -15,15 +15,12 @@ class PersonalDetailsTableViewController: UITableViewController {
     
     private var personalDetailsBrain = PersonalDetailsBrain()
     private var currentTextField: UITextField?
-    //private var oldEmail: String?
     
     // MARK: - View controller lifecycle methods
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         setupTableView()
-        //Save current user's username
-        //oldEmail = personalDetailsBrain.details[1].userData
     }
     
     override func viewDidLoad() {
