@@ -76,12 +76,31 @@ struct CalculatorBrain {
             return
         }
         
+        //Check if value is higher/lower than minimum
+        func checkMin (with value: Int, comparing min: Int) -> Bool {
+            if min > value {
+                return false
+            }
+            else {
+                return true
+            }
+        }
+        //Check if value is higher/lower than maximum
+        func checkMax (with value: Int, comparing max: Int) -> Bool {
+            if max < value {
+                return false
+            }
+            else {
+                return true
+            }
+        }
+        
         saveAmount(with: value, indexPath: indexPath)
         
         //For section 0 = Dough Proportions
         if indexPath.section == 0 {
             if let max = doughProportions[indexPath.row].maxValue {
-                if checkMax(with: value, comparing: max, for: indexPath) {
+                if checkMax(with: value, comparing: max) {
                     doughProportions[indexPath.row].isValueCorrect = true
                 }
                 else {
@@ -91,7 +110,7 @@ struct CalculatorBrain {
             }
             
             if let min = doughProportions[indexPath.row].minValue {
-                if checkMin(with: value, comparing: min, for: indexPath) {
+                if checkMin(with: value, comparing: min) {
                     doughProportions[indexPath.row].isValueCorrect = true
                 }
                 else {
@@ -105,7 +124,7 @@ struct CalculatorBrain {
         else if indexPath.section == 1 {
             
             if let max = doughGrowth[indexPath.row].maxValue {
-                if checkMax(with: value, comparing: max, for: indexPath) {
+                if checkMax(with: value, comparing: max) {
                     doughGrowth[indexPath.row].isValueCorrect = true
                 }
                 else {
@@ -115,7 +134,7 @@ struct CalculatorBrain {
             }
             
             if let min = doughGrowth[indexPath.row].minValue {
-                if checkMin(with: value, comparing: min, for: indexPath) {
+                if checkMin(with: value, comparing: min) {
                     doughGrowth[indexPath.row].isValueCorrect = true
                 }
                 else {
@@ -125,7 +144,7 @@ struct CalculatorBrain {
             }
             
             //Additional condition for total time and fridge time
-            if doughGrowth[indexPath.row].description == K.Content.CalculatorBrain.TotalGrowthTime {
+            if doughGrowth[indexPath.row].description == K.Content.CalculatorBrain.GrowthTimeDescription {
                 doughGrowth[indexPath.row + 1].maxValue = doughGrowth[indexPath.row].amount
                 if let maxValue = doughGrowth[indexPath.row + 1].maxValue, let amount = doughGrowth[indexPath.row + 1].amount  {
                     if maxValue <= amount {
@@ -155,25 +174,6 @@ struct CalculatorBrain {
             }
         }
         return true
-    }
-    
-    //Check if value is higher/lower than minimum
-    private func checkMin (with value: Int, comparing min: Int, for indexPath: IndexPath) -> Bool {
-        if min > value {
-            return false
-        }
-        else {
-            return true
-        }
-    }
-    //Check if value is higher/lower than maximum
-    private func checkMax (with value: Int, comparing max: Int, for indexPath: IndexPath) -> Bool {
-        if max < value {
-            return false
-        }
-        else {
-            return true
-        }
     }
     
 }

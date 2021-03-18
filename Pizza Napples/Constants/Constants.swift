@@ -101,7 +101,6 @@ struct K {
             static let GrowthTime = "Growth time"
             static let SpaceSign = " "
             static let Empty = ""
-            static let TotalGrowthTime = "Total growth time [h]"
         }
         
         struct UserSettings {
